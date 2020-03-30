@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>页面整体布局</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        color: #fff;
+        height: 100%;
+        background-color: #f2f2f2;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      #app {
+        height: 100%;
+        background-color: #f5f5f5;
+      }
+
+      .page {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .hd {
+        z-index: 1;
+      }
+
+      .hd .head {
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background-color: #d0104c;
+      }
+
+      .bd {
+        flex-grow: 1;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .bd .body {
+        color: #3c3c3c;
+        margin: 5px;
+      }
+
+      .body p {
+        margin: 5px;
+        padding: 10px;
+        background-color: #fff;
+      }
+
+      .ft .foot {
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background-color: #26453c;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="page">
+        <div class="hd">
+          <!-- <div class="head">头部</div> -->
+        </div>
+        <div class="bd">
+          <div class="body">
+            <p>
+              《明天会更好》由中国台湾群星演唱的歌曲，由罗大佑、张大春、李寿全、邱复生、徐乃胜、张艾嘉、詹宏志作词，罗大佑作曲，陈志远编曲
+              [1]
+              ，收录在1985年发行的单曲专辑中。2005年，该曲再次收录在为“印度洋海啸大灾难”制作的专辑《真情暖人间》中
+            </p>
+            <p>
+              <input type="text" placeholder="请输入文本信息" />
+            </p>
+            <p>
+              1986年是世界和平年，《明天会更好》的创作者们希望模仿《We Are The
+              World》群星为公益而唱的模式，来呼应世界和平年的主题。
+              于是，罗大佑、张艾嘉等台湾歌手共同创作了这首歌曲，并出面召集了中国台湾、香港、新加坡以及马来西亚等地共60位华人歌手共同演唱。
+              这些歌手跨越不同地域、不同唱片公司，打破了签约限制，其中有李宗盛、蔡琴、苏芮、潘越云等歌手和艺人。
+              罗大佑等发起人还邀请到了飞碟、滚石、宝丽金等公司
+              参与了单曲专辑的制作
+            </p>
+            <p>
+              该曲通过用平和而热切的音调，表达了人们祈求和平、期待明天会更好的美好心愿
+              [2]
+              。该曲在谱曲上用了很多切分音，让该曲音调有动感、旋律饱满，同时将人们多年来渴望世界和平的心声，很自然地融入旋律之中。
+              该曲的第一段音乐非常平稳，述说着人们对世界和平的渴望和祈求；
+              第二段高亢的旋律具有恢宏的气势，并且多次重复，深化了主题，把人们对明天美好生活的向往感觉一下子凸现出来了
+            </p>
+            <p>
+              我颠颠又炒炒 放点辣椒 有万种的调料 付之一勺 我一下低 我一下高
+              做出最辣的菜肴 锅里乾坤我最知道 江湖中闯名号 老陈来掌勺 千斤的锅铲
+              我一手挑 不怕喷也不逃跑 对顾客我肯弯腰 川菜中味道最好 莫说咸
+              因为盐价太高 莫笑菜 为博你一笑 莫怕辣 米饭绝对管饱
+              又咸又菜又辣趁热吃好
+            </p>
+            <p>
+              小时候没认真听过，现在来听倒是很羡慕这种洒脱和超脱的人生态度
+            </p>
+            <p>
+              好歌！只有中国文化的土壤上才能产生出这种歌！
+            </p>
+            <p>
+              是不是有人跟我一样，童年=林正英+成龙+洪金宝+李连杰+周星驰？
+            </p>
+            <p>
+              你要搞清楚是你喜欢对方，不是对方喜欢你，你既然主动了，就算受天大的委屈，都应该是你意料之中的事，怪不了任何人，有勇气追求喜欢，就要有勇气接受眼泪，结果都是自己承担，谁叫你有本事喜欢人家，没本事让人家喜欢自己。
+            </p>
+            <p>
+              慢慢喜欢你
+              我喜欢的姓王姑娘感谢你对我们异地军恋的坚守，我们闹过吵过分手过甚至还经历了外人的感情插足，我已经放弃了你却还在坚守着感情。遇见你是我这辈子的知足
+              等我回来娶你
+            </p>
+          </div>
+        </div>
+        <div class="ft">
+          <div class="foot">底部</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
