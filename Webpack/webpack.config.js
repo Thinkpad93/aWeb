@@ -1,5 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
+// html插件
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 // 压缩CSS插件
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -10,7 +12,7 @@ module.exports = {
     main: "./src/index.js"
   },
   output: {
-    filename: "bundle.js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist")
   },
   module: {
@@ -32,13 +34,32 @@ module.exports = {
       },
       {
         test: /\.(css|scss|sass)$/,
-        use: ["style-loader", "css-loader", "postcss-loader"]
+        use: [
+          //{
+            //loader: MiniCssExtractPlugin.loader,
+            //options: {
+              //esModule: true,
+              //publicPath: "../",
+              //hmr: process.env.NODE_ENV === "development"
+            //}
+          //},
+          "style-loader",
+          "css-loader",
+          "postcss-loader"
+        ]
       }
     ]
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      title: "",
+      template: __dirname + `/src/index.html`,
+      filename: "index.html",
+      minify: false,
+      hash: false
+    }),
     new MiniCssExtractPlugin({
-      filename: "css/[name].css"
+      filename: "[name].css"
     })
   ]
 };
