@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>绘制三角形边框</title>
+    <style>
+      canvas {
+        border-radius: 5px;
+        border: 1px solid #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="page-bd">
+        <canvas id="tutorial" width="300" height="300"></canvas>
+      </div>
+    </div>
+  </body>
+  <script>
+    function draw() {
+      let canvas = document.getElementById("tutorial");
+      if (canvas.getContext) {
+        let ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(50, 50);
+        ctx.lineTo(50, 100);
+        ctx.lineTo(100, 100);
+        //ctx.closePath();
+        ctx.fill();
+      }
+    }
+    draw();
+  </script>
+</html>
