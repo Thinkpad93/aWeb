@@ -1,0 +1,23 @@
+/*
+  screen 主要用于屏幕
+*/
+@media screen and (min-width: 1024px) {
+  article {
+    padding: 2px 4px;
+  }
+}
+
+/*
+  screen 适用于所有设备
+*/
+@media all and (max-width: 680px) {
+  header {
+    font-size: 16px !important;
+  }
+}
+
+/*
+  逻辑操作符 and
+*/
+@media screen and (min-width: 20rem) and (orientation: landscape) {
+}
