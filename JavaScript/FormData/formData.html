@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FormData</title>
+    <style>
+      input:invalid {
+        border-color: red;
+      }
+      input:valid {
+        border-color: green;
+      }
+      input {
+        border-color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="page-bd">
+        <form
+          action=""
+          id="formData"
+          method="post"
+          enctype="application/x-www-form-urlencoded"
+        >
+          <div class="form-item">
+            <label for=""></label>
+            <input
+              type="text"
+              name="userName"
+              id=""
+              required
+              placeholder="userName"
+            />
+          </div>
+          <div class="form-item">
+            <label for=""></label>
+            <input
+              type="text"
+              name="userAcc"
+              id=""
+              required
+              placeholder="userAcc"
+            />
+          </div>
+          <div class="form-item">
+            <button type="submit">提交</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+    let from = document.getElementById('formData');
+    let formData = new FormData(from);
+    console.log(formData);
+  </script>
+</html>
