@@ -33,6 +33,7 @@
               id=""
               required
               placeholder="userName"
+              value="Jack"
             />
           </div>
           <div class="form-item">
@@ -43,7 +44,21 @@
               id=""
               required
               placeholder="userAcc"
+              value="lc15011977647@163.com"
             />
+          </div>
+          <div class="form-item">
+            <input type="password" name="userPas" required />
+          </div>
+          <div class="form-item">
+            <!-- 数值必须在1到10之间 -->
+            <input type="number" min="1" max="10" name="userNumber" required />
+          </div>
+          <div class="form-item">
+            <textarea name="userDesc" placeholder="userDesc..." required></textarea>
+          </div>
+          <div class="form-item">
+            <input type="file" name="userImg" />
           </div>
           <div class="form-item">
             <button type="submit">提交</button>
@@ -55,6 +70,12 @@
   <script>
     let from = document.getElementById('formData');
     let formData = new FormData(from);
-    console.log(formData);
+    for (let k of formData.entries()) {
+      console.log(k);
+    }
+    from.addEventListener('submit', function(e) {
+      e.preventDefault();
+    });
+    //console.log(formData.getAll('userName'));
   </script>
 </html>

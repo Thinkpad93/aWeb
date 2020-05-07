@@ -9,7 +9,7 @@ module.exports = {
   mode: "production",
   devtool: "none",
   entry: {
-    main: "./src/index.js"
+    app: "./src/index.js"
   },
   output: {
     filename: "[name].js",
@@ -52,7 +52,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "",
+      title: "真爱榜",
       template: __dirname + `/src/index.html`,
       filename: "index.html",
       minify: false,
