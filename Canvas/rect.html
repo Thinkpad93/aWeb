@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rect</title>
+    <style>
+      canvas {
+        width: 800px;
+        height: 600px;
+        display: block;
+        margin: 50px auto;
+        border: 1px solid #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="page-bd">
+        <canvas id="tutorial"></canvas>
+      </div>
+    </div>
+  </body>
+  <script>
+    const canvas = document.getElementById('tutorial');
+    canvas.width = 800;
+    canvas.height = 600;
+
+    let context = canvas.getContext('2d');
+    context.fillStyle = 'rgba(0, 0, 200, 0.5)';
+    context.fillRect(300, 200, 200, 200);
+  </script>
+</html>

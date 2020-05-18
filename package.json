@@ -1,0 +1,12 @@
+{
+  "name": "aWeb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Thinkpad93/aWeb.git",
+  "author": "yolo <1084677348@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2"
+  }
+}

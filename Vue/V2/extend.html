@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      [v-cloak] {
+        display: none !important;
+      }
+      body {
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      p {
+        margin: 0;
+        text-align: justify;
+      }
+      .toast {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        z-index: 100;
+        transform: translate(-50%, -50%);
+      }
+      .toast-bd {
+        color: #fff;
+        padding: 5px 10px;
+        text-align: center;
+        border-radius: 2px;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+      .fade-enter-active {
+        animation: scale-spring 0.2s;
+      }
+      .fade-leave-active {
+        animation: scale-spring 0.2s;
+      }
+      @keyframes scale-spring {
+        0% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="app" v-cloak>
+      <div class="page">
+        <div class="page-bd">
+          <button type="button" @click="init">{{ btnText }}</button>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="../vue.min.js"></script>
+  <script type="text/tmplate" id="tmplate"></script>
+  <script>
+    // 创建构造器
+    const Profile = Vue.extend({
+      template: `
+        <transition name="fade" v-on:before-enter="beforeEnter" @after-leave="handleAfterLeave">
+            <div class="toast" v-if="vis">
+                <div class="toast-bd">
+                    <p>{{ msg }}</p>
+                </div>
+            </div>
+        </transition>        
+      `,
+      data: function () {
+        return {
+          vis: false,
+          msg: '成功了',
+        };
+      },
+      mounted: function () {},
+      methods: {
+        beforeEnter: function (e) {
+          console.log('进入中');
+        },
+        handleAfterLeave(e) {
+          console.log('leave');
+        },
+      },
+    });
+
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        show: false,
+        btnText: '这是一个按钮',
+      },
+      methods: {
+        init: function () {
+          // 创建 Profile 实例，并挂载到一个元素上。
+          const profile = new Profile().$mount();
+          document.body.append(profile.$el);
+          profile.vis = true;
+          let t = setTimeout(() => {
+            clearTimeout(t);
+            profile.vis = false;
+          }, 1000);
+        },
+        bus: function () {
+          this.show = !this.show;
+        },
+        beforeEnter: function (e) {
+          console.log('进入中');
+        },
+      },
+    });
+  </script>
+</html>
