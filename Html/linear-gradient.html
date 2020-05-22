@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>linear-gradient</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .elem {
+        width: 300px;
+        height: 140px;
+        margin-bottom: 20px;
+      }
+      .elem:last-child {
+        margin-bottom: 0;
+      }
+      .l-g-1 {
+        background: linear-gradient(
+          to right bottom,
+          rgb(11, 54, 52),
+          rgb(42, 210, 201)
+        );
+      }
+      .l-g-2 {
+        background: linear-gradient(
+          to right bottom,
+          rgb(65, 0, 185),
+          rgb(0, 198, 255)
+        );
+      }
+      .l-g-3 {
+        background: linear-gradient(
+          to right bottom,
+          rgb(4, 8, 69),
+          rgb(47, 77, 150)
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="page-bd">
+        <div class="elem l-g-1"></div>
+        <div class="elem l-g-2"></div>
+        <div class="elem l-g-3"></div>
+      </div>
+    </div>
+  </body>
+</html>
