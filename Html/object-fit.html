@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>object-fit</title>
+    <style>
+      .pic {
+        position: relative;
+        margin-bottom: 10px;
+      }
+      .pic img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        max-width: 100%;
+        vertical-align: top;
+        /* 重点 */
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="page-bd">
+        <div class="pic">
+          <img
+            src="http://pic01.bdatu.com/Upload/appsimg/1584353846.jpg"
+            alt=""
+          />
+        </div>
+        <div class="pic">
+          <img
+            src="http://pic01.bdatu.com/Upload/appsimg/1584352774.jpg"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

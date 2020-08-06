@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>progress</title>
+    <style>
+      :root {
+        --percents: 0;
+      }
+      .progress {
+        width: 180px;
+        height: 10px;
+        background: rgba(232, 232, 232, 1);
+        border-radius: 5px;
+        overflow: hidden;
+        position: relative;
+      }
+      .progress::before {
+        display: block;
+        content: '';
+        width: calc(1% * var(--percent));
+        color: #fff;
+        background: linear-gradient(
+          270deg,
+          rgba(255, 202, 86, 1) 0%,
+          rgba(255, 157, 65, 1) 100%
+        );
+        text-align: right;
+        white-space: nowrap;
+        overflow: hidden;
+        height: 100%;
+        border-radius: 5px;
+        animation: progress-animation 2s linear infinite;
+      }
+      @keyframes progress-animation {
+        0% {
+          background-position: 100%;
+        }
+        100% {
+          background-position: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="page-bd">
+        <!-- 满值为100% -->
+        <div class="progress" style="--percent: 55;"></div>
+      </div>
+    </div>
+  </body>
+</html>
