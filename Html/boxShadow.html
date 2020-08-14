@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /*使用box-shadow一次性设置多个边框，并且使用内嵌投影*/
+      #moreboxShadow {
+        width: 120px;
+        height: 120px;
+        border: 8px solid blue;
+        /*注意：向外扩张的距离要每次累加；内嵌投影即添加参数为inset,该参数可选，当不设置时即为外投影*/
+        -webkit-box-shadow: inset 0 0 0 10px brown, inset 0 0 0 20px yellow,
+          inset 0 0 0 30px green;
+        box-shadow: inset 0 0 0 10px brown, inset 0 0 0 20px yellow,
+          inset 0 0 0 30px green;
+        padding: 30px;
+        /*设置内边距，为box-shadow添加的添加的边框疼位置，这样就不会影响元素之间的位置*/
+      }
+    </style>
+  </head>
+  <body>
+    <div id="moreboxShadow">boxshadow实现多重边框(内投影)</div>  
+  </body>
+</html>

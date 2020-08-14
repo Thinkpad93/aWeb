@@ -51,11 +51,24 @@
             <input type="password" name="userPas" required />
           </div>
           <div class="form-item">
+            <!-- 唤起纯数字软键盘 -->
+            <input
+              type="tel"
+              novalidate="novalidate"
+              pattern="[0-9]*"
+              class="input"
+            />
+          </div>
+          <div class="form-item">
             <!-- 数值必须在1到10之间 -->
             <input type="number" min="1" max="10" name="userNumber" required />
           </div>
           <div class="form-item">
-            <textarea name="userDesc" placeholder="userDesc..." required></textarea>
+            <textarea
+              name="userDesc"
+              placeholder="userDesc..."
+              required
+            ></textarea>
           </div>
           <div class="form-item">
             <input type="file" name="userImg" />
@@ -73,7 +86,7 @@
     for (let k of formData.entries()) {
       console.log(k);
     }
-    from.addEventListener('submit', function(e) {
+    from.addEventListener('submit', function (e) {
       e.preventDefault();
     });
     //console.log(formData.getAll('userName'));
