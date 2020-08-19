@@ -252,6 +252,9 @@ $ git push [remote] --force
 # 推送所有分支到远程仓库
 $ git push [remote] --all
 
+# 修改远程仓库的关联
+$ git remote set-url origin "新的仓库链接"
+
 ```
 
 #### 九、撤销
