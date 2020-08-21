@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="page-bd">
+        <div class="pic">
+          <img id="source" src="./images/8f1d5c88hd.jpg" alt="" style="display: none;">
+        </div>
+        <canvas id="canvas" width="500" height="500"></canvas>
+      </div>
+    </div>
+  </body>
+  <script>
+    window.onload = function() {
+      const canvas = document.getElementById('canvas');
+      const source = document.getElementById('source');
+      let ctx = canvas.getContext('2d');
+      // 
+      let width = (canvas.width / 2) - 150 / 2;
+      let height = (canvas.height / 2) - 150 / 2;
+      console.log(width); 
+      console.log(height); 
+      ctx.drawImage(source, width, height, 150, 150);
+    }
+  </script>
+</html>

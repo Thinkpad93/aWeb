@@ -1,7 +1,7 @@
 export default class Card extends HTMLElement {
   // 需要监听的属性
   static get observedAttributes() {
-    return ['disabled'];
+    return ['disabled', 'skin'];
   }
 
   constructor() {
@@ -11,14 +11,14 @@ export default class Card extends HTMLElement {
       <style>
         :host {
           display: block;
-          color: red;
+          color: black;
           width: 200px;
           height: 300px;
           border-radius: 12px;
           background: #fff;
           box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.15);
         }
-        p {
+        :host([skin]) {
           color: red;
         }
       </style>
@@ -26,12 +26,19 @@ export default class Card extends HTMLElement {
         <div class="card-hd">
           <slot name="title"></slot>
         </div>
-        <p>这是一个card</p>
         <slot></slot>
       </div>
     `;
   }
 
+  get skin() {
+    return this.getAttribute('skin');
+  }
+
+  set skin(value) {
+    return this.setAttribute('skin', value);
+  }
+ 
   connectedCallback() {
     console.log('当 custom element首次被插入文档DOM时，被调用');
   }
