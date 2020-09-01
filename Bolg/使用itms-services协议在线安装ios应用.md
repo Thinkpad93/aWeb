@@ -1,4 +1,4 @@
-plist地址一定要用https，不然会下载不成功
+plist文件的直链地址必须是https协议，不然会下载不成功
 
 ```xml
 
@@ -56,3 +56,4 @@ plist地址一定要用https，不然会下载不成功
 <a class="down-load update" href="itms-services://?action=download-manifest&url=https://www.feiyan888.com/app.plist">下载</a>
 
 ```
+safari安装ipa的命令，url参数是安装包的plist文件地址

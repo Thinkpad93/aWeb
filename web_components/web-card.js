@@ -51,7 +51,10 @@ export default class Card extends HTMLElement {
     console.log('当 custom element被移动到新的文档时，被调用');
   }
 
-  attributeChangedCallback() {
+  attributeChangedCallback(name, oldValue, newValue) {
+    console.log(name);
+    console.log(oldValue);
+    console.log(newValue);
     console.log('当 custom element增加、删除、修改自身属性时，被调用');
   }
 }
