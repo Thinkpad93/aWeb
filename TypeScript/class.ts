@@ -44,7 +44,7 @@ class XiaoJieJie {
     this.age = age;
   }
 
-  public sayHello() {}
+  public sayHello() { }
 
-  protected sayLove() {}
+  protected sayLove() { }
 }

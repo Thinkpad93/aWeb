@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>requestAnimationFrame</title>
+    <style>
+      .box {
+        background-color: #f00;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" style="width: 10px; height: 10px"></div>
+  </body>
+  <script>
+    window.onload = function () {
+      let winWidth = window.innerWidth;
+      function loop() {
+        let box = document.querySelector('.box');
+        box.style.width = parseInt(box.style.width) + 1 + 'px';
+        if (parseInt(box.style.width) < winWidth / 2) {
+          window.requestAnimationFrame(loop);
+        } else {
+          window.cancelAnimationFrame(loop);
+        }
+      }
+      window.requestAnimationFrame(loop);
+    };
+  </script>
+</html>

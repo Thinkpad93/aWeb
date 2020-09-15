@@ -1,4 +1,4 @@
-//function
+// function
 const typed = document.getElementById("typed");
 if (typed) {
   const pay = function(current: number, discount: number): number {
@@ -9,7 +9,7 @@ if (typed) {
   });
 }
 
-//class
+// class
 class UI {
   public name: string;
   constructor() {

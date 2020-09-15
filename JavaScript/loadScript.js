@@ -17,3 +17,8 @@ function loadScript(src, callback) {
     };
   }
 }
+
+// 调用示例
+loadScript('https://cdn.staticfile.org/vConsole/3.3.4/vconsole.min.js', () => {
+  new VConsole();
+});
