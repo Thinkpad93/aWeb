@@ -1,13 +1,13 @@
 /*
   初始值
-  animation-name: none;
-  animation-duration: 0s;
-  animation-timing-function: ease;
-  animation-delay: 0s;
-  animation-iteration-count: 1;
-  animation-direction: normal;
-  animation-fill-mode: none;
-  animation-play-state: running;
+  animation-name: none; // 指定要绑定到选择器的关键帧的名称
+  animation-duration: 0s; // 动画指定需要多少秒或毫秒完成
+  animation-timing-function: ease; // 设置动画将如何完成一个周期 linear ease-in ease-out ease-in-out cubic-bezier(n,n,n,n)
+  animation-delay: 0s; // 设置动画在启动前的延迟间隔。
+  animation-iteration-count: 1; // 定义动画的播放次数。infinite(播放无限次)
+  animation-direction: normal; // 指定是否应该轮流反向播放动画。
+  animation-fill-mode: none; // 规定当动画不播放时（当动画完成时，或当动画有一个延迟未开始播放时），要应用到元素的样式。
+  animation-play-state: running; // 指定动画是否正在运行或已暂停。
 */
 
 .anim-scalespring {

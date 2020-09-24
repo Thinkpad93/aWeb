@@ -2,7 +2,7 @@ let isDone: boolean = false;
 let names: string = "bob";
 let sentence: string = `Hello, my name is ${names}`;
 
-//Array
+// Array
 let blist: number[] = [1, 2, 3];
 let alist: Array<number> = [1, 2, 1];
 let cstring: Array<string> = ["lic", "num"];

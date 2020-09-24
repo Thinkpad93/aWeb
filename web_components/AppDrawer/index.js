@@ -16,9 +16,9 @@ class AppDrawer extends HTMLElement {
 
   set open(val) {
     if (val) {
-      return this.setAttribute('open', val);
+      this.setAttribute('open', val);
     } else {
-      return this.removeAttribute('open');
+      this.removeAttribute('open');
     }
     this.toggleDrawer();
   }
@@ -36,9 +36,27 @@ class AppDrawer extends HTMLElement {
     }
   }
 
+  attributeChangedCallback(attrName, oldVal, newVal) {
+    
+  }
+
   toggleDrawer() {
     console.log('toggleDrawer');
   }
 }
 
 customElements.define('app-drawer', AppDrawer);
+
+
+// 扩展其他自定义元素可通过扩展其类定义来实现
+class FancyDrawer extends AppDrawer {
+  constructor() {
+    super();
+  }
+
+  toggleDrawer() {}
+
+  anotherMethod() {}
+}
+
+customElements.define('fancy-app-drawer', FancyDrawer);

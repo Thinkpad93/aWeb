@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="page">
+      <div class="page-bd">
+        <ul class="list">
+          <li class="item">人生如逆旅，我亦是行人</li>
+          <li class="item">送行淡月微云。尊前不用翠眉颦</li>
+          <li class="item">一别都门三改火，天涯踏尽红尘</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script>
+    window.onload = function () {
+      let list = document.querySelector('.list');
+      let childElem = Array.from(list.children); // 从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例
+      function handle(i) {
+        return function () {
+          alert(i);
+        };
+      }
+      for (var i = 0; i < childElem.length; i++) {
+        childElem[i].onclick = handle(i);
+      }
+    };
+  </script>
+</html>
