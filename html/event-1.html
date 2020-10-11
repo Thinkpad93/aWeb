@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      #root {
+        width: 100px;
+        height: 100px;
+        background-color: brown;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 999;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    window.onload = function () {
+      var root = document.getElementById("root");
+      var startX, startY, startLeft, startTop;
+      var is = false;
+      function down(event) {
+        is = true;
+        var x = event.clientX;
+        var y = event.clientY;
+        startX = x;
+        startY = y;
+        startLeft = root.offsetLeft;
+        startTop = root.offsetTop;
+        root.style.cursor = "move";
+      }
+
+      function move(event) {
+        if (is) {
+          root.style.left = event.clientX - (startX - startLeft) + "px";
+          root.style.top = event.clientY - (startY - startTop) + "px";
+        }
+      }
+
+      function up() {
+        is = false;
+      }
+
+      root.addEventListener("mousedown", down);
+      root.addEventListener("mousemove", move);
+      root.addEventListener("mouseup", up);
+    };
+  </script>
+</html>
