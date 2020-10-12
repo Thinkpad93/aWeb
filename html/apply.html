@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    window.color = "red";
+
+    var o = {
+      color: "green",
+    };
+
+    function sayColor() {
+      console.log(this.color);
+    }
+
+    sayColor();
+
+    sayColor.apply(o);
+    //改变函数的作用域
+  </script>
+</html>
