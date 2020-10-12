@@ -1,4 +1,8 @@
 class AppDrawer extends HTMLElement {
+  static get observedAttributes() {
+    return ['disabled', 'open'];
+  }
+
   constructor() {
     super();
 
@@ -37,7 +41,13 @@ class AppDrawer extends HTMLElement {
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
-    
+    if (this.disabled) {
+      this.setAttribute('tabindex', '-1');
+      this.setAttribute('aria-disabled', 'true');
+    } else {
+      this.setAttribute('tabindex', '0');
+      this.setAttribute('aria-disabled', 'false');
+    }
   }
 
   toggleDrawer() {
@@ -46,7 +56,6 @@ class AppDrawer extends HTMLElement {
 }
 
 customElements.define('app-drawer', AppDrawer);
-
 
 // 扩展其他自定义元素可通过扩展其类定义来实现
 class FancyDrawer extends AppDrawer {

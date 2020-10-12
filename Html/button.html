@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,minimum-scale=1.0,user-scalable=no"
+    />
+    <title>button</title>
+    <link rel="stylesheet" href="./css/normalize.min.css" />
+    <style>
+      .page-bd {
+        padding: 16px;
+      }
+      button {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        color: #fff;
+        border: 0;
+        display: block;
+        width: 100%;
+        height: 50px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .btn {
+        background-color: #4285f4;
+      }
+      .btn:hover {
+        background-color: #296cdb;
+      }
+      .btn:focus {
+        background-color: #0f52c1;
+
+        /* The outline parameter suppresses the border
+  color / outline when focused */
+        outline: 0;
+      }
+      .btn:active {
+        background-color: #0039a8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="page-bd">
+        <button type="button" class="btn">这是一个按钮</button>
+        <button type="button" class="btn">这是一个按钮</button>
+        <button type="button" class="btn">这是一个按钮</button>
+        <button type="button" class="btn">这是一个按钮</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    window.onload = function () {
+      if (/iP(hone|d)/.test(navigator.userAgent)) {
+        let elements = document.querySelectorAll('button');
+        let emptyFunction = function () {};
+        for (let i = 0; i < elements.length; i++) {
+          elements[i].addEventListener('touchstart', emptyFunction, false);
+        }
+      }
+    };
+  </script>
+</html>
