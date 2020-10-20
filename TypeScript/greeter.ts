@@ -4,9 +4,9 @@ function getters(person: string) {
 
 let user = "Jane User";
 
-let list:number[] = [1,2,3];
+let list: number[] = [1, 2, 3];
 
-let lists:Array<number> = [1,2,3,4];
+let lists: Array<number> = [1, 2, 3, 4];
 
 
 
@@ -14,8 +14,8 @@ document.body.innerHTML = getters(user);
 
 let body: HTMLElement = document.body;
 let allDiv: NodeList = document.querySelectorAll('div');
-document.addEventListener('click', function(e: MouseEvent) {
-
+document.addEventListener('click', function (e: MouseEvent) {
+    console.log(e);
 });
 
 

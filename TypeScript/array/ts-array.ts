@@ -8,7 +8,7 @@ function disps(arr_sites: string[]) {
 
 disps(sites);
 
-//类数组
+// 类数组
 function sums() {
   let args: IArguments = arguments;
 }

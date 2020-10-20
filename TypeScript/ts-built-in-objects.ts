@@ -1,5 +1,5 @@
-//ECMAScript 的内置对象
-//Boolean、Error、Date、RegExp 等。
+// ECMAScript 的内置对象
+// Boolean、Error、Date、RegExp 等。
 let bool: Boolean = new Boolean(1);
 
 let e: Error = new Error();
