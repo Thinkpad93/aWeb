@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       ul,ol {
+          list-style-type: none; 
+          margin: 0;
+          padding: 0;
+       } 
+       .section {
+          float: left; 
+       }
+       .section li {
+          width: 100px; 
+          height: 40px;
+          color: #fff;
+          line-height: 40px;
+          font-size: 14px;
+          text-align: center;
+          background-color: #ccc; 
+          margin-bottom: 10px;
+          cursor: pointer;
+       }
+       .section li.active {
+          background-color: #00c1de; 
+       } 
+       .box {
+          float: left; 
+          margin-left: 15px;
+       }
+       .box .item{
+          display: none; 
+       }
+       .box div.show {
+          display: block;
+          border: 1px solid #ccc;
+          width: 300px;
+          height: 200px; 
+       }
+    </style>
+</head>
+<body>
+    <div id="container">
+      <ul class="section">
+         <li 
+            v-for="(list, index) in lists" 
+            :key="index"
+            :class="[newsTagId === index ? 'active': '']"
+            @click="changeTag(index)"
+            >{{list.name}}</li> 
+      </ul> 
+      <div class="box">
+          <div class="item" 
+            v-for="(item,index) in lists" 
+            :key="index" :class="[newsTagId === index ? 'show' : '']">
+              {{ item.name }}
+          </div>
+      </div> 
+      <!-- <div class="box">
+          <div class="item" 
+            v-for="(item,index) in lists"
+            :key="index"
+            :class="[newsTagId === index ? 'show': '']">{{item.name}}</div>
+      </div> -->
+    </div>
+</body>
+<script src="vue.js"></script>
+<script>
+    const vm = new Vue({
+       data: {
+        newsTagId: 0,
+        lists: [
+          {name: "企业动态"},
+          {name: "公司报道"},
+          {name: "行业动态"},
+          {name: "眼镜知识"}    
+        ]
+       },
+       methods: {
+        changeTag: function(index) {
+           return this.newsTagId = index;
+        }  
+       } 
+    }).$mount('#container');
+</script>
+</html>

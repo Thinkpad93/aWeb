@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            margin-top: 15px; 
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1 v-once>{{ name }}</h1>
+        <span v-show="isElement" :id="isElement">{{ name }}</span>
+        <input type="text" v-model="input">
+        <button type="button" class="btn" @click="isElement = !isElement">显示隐藏</button>
+        <div class="container">
+            <form action="" method="" name="" @submit.prevent="onSubmit" @keyup.left="onSubmit">
+                <input type="text" placeholder="请输入信息提交">
+                <button type="submit">提交</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="vue.min.js"></script>
+<script>
+    const vm = new Vue({
+         el : '#app',
+         data : {
+            isElement : false, 
+            name : 'Hello Vue',
+            input : ''
+         },
+         methods : {
+            onSubmit : function(event) {
+               this.isElement = !this.isElement;
+               console.log('表单提交中~');
+               console.log(event);
+            }
+         },
+         beforeCreate : function() {
+            console.log('在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用');
+         },
+         created :  function() {
+            console.log('在实例创建完成后被立即调用');
+         },
+         mounted : function() {
+            console.log('el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子');
+         },
+         beforeUpdate : function() {
+            console.log('数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前'); 
+         },
+         updated : function() {
+            console.log('由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子'); 
+         }
+    });
+</script>
+</html>
