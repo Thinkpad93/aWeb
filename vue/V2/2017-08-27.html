@@ -1,50 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-        .active {
-            color: red;
-            font-weight: bold;
-        }
+      .active {
+        color: red;
+        font-weight: bold;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="app">
-        <h1>{{ message }}</h1>
-        <input type="text" v-model="message">
-        <p v-if="seen">现在你看到我了</p>
-        <button v-on:click="reverseMessage">逆转消息</button>
-        <p>
-            <span :class="{active : num % 2 != 0}">{{ num }}</span>
-            <button @click="addNumber">点击加一</button>
-        </p>
+      <h1>{{ message }}</h1>
+      <input type="text" v-model="message" />
+      <p v-if="seen">现在你看到我了</p>
+      <button v-on:click="reverseMessage">逆转消息</button>
+      <p>
+        <span :class="{ active : num % 2 != 0 }">{{ num }}</span>
+        <button @click="addNumber">点击加一</button>
+      </p>
     </div>
-</body>
-<script src="vue.js"></script>
-<script>
+  </body>
+  <script src="vue.js"></script>
+  <script>
     var app = new Vue({
-        el: '#app',
-        data: {
-            message: 'Hello Vue!15013306431',
-            seen: false,
-            num: 1
+      el: '#app',
+      data: {
+        message: 'Hello Vue!15013306431',
+        seen: false,
+        num: 1,
+      },
+      methods: {
+        addNumber: function () {
+          this.num = this.num + 1;
         },
-        methods: {
-            addNumber: function () {
-                this.num = this.num + 1;
-            },
-            reverseMessage: function () {
-                this.message = this.message.split('').reverse().join('');
-                // this.seen = !this.seen;
-            }
-        }
+        reverseMessage: function () {
+          this.message = this.message.split('').reverse().join('');
+          // this.seen = !this.seen;
+        },
+      },
     });
-</script>
-
+  </script>
 </html>

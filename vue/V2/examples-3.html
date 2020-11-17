@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="examples-3">
-        <simple-count></simple-count>
-        <simple-count></simple-count>
-        <simple-count></simple-count>
+      <simple-count></simple-count>
+      <simple-count></simple-count>
+      <simple-count></simple-count>
     </div>
-</body>
-<script src="vue.min.js"></script>
-<script>
-    const data = { counter: 0 }
-    Vue.component('simple-count',{
-        template: '<button type="button" @click="counter += 1">{{ counter }}</button>',
-        data : function() {
-            return {
-                counter : 0
-            }
-        }
+  </body>
+  <script src="vue.min.js"></script>
+  <script>
+    const data = { counter: 0 };
+    Vue.component('simple-count', {
+      template:
+        '<button type="button" @click="counter += 1">{{ counter }}</button>',
+      data: function () {
+        return {
+          counter: 0,
+        };
+      },
     });
     const vm = new Vue({
-       el: '#examples-3',
-    });   
-</script>
+      el: '#examples-3',
+    });
+  </script>
 </html>

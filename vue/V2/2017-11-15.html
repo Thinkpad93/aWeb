@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <ul id="app">
-        <template v-if="list.length">
-            <li @click="addClick(index)" v-for="(item,index) in list" :class="{active : index % 2 !== 0}">{{ item }}</li>
-        </template>
+      <template v-if="list.length">
+        <li
+          @click="addClick(index)"
+          v-for="(item,index) in list"
+          :class="{active : index % 2 !== 0}"
+        >
+          {{ item }}
+        </li>
+      </template>
     </ul>
-</body>
-<script src="vue.js"></script>
-<script>
+  </body>
+  <script src="vue.js"></script>
+  <script>
     var list = ['北京', '上海', '深圳', '广州', '成都'];
     var vm = new Vue({
-        el: '#app',
-        data: {
-            list: list
+      el: '#app',
+      data: {
+        list: list,
+      },
+      methods: {
+        addClick: function (index) {
+          console.log(index);
+          this.list.splice(index, 1);
         },
-        methods : {
-            addClick : function(index) {
-                console.log(index);
-                this.list.splice(index,1);
-            }
-        }
+      },
     });
-</script>
-
+  </script>
 </html>

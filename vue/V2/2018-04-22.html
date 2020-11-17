@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <script src="vue.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="root">
-        <h1>{{msg}}</h1>
-        <ul>
-            <todo-item v-for="(item,index) in todos" :key="index" :content="item"></todo-item>
-        </ul>
+      <h1>{{msg}}</h1>
+      <ul>
+        <todo-item
+          v-for="(item,index) in todos"
+          :key="index"
+          :content="item"
+        ></todo-item>
+      </ul>
     </div>
-</body>
-<script>
+  </body>
+  <script>
     Vue.component('todo-item', {
-        props: ['content'],
-        template: "<li>{{content.text}}</li>"
+      props: ['content'],
+      template: '<li>{{content.text}}</li>',
     });
     const vm = new Vue({
-        el: "#root",
-        data: {
-            msg: 'Hello Vue!',
-            list: ['学习 JavaScript','学习 Vue','整个牛项目'],
-            todos: [
-                { text: '学习 JavaScript' },
-                { text: '学习 Vue' },
-                { text: '整个牛项目' }
-            ]   
-        }
+      el: '#root',
+      data: {
+        msg: 'Hello Vue!',
+        list: ['学习 JavaScript', '学习 Vue', '整个牛项目'],
+        todos: [
+          { text: '学习 JavaScript' },
+          { text: '学习 Vue' },
+          { text: '整个牛项目' },
+        ],
+      },
     });
-</script>
-
+  </script>
 </html>

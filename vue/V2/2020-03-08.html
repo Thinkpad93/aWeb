@@ -66,44 +66,44 @@
       data: {
         form: {},
         fileList: [],
-        uploadForm: ""
+        uploadForm: '',
       },
       methods: {
         //覆盖默认的上传行为，可以自定义上传的实现
         submitUpload(file) {
           console.log(file);
-          this.uploadForm.append("files", file.file);
+          this.uploadForm.append('files', file.file);
         },
         submitAssess() {
           this.uploadForm = new FormData();
           this.$refs.uploadImage.submit(); //触发上传功能
           let _that = this;
           axios({
-            method: "post",
-            url: "https://api-user.uyess.com/v2/home/spike",
+            method: 'post',
+            url: 'https://api-user.uyess.com/v2/home/spike',
             data: _that.uploadForm,
             headers: {
-              "Content-Type": "multipart/form-data"
-            }
-          }).then(function(res) {
+              'Content-Type': 'multipart/form-data',
+            },
+          }).then(function (res) {
             console.log(res);
           });
         },
         handleUpload(formName) {
-          this.$refs[formName].validate(valid => {
+          this.$refs[formName].validate((valid) => {
             if (valid) {
               //表单验证通过上传图片功能
               this.submitAssess();
             }
           });
-        }
+        },
         // changeFiels: function(e) {
         //   console.log(e);
         //   let file = e.target.files[0];
         //   console.log(file);
         //   this.uploadForm.append("files", file);
         // },
-      }
-    }).$mount("#app");
+      },
+    }).$mount('#app');
   </script>
 </html>

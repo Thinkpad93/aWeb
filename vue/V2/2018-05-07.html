@@ -1,71 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-        .panel {
-            width: 300px;
-            border: 1px solid #ccc;
-            margin-bottom: 15px;
-        }
+      .panel {
+        width: 300px;
+        border: 1px solid #ccc;
+        margin-bottom: 15px;
+      }
 
-        .title,
-        .footer {
-            padding: 20px;
-        }
+      .title,
+      .footer {
+        padding: 20px;
+      }
 
-        .content {
-            border-top: 1px solid #ccc;
-            border-bottom: 1px solid #ccc;
-            padding: 10px;
-        }
+      .content {
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        padding: 10px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="app">
-        <panel>
-            <div slot="title">Yui</div>
-            <div slot="content">Hello World.</div>
-        </panel>
-        <panel>
-            <div slot="title">Tui.</div>
-            <div slot="content">门前时雨 {{msg}}</div>
-        </panel>
-        <panel></panel>
+      <panel>
+        <div slot="title">Yui</div>
+        <div slot="content">Hello World.</div>
+      </panel>
+      <panel>
+        <div slot="title">Tui.</div>
+        <div slot="content">门前时雨 {{ msg }}</div>
+      </panel>
+      <panel></panel>
     </div>
-</body>
-<template id="panel-tpl">
+  </body>
+  <template id="panel-tpl">
     <div class="panel">
-        <div class="title">
-            <slot name="title">Lc.</slot>
-        </div>
-        <div class="content">
-            <slot name="content">
-                通过使用迭代开发过程全新创建你自己的 Web 应用，了解后端 Web 开发的基本原理。
-            </slot>
-        </div>
-        <div class="footer">更多信息</div>
+      <div class="title">
+        <slot name="title">Lc.</slot>
+      </div>
+      <div class="content">
+        <slot name="content">
+          通过使用迭代开发过程全新创建你自己的 Web 应用，了解后端 Web
+          开发的基本原理。
+        </slot>
+      </div>
+      <div class="footer">更多信息</div>
     </div>
-</template>
-<script src="vue.js"></script>
-<script>
+  </template>
+  <script src="vue.js"></script>
+  <script>
     Vue.component('panel', {
-        template: "#panel-tpl"
+      template: '#panel-tpl',
     });
     const vm = new Vue({
-        //el: "#app",
-        data: {
-            msg: "hello"
-        },
-        created() {
-
-        }
-    }).$mount("#app");
-</script>
-
+      //el: "#app",
+      data: {
+        msg: 'hello',
+      },
+      created() {},
+    }).$mount('#app');
+  </script>
 </html>

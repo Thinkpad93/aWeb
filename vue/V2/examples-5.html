@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-        .fade-enter-active, .fade-leave-active {
-        transition: opacity .5s
-        }
-        .fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
-        opacity: 0
-        }
+      .fade-enter-active,
+      .fade-leave-active {
+        transition: opacity 0.5s;
+      }
+      .fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+        opacity: 0;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="examples-5">
-        <button type="button" v-on:click="show = !show">Toggle</button>
-        <transition name="fade" mode="in-out">
-            <p v-if="show">Hello</p>
-        </transition>
+      <button type="button" v-on:click="show = !show">Toggle</button>
+      <transition name="fade" mode="in-out">
+        <p v-if="show">Hello</p>
+      </transition>
     </div>
-</body>
-<script src="vue.min.js"></script>
-<script>
+  </body>
+  <script src="vue.min.js"></script>
+  <script>
     var vm = new Vue({
-        el : '#examples-5',
-        data : {
-            show : true
-        }
+      el: '#examples-5',
+      data: {
+        show: true,
+      },
     });
-</script>
+  </script>
 </html>
