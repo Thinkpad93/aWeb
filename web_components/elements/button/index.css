@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+app-button {
+  --primary: #409eff;
+  --success: #67c23a;
+  --info: #909399;
+  --warning: #e6a23c;
+  --danger: #f56c6c;
+}
+
+app-button {
+  appearance: button;
+  -webkit-appearance: button;
+  color: #fff;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: 0.1s;
+  outline: none;
+}
+app-button[type='primary'] {
+  background-color: var(--primary);
+}
+app-button[type='primary']:hover {
+  background-color: #66b1ff;
+}
+app-button[type='success'] {
+  background-color: var(--success);
+}
+app-button[type='success']:hover {
+  background-color: #85ce61;
+}      
+app-button[type='info'] {
+  background-color: var(--info);
+}
+app-button[type='info']:hover {
+  background-color: #a6a9ad;
+}
+app-button[type='warning'] {
+  background-color: var(--warning);;
+}
+app-button[type='warning']:hover {
+  background-color: #ebb563;
+}
+app-button[type='danger'] {
+  background-color: var(--danger);
+}
+app-button[type='danger']:hover {
+  background-color: #f78989;
+}
+app-button[disabled] {
+  pointer-events: none;
+  opacity: .6;
+}
+app-button[size="medium"] {
+  padding: 10px 20px;
+}
+app-button[size="small"] {
+  padding: 9px 15px;
+}
+app-button[size="mini"] {
+  font-size: 12px;
+  padding: 7px 15px;
+}

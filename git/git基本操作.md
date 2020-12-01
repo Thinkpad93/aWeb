@@ -19,3 +19,15 @@
 - 常看远端仓库信息
 
 > git remote -v
+
+- 获取远程分支
+
+> git fetch origin dev (dev即分支名)
+
+创建本地分支
+
+> git checkout -b LocalDev origin/dev (LocalDev为本地分支名，dev为远程分支)
+
+最后一步将远程分支拉取到本地
+
+> git pull origin dev
