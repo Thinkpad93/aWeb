@@ -1,4 +1,4 @@
-plist文件的直链地址必须是https协议，不然会下载不成功
+plist 文件的直链地址必须是 https 协议，不然会下载不成功
 
 ```xml
 
@@ -50,10 +50,14 @@ plist文件的直链地址必须是https协议，不然会下载不成功
 
 ```
 
-用a标签的指向plist地址即可
+用 a 标签的指向 plist 地址即可
 
 ```html
-<a class="down-load update" href="itms-services://?action=download-manifest&url=https://www.feiyan888.com/app.plist">下载</a>
-
+<a
+  class="down-load update"
+  href="itms-services://?action=download-manifest&url=https://www.feiyan888.com/app.plist"
+  >下载</a
+>
 ```
-safari安装ipa的命令，url参数是安装包的plist文件地址
+
+safari 安装 ipa 的命令，url 参数是安装包的 plist 文件地址

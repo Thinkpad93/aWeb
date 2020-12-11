@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>国家地理</title>
+    <!-- 引入样式文件 -->
+    <link
+      href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      *::after,
+      *::before {
+        box-sizing: inherit;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      img {
+        max-width: 100%;
+      }
+      .content {
+        padding: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="page">
+      <div class="page-bd">
+        <div class="content">
+          <ul class="list"></ul>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    window.onload = function () {
+      let apiUrl = 'http://localhost:8038/jiekou/mains/p1.html';
+      let list = document.querySelector('.list');
+
+      // 发起一个请求
+      fetch(apiUrl, {
+        credentials: 'same-origin',
+        mode: 'cors',
+        method: 'GET',
+      })
+        .then((response) => response.json())
+        .then((json) => showData(json.album));
+
+      function showData(data) {
+        list.innerHTML = `
+          ${data
+            .map(
+              (album) =>
+                `<li data-add-item="${album.addtime}">
+              <p>${album.title}</p>
+              <img src="${album.url}" alt="${album.title}"/>
+            </li>`
+            )
+            .join('')}
+        `;
+        console.log(list);
+      }
+    };
+  </script>
+</html>

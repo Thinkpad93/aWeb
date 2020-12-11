@@ -125,9 +125,29 @@ button {
   outline: 0 none;
 }
 
+/* 去掉默认 select 的下拉图标 和 边框 */
+.select {
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  width: 100%;
+  font-size: inherit;
+  height: 0.58rem;
+  line-height: inherit;
+  position: relative;
+  z-index: 1;
+  padding-left: 15px;
+  text-align: center;
+  border-right: 1px solid #ddd;
+}
+
+/* 设置 input 里面 placeholder 字体的颜色 */
+
 input::-webkit-input-placeholder {
   color: rgba(144, 147, 153, 1);
 }
+
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
   color: #a0aec0;
@@ -138,10 +158,23 @@ textarea::-ms-input-placeholder {
   color: #a0aec0;
 }
 
+/*禁止保存或拷贝图像*/
+img {
+  -webkit-touch-callout: none;
+}
+
+
+/* 清除火狐浏览器无图片时的边框 */
+img[src=""],
+img:not([src]) {
+  opacity:0;
+}
+
 /* 去掉默认边框和旁边的小图标 */
 input[type="search"] {
   appearance: none;
 }
+
 input[type="search"]::-webkit-search-cancel-button{
   display: none;
 }
