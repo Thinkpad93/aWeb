@@ -1,7 +1,7 @@
 class Tree {
   constructor(
-    size = "10",
-    leaves = { spring: "green", summer: "green", fall: "ora" }
+    size = '10',
+    leaves = { spring: 'green', summer: 'green', fall: 'ora' }
   ) {
     this.size = size;
     this.leaves = leaves;
@@ -9,7 +9,7 @@ class Tree {
   }
   changeSeason(season) {
     this.leafColor = this.leaves[season];
-    if (season === "spring") {
+    if (season === 'spring') {
       this.size += 1;
     }
   }
@@ -22,7 +22,7 @@ class Maple extends Tree {
   }
   changeSeason(season) {
     super.changeSeason(season);
-    if (season === "spring") {
+    if (season === 'spring') {
       this.syrupQty += 1;
     }
   }
@@ -32,6 +32,6 @@ class Maple extends Tree {
 }
 
 const myMaple = new Maple(15, 5);
-myMaple.changeSeason("fall");
+myMaple.changeSeason('fall');
 myMaple.gattherSyrup();
-myMaple.changeSeason("spring");
+myMaple.changeSeason('spring');

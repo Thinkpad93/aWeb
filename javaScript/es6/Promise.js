@@ -11,21 +11,21 @@ const getJSON = function (url) {
       }
     };
     const client = new XMLHttpRequest();
-    client.open("GET", url);
+    client.open('GET', url);
     client.onreadystatechange = handler;
-    client.responseType = "json";
-    client.setRequestHeader("Accept", "application/json");
+    client.responseType = 'json';
+    client.setRequestHeader('Accept', 'application/json');
     client.send();
   });
   return promise;
 };
 
-getJSON("/posts.json").then(
+getJSON('/posts.json').then(
   function (json) {
-    console.log("Contents:" + json);
+    console.log('Contents:' + json);
   },
   function (error) {
-    console.log("出错了" + error);
+    console.log('出错了' + error);
   }
 );
 

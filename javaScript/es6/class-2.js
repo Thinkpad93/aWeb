@@ -9,7 +9,7 @@ class Plane {
     }
   }
   startEngines() {
-    console.log("starting engines...");
+    console.log('starting engines...');
     this.enginesActive = true;
   }
 }

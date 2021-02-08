@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+      }
+      .page {
+        padding: 20px;
+      }
+      .box {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        background: #fd6666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <button type="button" class="btn">点击</button>
+      <button type="button" class="btns">清除所有定时器</button>
+      <div class="box"></div>
+    </div>
+  </body>
+  <script>
+    window.onload = function () {
+      var status = true;
+      var timer;
+      var pageTimer = {};
+      document.body.onmousedown = function (e) {
+        console.log(e.type);
+        // status = true;
+      };
+      document.body.onmouseup = function (e) {
+        console.log(e.type);
+        // 点击检测
+        countTime(3 * 1000);
+      };
+      document.querySelector('.btn').addEventListener('click', function (e) {
+        // e.preventDefault();
+        status = true;
+        console.log(e.type);
+      });
+      document.querySelector('.btns').addEventListener('click', function (e) {
+        for (let each in pageTimer) {
+          clearInterval(pageTimer[each]);
+        }
+      });
+      function countTime(second) {
+        pageTimer['timer1'] = setInterval(function () {
+          if (!status) {
+            // callback();
+            console.log(`${second}s没有点击`);
+            status = true;
+          }
+        }, 1);
+        if (pageTimer['timer2']) {
+          clearInterval(pageTimer['timer2']);
+        }
+        pageTimer['timer2'] = setInterval(function () {
+          console.log(`${second}s没有点击s`);
+          status = false;
+        }, second);
+      }
+      // 自动检测
+      // countTime();
+    };
+  </script>
+</html>

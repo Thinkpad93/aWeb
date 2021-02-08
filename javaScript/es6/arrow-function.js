@@ -2,7 +2,7 @@ const upperizedName = ["Farrin", "Kagure", "Asser"].map(function (name) {
   return name.toUpperCase();
 });
 
-//arrow function
+// arrow function
 const upperizedNames = ["Farrin", "Kagure", "Asser"].map((name) => {
   name = name.toUpperCase();
   return `${name} has ${name.length} characters in their name`;
@@ -36,14 +36,14 @@ function greet(name = "Student", greeting = "Welcome") {
   return `${greeting} ${name}`;
 }
 
-//array
+// array
 function houseDescriptor([houseColor = "green", shutterColors = ["red"]]) {
   return `I have a ${houseColor} house with ${shutterColors.join(
     " and "
   )} shutters`;
 }
 
-//object
+// object
 function houseDescriptor({
   houseColor = "green",
   shutterColors = ["red"],

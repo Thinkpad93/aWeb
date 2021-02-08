@@ -3,7 +3,7 @@ const [x, y, z] = point;
 
 const circle = {
   radius: 10,
-  color: "orange",
+  color: 'orange',
   getArea: function () {
     return Math.PI * this.radius * this.radius;
   },

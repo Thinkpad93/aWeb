@@ -1,5 +1,5 @@
-let type = "quartz";
-let color = "rose";
+let type = 'quartz';
+let color = 'rose';
 let carat = 21.29;
 
 const gemstone = {

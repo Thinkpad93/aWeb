@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>isClick</title>
+  </head>
+  <body>
+    <button type="button" class="btn">按钮一</button>
+    <button type="button" class="btn-2">按钮二</button>
+  </body>
+</html>
+<script>
+  window.onload = function () {
+    let timer = null;
+    let isClick = false;
+    let btn = document.querySelector('.btn');
+    let btn2 = document.querySelector('.btn-2');
+
+    function fun1() {
+      if (!isClick) {
+        isClick = true;
+        btn.setAttribute('disabled', isClick);
+        // ajax
+        setTimeout(() => {
+          console.log('ajax');
+        }, 500);
+
+        clearTimeout(timer);
+      }
+      timer = setTimeout(() => {
+        console.log('timer');
+        isClick = false;
+        !isClick && btn.removeAttribute('disabled');
+      }, 500);
+    }
+
+    function fun2() {
+      isClick = true;
+      btn2.setAttribute('disabled', isClick);
+
+      timer = setInterval(() => {
+        console.log('timer');
+        isClick = false;
+        !isClick && btn2.removeAttribute('disabled');
+        clearInterval(timer);
+      }, 500);
+    }
+
+    btn.addEventListener('click', fun1, false);
+    btn2.addEventListener('click', fun2, false);
+  };
+</script>

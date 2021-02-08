@@ -3,15 +3,15 @@ class Point {
     this.x = x;
     this.y = y;
   }
-  //实例对象point自身的属性
+  // 实例对象point自身的属性
   toString() {
-    return "(" + this.x + "," + this.y + ")";
+    return '(' + this.x + ',' + this.y + ')';
   }
 }
 
 class Logger {
   constructor() {
-    this.printName = (name = "there") => {
+    this.printName = (name = 'there') => {
       this.print(`Hello ${name}`);
     };
   }
