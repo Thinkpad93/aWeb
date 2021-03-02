@@ -1,4 +1,5 @@
 ```js
+
 const {
   createApp,
   reactive, // 创建响应式数据对象
@@ -29,6 +30,5 @@ const Component = {
 };
 
 createApp(Component).mount('#app');
-
 
 ```

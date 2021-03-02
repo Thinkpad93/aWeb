@@ -10,7 +10,7 @@
 
 ```js
 const axios = axios.create({
-   responseType: 'blob' // //返回数据的格式，可选值为arraybuffer,blob,document,json,text,stream，默认值为json 
+   responseType: 'blob' // 返回数据的格式，可选值为arraybuffer,blob,document,json,text,stream，默认值为json 
 });
 ```
 
