@@ -1,4 +1,7 @@
 (function () {
+
+  import styles from './index.css';
+
   const template = document.createElement('template');
   template.innerHTML = `
     <slot></slot>
@@ -12,8 +15,9 @@
 
     constructor() {
       super();
-      this.attachShadow({ mode: 'open' });
+      let shadow = this.attachShadow({ mode: 'open' });
       this.shadowRoot.appendChild(template.content.cloneNode(true));
+      shadow.adoptedStyleSheets = [styles];
     }
 
     set disabled(value) {

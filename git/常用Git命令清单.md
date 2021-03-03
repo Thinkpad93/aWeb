@@ -300,6 +300,9 @@ $ git stash pop
 # 生成一个可供发布的压缩包
 $ git archive
 
+# 本地分支重命名
+$ git branch -m oldName newName 
+
 ```
 
 #### 回退命令：
@@ -311,3 +314,4 @@ $ git reset --hard commit_id 退到/进到 指定commit的sha码
 强推到远程：
 
 $ git push origin HEAD --force
+
