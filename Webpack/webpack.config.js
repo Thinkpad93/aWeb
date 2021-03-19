@@ -5,9 +5,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 // 压缩CSS插件
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+const devMode = process.env.NODE_ENV !== 'production';
+
 module.exports = {
-  mode: "production",
-  devtool: "none",
   entry: {
     app: "./src/index.js"
   },
@@ -19,13 +19,13 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        //排除node_modules 目录下的文件
+        // 排除node_modules 目录下的文件
         exclude: /node_modules/,
         use: [
           {
             loader: "babel-loader",
             options: {
-              //因为新版本的babel更新 原配置修改如下
+              // 因为新版本的babel更新 原配置修改如下
               presets: ["@babel/preset-env"],
               plugins: ["@babel/plugin-transform-runtime"]
             }
@@ -35,17 +35,16 @@ module.exports = {
       {
         test: /\.(css|scss|sass)$/,
         use: [
-          //{
-            //loader: MiniCssExtractPlugin.loader,
-            //options: {
-              //esModule: true,
-              //publicPath: "../",
-              //hmr: process.env.NODE_ENV === "development"
-            //}
-          //},
-          "style-loader",
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: true
+            }
+          },
+          // "style-loader"
           "css-loader",
-          "postcss-loader"
+          "postcss-loader",
+          // "sass-loader"
         ]
       }
     ]
@@ -55,6 +54,14 @@ module.exports = {
       title: "真爱榜",
       template: __dirname + `/src/index.html`,
       filename: "index.html",
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true,
+      },      
       minify: false,
       hash: false
     }),
