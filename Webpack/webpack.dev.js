@@ -1,8 +1,10 @@
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 const config = require('./webpack.config.js');
 
 module.exports = merge(config, {
-  devtool: 'inline-source-map',
+  stats: { children: false },
+  devtool: 'none',
   devServer: {
     contentBase: './dist',
     host: 'localhost', // 默认是localhost
@@ -10,6 +12,14 @@ module.exports = merge(config, {
     port: 1993, // 端口
     historyApiFallback: true,
     compress: true, // 启用gzip 压缩
+    proxy: {
+      '/api': {
+        target: 'http://beta.cdsfl8888.com', // http://beta.whddd666.com
+        changeOrigin: true,
+        secure: false,
+        pathRewrite: { '^/api': '' }
+      }
+    }
   },
   plugins: [
     new webpack.NamedModulesPlugin(),
