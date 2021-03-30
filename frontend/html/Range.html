@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    function Range(form, to) {
+      this.form = form;
+      this.to = to;
+    }
+    Range.prototype = {
+      constructor: Range,
+      includes: function (x) {
+        return this.form <= x && x <= this.to;
+      },
+      foreach: function (f) {
+        for (var x = Math.ceil(this.form); x <= this.to; x++) {
+          f(x);
+        }
+      },
+      toString: function () {
+        return "(" + this.form + "..." + this.to + ")";
+      },
+    };
+
+    var r = new Range(1, 3);
+  </script>
+</html>

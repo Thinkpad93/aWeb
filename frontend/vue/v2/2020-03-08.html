@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 引入样式 -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div class="box">
+        <el-form ref="form" :model="form">
+          <el-form-item
+            label="标题"
+            prop="title"
+            :rules="[
+              { required: true, message: '请输入内容标题', trigger:'blur' }
+            ]"
+          >
+            <el-input
+              v-model="form.title"
+              placeholder="请输入内容标题"
+              maxlength="30"
+            ></el-input>
+          </el-form-item>
+          <el-form-item label="上传图片">
+            <el-upload
+              list-type="picture-card"
+              ref="uploadImage"
+              :with-credentials="true"
+              action="#"
+              name="files"
+              accept="image/jpeg, image/gif, image/png, image/bmp"
+              multiple
+              :auto-upload="false"
+              :file-list="fileList"
+              :http-request="submitUpload"
+            >
+              <i class="el-icon-plus avatar-uploader-icon"></i>
+            </el-upload>
+          </el-form-item>
+        </el-form>
+        <!-- <input type="file" name="file" @change="changeFiels" multiple /> -->
+      </div>
+      <el-row>
+        <el-button type="primary" @click="handleUpload('form')">上传</el-button>
+      </el-row>
+    </div>
+  </body>
+  <script
+    type="text/javascript"
+    src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"
+  ></script>
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script
+    type="text/javascript"
+    src="https://cdn.bootcss.com/axios/0.19.2/axios.min.js"
+  ></script>
+  <script>
+    const vm = new Vue({
+      data: {
+        form: {},
+        fileList: [],
+        uploadForm: '',
+      },
+      methods: {
+        //覆盖默认的上传行为，可以自定义上传的实现
+        submitUpload(file) {
+          console.log(file);
+          this.uploadForm.append('files', file.file);
+        },
+        submitAssess() {
+          this.uploadForm = new FormData();
+          this.$refs.uploadImage.submit(); //触发上传功能
+          let _that = this;
+          axios({
+            method: 'post',
+            url: 'https://api-user.uyess.com/v2/home/spike',
+            data: _that.uploadForm,
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          }).then(function (res) {
+            console.log(res);
+          });
+        },
+        handleUpload(formName) {
+          this.$refs[formName].validate((valid) => {
+            if (valid) {
+              //表单验证通过上传图片功能
+              this.submitAssess();
+            }
+          });
+        },
+        // changeFiels: function(e) {
+        //   console.log(e);
+        //   let file = e.target.files[0];
+        //   console.log(file);
+        //   this.uploadForm.append("files", file);
+        // },
+      },
+    }).$mount('#app');
+  </script>
+</html>

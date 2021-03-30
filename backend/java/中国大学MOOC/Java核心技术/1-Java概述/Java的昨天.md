@@ -1,0 +1,7 @@
+- Java是一种程序语言
+- JCP（Java Community Process），掌管Java规范
+- JDK（Java Development Kit），实现Java规范
+  - （Oracle）Sun JDK 占据90%以上的份额
+  - OpenJDK
+  - IBMJDK
+  - JRockit

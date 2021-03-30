@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="product in productList">
+          <input type="text" v-model.number="product.price" /> {{ product.name
+          }}
+          <button type="button" @click="product.price += 1">Add</button>
+        </li>
+      </ul>
+      <p>{{ totalProducts }}</p>
+    </div>
+  </body>
+  <script src="vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        productList: [
+          {
+            name: 'Hot',
+            price: 9,
+          },
+          {
+            name: 'Pad',
+            price: 2,
+          },
+        ],
+      },
+      methods: {},
+      computed: {
+        totalProducts() {
+          return this.productList.reduce((num, product) => {
+            console.log(num);
+            console.log(product);
+            return num + product.price;
+          }, 0);
+        },
+      },
+    });
+  </script>
+</html>
