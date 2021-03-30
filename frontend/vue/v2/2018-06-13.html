@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      #app div {
+        width: 150px;
+        height: 150px;
+        color: #fff;
+        font-size: 60px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aquamarine;
+      }
+
+      .fade-enter-active,
+      .fade-leave-active {
+        transition: opacity 0.5s;
+      }
+
+      .fade-enter,
+      .fade-leave-to {
+        opacity: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <transition name="fade">
+        <div v-if="show">{{ message }}</div>
+      </transition>
+    </div>
+    <div id="demo">
+      <button v-on:click="show = !show">Toggle</button>
+      <transition name="fade">
+        <p v-if="show">hello</p>
+      </transition>
+    </div>
+  </body>
+  <script src="vue.js"></script>
+  <script>
+    const demo = new Vue({
+      el: '#demo',
+      data: {
+        show: true,
+      },
+    });
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        message: '空',
+        show: true,
+      },
+      created() {
+        let that = this;
+        document.addEventListener('keydown', function (event) {
+          console.log(event);
+          let code = event.key.toLocaleUpperCase();
+          that.message = code;
+          that.show = !that.show;
+        });
+      },
+    });
+  </script>
+</html>

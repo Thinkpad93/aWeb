@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <tooltip></tooltip>
+    </div>
+  </body>
+  <script src="vue.js"></script>
+  <script>
+    const base = {
+      methods: {
+        show: function () {
+          this.hidden = !this.hidden;
+        },
+      },
+    };
+    Vue.component('tooltip', {
+      template: `<div><span  @mouseenter="show">Hello</span>
+                <div v-if="hidden">World</div>
+        </div>`,
+      data() {
+        return {
+          hidden: false,
+        };
+      },
+      mixins: [base],
+    });
+    const vm = new Vue({
+      data: {},
+    }).$mount('#app');
+  </script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+  <script>
+    const _localStorage = {
+      set: function (name, value) {
+        let key = localStorage.key(name);
+        if (key === name && key !== null) {
+          throw new Error(name + "is true");
+        } else {
+          return localStorage.setItem(name, value);
+        }
+      },
+      get: function (name) {
+        return localStorage.getItem(name);
+      },
+      remove: function (name) {
+        return localStorage.removeItem(name);
+      },
+      clear: function () {
+        return localStorage.clear();
+      },
+    };
+  </script>
+</html>

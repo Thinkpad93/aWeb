@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div id="examples-2">
+      <form action="">
+        <label
+          ><input
+            type="checkbox"
+            value="iOS"
+            v-model="checkedNames"
+          />iOS</label
+        >
+        <label
+          ><input
+            type="checkbox"
+            value="Android"
+            v-model="checkedNames"
+          />Android</label
+        >
+      </form>
+      <br />
+      <span>Checked names: {{ checkedNames }}</span>
+    </div>
+  </body>
+  <script src="vue.min.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#examples-2',
+      data: {
+        checkedNames: [],
+      },
+    });
+  </script>
+</html>

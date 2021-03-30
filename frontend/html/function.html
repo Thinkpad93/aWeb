@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <ul class="list">
+      <li>Apple</li>
+      <li>Ios</li>
+      <li>Mac</li>
+    </ul>
+  </body>
+  <script>
+    var li = document.getElementsByTagName("li");
+
+    var lei = function (i) {
+      return function (e) {
+        console.log(i);
+      };
+    };
+    for (var i = 0; i < li.length; i++) {
+      li[i].onclick = lei(i);
+    }
+
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+      this.color = ["red", "green", "blue", "pink"];
+    }
+
+    function Son() {
+      Person.call(this);
+    }
+
+    var person = new Person("林场", 25);
+
+    var son = new Son();
+  </script>
+</html>
