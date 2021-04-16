@@ -1,4 +1,4 @@
-//语法糖
+// 语法糖
 class Animal {
   constructor(name = 'Sprinkles', energy = 1000) {
     this.name = name;

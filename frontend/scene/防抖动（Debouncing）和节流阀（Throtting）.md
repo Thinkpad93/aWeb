@@ -3,6 +3,9 @@
 
 - [实例解析防抖动（Debouncing）和节流阀（Throttling）](http://www.css88.com/archives/7010)
 
+- [debounce(防抖)和throttle(节流)](https://segmentfault.com/a/1190000005926579)
+
+**防抖多次触发，最后一次生效；节流多次触发，周期性生效**
 
 ##### 防抖(debounce)：
 

@@ -18,7 +18,7 @@
 <!--  页面描述 -->
 <meta name="description" content="" />
 <!--  网页作者 -->
-<meta name="author" content="Yolo" />
+<meta name="author" content="" />
 <!-- 告知浏览器，当前页面要做 DNS 预解析 -->
 <meta http-equiv="x-dns-prefetch-control" content="on" />
 <!-- 设置页面不缓存 -->

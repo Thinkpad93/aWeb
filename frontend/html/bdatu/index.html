@@ -40,14 +40,14 @@
   </body>
   <script>
     window.onload = function () {
-      let apiUrl = 'http://localhost:8038/jiekou/mains/p1.html';
-      let list = document.querySelector('.list');
+      let apiUrl = "http://localhost:8038/jiekou/mains/p1.html";
+      let list = document.querySelector(".list");
 
       // 发起一个请求
       fetch(apiUrl, {
-        credentials: 'same-origin',
-        mode: 'cors',
-        method: 'GET',
+        credentials: "same-origin",
+        mode: "cors",
+        method: "GET",
       })
         .then((response) => response.json())
         .then((json) => showData(json.album));
@@ -62,7 +62,7 @@
               <img src="${album.url}" alt="${album.title}"/>
             </li>`
             )
-            .join('')}
+            .join("")}
         `;
         console.log(list);
       }
