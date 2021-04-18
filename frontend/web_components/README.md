@@ -1,7 +1,37 @@
-#### 自定义元素响应生命周期函数
-在 Custom elements 的构造函数中，可以指定多个回调函数，它们将会在元素的不同生命时期被调用。
-- constructor: 创建或升级元素的一个实例。用于初始化状态、设置事件侦听器或创建 Shadow DOM。参见规范，了解可在 constructor 中完成的操作的相关限制。 
-- connectedCallback：元素首次被插入文档 DOM 时
-- disconnectedCallback：元素从文档 DOM 中删除时
-- adoptedCallback：元素被移动到新的文档时
-- attributeChangedCallback: 元素增加、删除、修改自身属性时
+
+```js
+class MyElement extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    // 在元素被添加到文档之后，浏览器会调用这个方法
+    //（如果一个元素被反复添加到文档／移除文档，那么这个方法会被多次调用）
+  }
+
+  disconnectedCallback() {
+    // 在元素从文档移除的时候，浏览器会调用这个方法
+    //（如果一个元素被反复添加到文档／移除文档，那么这个方法会被多次调用）
+  }
+
+  static get observedAttributes() {
+    return [/* 属性数组，这些属性的变化会被监视 */];
+  }
+
+  adoptedCallback() {
+    // 在元素被移动到新的文档的时候，这个方法会被调用
+    //（document.adoptNode 会用到, 非常少见）
+  }
+
+  attributeChangedCallback() {
+    // 当上面数组中的属性发生变化的时候，这个方法会被调用
+  }
+
+}
+
+// 注册元素
+// 让浏览器知道我们新定义的类是为 <my-element> 服务的
+customElements.define("my-element", MyElement);
+
+```

@@ -8,8 +8,6 @@
 
 > 00后：他白白牺牲生命，忘了出卖组织。
 
-#
-
 #### 软件分享
 
 
@@ -21,12 +19,12 @@
  -  <a href="http://www.sketchcn.com/" target="_blank">Sketch - 设计师的矢量绘图应用</a>
  -  <a href="http://www.browsersync.cn/" target="_blank">Browsersync中文网 - 省时的浏览器同步测试工具</a>
  -  <a href="https://www.portablesoft.org/" target="_blank">精品绿色便携软件</a>
- 
- 
+
+
 #### 开发工具
 
 -  <a href="https://www.anaconda.com/distribution/" target="_blank">Anaconda 是一个用于科学计算的 Python 发行版</a>
- 
+
 #### 编程学习
  -  <a href="http://www.codecademy.com/zh" target="_blank">codecademy-在线编程学习网站</a>
  -  <a href="http://www.codewars.com/" target="_blank">codewars-在线编程学习网站</a>
@@ -84,7 +82,7 @@
  -  <a href="https://bestofjs.org" target="_blank">BestofJS - 查看当前哪些库最流行</a>  
 #### 图片占位
 - <a href="https://picsum.photos/" target="_blank">Lorem Picsum - 图片占位服务</a>  
- 
+
 #### 主题
 -  <a href="http://color-themes.com/" target="_blank">Color Themes</a>
 -  <a href="http://nipponcolors.com/" target="_blank">NIPPON COLORS - 日本の伝統色</a>

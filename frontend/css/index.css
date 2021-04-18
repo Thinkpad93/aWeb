@@ -137,6 +137,21 @@ button {
   outline: 0 none;
 }
 
+button {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  color: #fff;
+  border: 0;
+  display: block;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* 去掉默认 select 的下拉图标 和 边框 */
 .select {
   -webkit-appearance: none;
