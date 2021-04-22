@@ -1,3 +1,4 @@
+// 函数重载，函数名称一样但接收的参数类型不一样
 function reverse(x: number): number;
 function reverse(x: string): string;
 
