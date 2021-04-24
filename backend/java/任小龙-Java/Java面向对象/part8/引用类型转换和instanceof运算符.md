@@ -5,14 +5,14 @@
 自动类型转换：把小类型的数赋值给大类型的变量（这里的大和小表示容量范围）
 
 ```java
-byte b = 12;  //byte是1个字节
-int i = b; //int是4个字节
+byte b = 12;  // byte是1个字节
+int i = b; // int是4个字节
 ```
 
 强制类型转换：把大类型的数据赋值给小类型的变量
 
 ```java
-short s = (short) i; //short是2个字节
+short s = (short) i; // short是2个字节
 ```
 
 ------
@@ -23,7 +23,7 @@ short s = (short) i; //short是2个字节
 
 ```java
 Animal a = new Dog();
-//Object是所有类的根类
+// Object是所有类的根类
 Object obj = new Dog();
 ```
 

@@ -1,20 +1,20 @@
 #####  理解super关键字 
 
 ```java
-//鸟类
+// 鸟类
 class Bird extends Object {
     public void fly() {
         System.out.println("我在仰望，自由飞翔");
     }
 }
-//企鹅
+// 企鹅
 class Penguin extends Bird {
     public void fly() {
         System.out.println("飞不起");
     }
     public void say() {
         System.out.println("我要唱歌");
-        //调用父类的方法
+        // 调用父类的方法
         super.fly();
     }
 }

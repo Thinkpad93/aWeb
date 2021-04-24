@@ -1,15 +1,15 @@
 使用import语句，直接把某个包下的类导入到当前类中
 
 ```java
-import java.util.Arrays; //全限定名称
+import java.util.Arrays; // 全限定名称
 
 class ImportDemo {
     public static void main(String[] args) {
         int[] arr = new int[]{11, 1, 2, 4, 9, 12};
-        //打印数组
+        // 打印数组
         String ret = Arrays.toString(arr);
         System.out.println(ret);
-        //排序
+        // 排序
         ret = Arrays.sort(arr);
         System.out.println(ret);
     }

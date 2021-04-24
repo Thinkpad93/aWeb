@@ -38,7 +38,7 @@ final本身的含义是：“最终的，不可改变的”，它可以修饰抽
 
  ```java
 final class SuperClass {}
-//错误 无法从最终SuperClass类进行继续
+// 错误 无法从最终SuperClass类进行继续
 class SubClass extends SuperClass {}
  ```
 
@@ -46,14 +46,14 @@ class SubClass extends SuperClass {}
 class SuperClass {
     public final void doWork() {}
 }
-//错误 SubClass中的doWork方法无法覆盖SuperClass中的doWork方法
+// 错误 SubClass中的doWork方法无法覆盖SuperClass中的doWork方法
 class SubClass extends SuperClass {
     public void doWork() {}
 }
 ```
 
 ```java
-//常量类
+// 常量类
 class Consts {
     public static final int X_SIZE = 100;
     public static final int Y_SIZE = 200;

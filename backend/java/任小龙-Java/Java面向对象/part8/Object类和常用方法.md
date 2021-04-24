@@ -4,7 +4,7 @@
 
 ```java
 class ABC {} 
-//等价于
+// 等价于
 class ABC extends Object {}
 ```
 

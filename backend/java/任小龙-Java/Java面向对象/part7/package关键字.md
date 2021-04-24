@@ -15,10 +15,10 @@
 2.在开发中，都是先有package而后在package中再定义类
 
 ```java
-java.lang //语言核心类，系统自动导入
-java.util //工具类、集合框架、时间、日历等都得用到这个包
-java.io //流的接口和类，以后要读写文件或者图片就要用到这个包
-java.sql //jdbc
-java.net //网络编程接口
+java.lang // 语言核心类，系统自动导入
+java.util // 工具类、集合框架、时间、日历等都得用到这个包
+java.io // 流的接口和类，以后要读写文件或者图片就要用到这个包
+java.sql // jdbc
+java.net // 网络编程接口
 ```
 

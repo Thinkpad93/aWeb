@@ -27,16 +27,16 @@
 ```java
 //人类
 class Person {
-    String name; //名称
-    int age; //年龄
-    //不属于某个对象，属于人类
-    static int totalNum = 5; //总人数
+    String name; // 名称
+    int age; // 年龄
+    // 不属于某个对象，属于人类
+    static int totalNum = 5; // 总人数
     
     void die() {
         totalNum --;
         System.out.printLn("去世....");
     }
-    //只有人类才有毁灭
+    // 只有人类才有毁灭
     static void destory() {
         totalNum = 0;
         System.out.printLn("人类毁灭....");
@@ -52,10 +52,10 @@ public class HelloWorld {
         
         System.out.printLn(Person.totalNum);
         
-        //调用去世方法
+        // 调用去世方法
         p2.die(); 
         
-        //毁灭
+        // 毁灭
         p2.destory();
         
         System.out.printLn(Person.totalNum);

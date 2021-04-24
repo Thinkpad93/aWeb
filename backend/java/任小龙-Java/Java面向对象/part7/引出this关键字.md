@@ -25,41 +25,41 @@ this主要存在于两个位置中
 6.**static不能和this一起使用**（当字节码被加载进JVM时，static）
 
 ```java
-//定义一个用户信息User的类
+// 定义一个用户信息User的类
 class User {
     private String name;
     private int age;
     
-    //默认构造器，如果没有写，编译器会自动创建
+    // 默认构造器，如果没有写，编译器会自动创建
     User() {
        System.out.println(this);
     }
     
     public String getName() {
-       return name; //获取name字段的值
+       return name; // 获取name字段的值
     }
     public void setName(String n) {
-        //把调用者传进的n参数的值赋值给name字段
+        // 把调用者传进的n参数的值赋值给name字段
         name = n;
     }
     public int getAge() {
         return age;
     }
     public setAge(int a) {
-        //设置age字段的值
+        // 设置age字段的值
         this.age = a;
     }
 }
-//this关键字
+// this关键字
 public class HelloWorld {
     public static void main(String[] args) {
-        //创建一个对象(实例化)
+        // 创建一个对象(实例化)
         User u1 = new User();
         u1.setName("Lucy");
         u1.setAge("18");
         String n = u1.getName();
         int a = u1.getAge();
-        //打印出Lucy
+        // 打印出Lucy
         System.out.println(n);
         System.out.println(n + "" + a);
     }

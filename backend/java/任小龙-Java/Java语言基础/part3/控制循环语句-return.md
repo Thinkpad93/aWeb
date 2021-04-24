@@ -16,7 +16,7 @@ public class HelloWorld {
         System.out.println("这里会打印...");
         for (int i = 0 ; i < 10; i++) {
             if (i == 7) {
-                return; //终止方法运行
+                return; // 终止方法运行
             }
             System.out.println(i);
         }

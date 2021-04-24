@@ -5,7 +5,7 @@
 class ForeachDemo {
     public static void main(String[] args) {
         int[] nums = new int[] {10,20,30,40,50};
-        //增强for循环
+        // 增强for循环
         for (int ele : nums) {
             System.out.println(ele);
         }

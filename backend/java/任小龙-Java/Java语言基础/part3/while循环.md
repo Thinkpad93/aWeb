@@ -17,9 +17,9 @@ public class HelloWorld {
             System.out.println("帅锅");
             count ++;
         }
-        //案例2: 计算1-100以内的正整数之和
+        // 案例2: 计算1-100以内的正整数之和
         int number = 1;
-        int result = 0; //总数之和
+        int result = 0; // 总数之和
         while (number <= 100) {
             result = result + number;
             number ++; 
