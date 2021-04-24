@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "module": "es2020",
+    "sourceMap": true,
+    "target": "es2015"
+  }
+}
