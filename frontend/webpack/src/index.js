@@ -1,21 +1,10 @@
+import normalize from 'normalize.css';
 import "./index.scss";
 
-const obj = {
-  fn() {
-    return this;
-  },
-  getName(name = "") {
-    console.log(navigator.userAgent);
-    return `This is ${name}`;
-  }
-};
+import { parseTimeData } from '@/utils';
 
-obj.getName("Jack");
+const now = +new Date();
+const lastDate = new Date('2021/05/15');
+const time = lastDate.getTime() - now;
 
-function component() {
-  var element = document.createElement('div');
-  element.classList.add('flex');
-  return element;
-}
-
-document.body.appendChild(component());
+parseTimeData(time);

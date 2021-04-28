@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "browser-sync": "^2.26.7",
+    "gitmoji-cli": "^4.0.0",
     "gulp": "^4.0.2"
   }
 }

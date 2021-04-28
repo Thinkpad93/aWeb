@@ -5,14 +5,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 // 压缩CSS插件
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: {
     app: "./src/index.js"
   },
   output: {
-    filename: "[name].js",
+    filename: "js/[name].[hash].js",
     path: path.resolve(__dirname, "dist")
   },
   module: {
@@ -35,23 +34,44 @@ module.exports = {
       {
         test: /\.(css|scss|sass)$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              esModule: true
-            }
-          },
-          // "style-loader"
+          // {
+          //   loader: MiniCssExtractPlugin.loader,
+          //   options: {
+          //     esModule: true
+          //   }
+          // },
+          "style-loader",
           "css-loader",
           "postcss-loader",
           // "sass-loader"
         ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              limit: 10000,
+              esModule: false,
+              name: '[name].[hash:7].[ext]',
+              outputPath: 'images/'
+            }
+          }
+        ]
       }
     ]
   },
+  // 配置模块如何解析
+  resolve: {
+    extensions: ['.js', '.json'],
+    alias: {
+      '@': path.resolve(__dirname, './src')
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "真爱榜",
+      title: "",
       template: __dirname + `/src/index.html`,
       filename: "index.html",
       minify: {
@@ -64,9 +84,6 @@ module.exports = {
       },      
       minify: false,
       hash: false
-    }),
-    new MiniCssExtractPlugin({
-      filename: "[name].css"
     })
   ]
 };

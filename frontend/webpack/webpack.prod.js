@@ -14,6 +14,9 @@ module.exports = merge(common, {
       verbose: false, // 开启在控制台输出信息
       dry: false,
     }),
-    new OptimizeCssAssetsPlugin()
+    new OptimizeCssAssetsPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash].css'
+    })    
   ],
 });
