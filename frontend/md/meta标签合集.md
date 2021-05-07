@@ -9,6 +9,8 @@
 <!-- 启用360浏览器的极速模式(webkit) -->
 <meta name="renderer" content="webkit" />
 <meta name="format-detection" content="telephone=no" />
+<!-- 开启UC浏览器应用模式 -->
+<meta name="browsermode" content="application">
 <!-- QQ应用模式-->
 <meta name="x5-page-mode" content="app"> 
 <!-- 不让百度转码 -->
