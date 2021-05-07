@@ -1,4 +1,4 @@
-#####  Java核心内库-线程-吃苹果比赛-使用实现方式 
+##### Java 核心内库-线程-吃苹果比赛-使用实现方式
 
 ```java
 class Apple implements Runnable {
@@ -21,4 +21,3 @@ public class HelloWorld {
     }
 }
 ```
-

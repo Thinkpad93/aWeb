@@ -2,7 +2,7 @@
 
 #### 你还有什么想问的吗？这个时候怎么回答
 
-1、工作内容， 项目的性质，考察公司或即将入职的部门的业务部门生存能力和否有分红能力（年终奖）
+1、工作内容，项目的性质，考察公司或即将入职的部门的业务部门生存能力和否有分红能力（年终奖）
 2、工作时间，上下班打卡，加班，调休，工作氛围。
 3、可以和技术面试官问问公司福利，如果他愿意说，会更真实
 4、试探性的问下本次面试的结果，委婉的打探下本次面试成绩
@@ -88,6 +88,30 @@ Array.from(btns).forEach((item, index) => {
     console.log(b()); // 每次点击加一
   });
 });
+```
+
+另一个闭包例子
+
+```html
+<ul class="list">
+  <li class="item">人生如逆旅，我亦是行人</li>
+  <li class="item">送行淡月微云。尊前不用翠眉颦</li>
+  <li class="item">一别都门三改火，天涯踏尽红尘</li>
+</ul>
+```
+
+```js
+const list = document.querySelector(".list");
+// 从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例
+const childElem = Array.from(list.children); 
+function handle(i) {
+  return function () {
+    alert(i);
+  };
+}
+for (var i = 0; i < childElem.length; i++) {
+  childElem[i].onclick = handle(i);
+}
 ```
 
 闭包我的理解就是一个函数里再定义一个函数，因为函数本身有自己的作用域，所以内部定义的那个函数可以访问它外部的的那个函数

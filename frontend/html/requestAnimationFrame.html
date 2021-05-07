@@ -15,9 +15,9 @@
   </body>
   <script>
     window.onload = function () {
-      let winWidth = window.innerWidth;
+      const winWidth = window.innerWidth;
       function loop() {
-        let box = document.querySelector('.box');
+        const box = document.querySelector('.box');
         box.style.width = parseInt(box.style.width) + 1 + 'px';
         if (parseInt(box.style.width) < winWidth / 2) {
           window.requestAnimationFrame(loop);
