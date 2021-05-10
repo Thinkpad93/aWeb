@@ -30,3 +30,24 @@ Range.prototype = {
 
 const range = new Range(1, 3);
 ```
+
+```js
+class SuperType {
+  constructor() {
+    console.log(this);
+  }
+}
+
+class SubType extends SuperType {
+  constructor() {
+    super();
+  }
+
+  static getName(name = '') {
+    return `${name}`;
+  }
+}
+
+
+
+```
