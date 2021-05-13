@@ -40,11 +40,9 @@
   </body>
   <script>
     window.onload = function () {
-      const apiUrl = "http://localhost:8038/jiekou/mains/p1.html";
       const list = document.querySelector(".list");
-
       // 发起一个请求
-      fetch(apiUrl, {
+      fetch("http://localhost:8038/jiekou/mains/p1.html", {
         credentials: "same-origin",
         mode: "cors",
         method: "GET",
