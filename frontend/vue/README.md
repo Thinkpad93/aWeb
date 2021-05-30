@@ -1,5 +1,5 @@
 #### v-if 和 v-show 的区别
-`v-show` 不管值是 true 还是 false 其DOM结构会一直存在，改变的只是 css 中 display 的显示和隐藏。
+`v-show` 不管表达式值是 true 还是 false 其DOM结构会一直存在，改变的只是 css 中 display 的显示和隐藏。
 `v-if` 会控制 Dom 结构的插入和移除。
 
 
