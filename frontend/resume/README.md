@@ -1,3 +1,11 @@
+#### 简历建议
+- http://www.alloyteam.com/2019/09/13948/
+
+#### 如何写一份简历
+- https://m.zhipin.com/mpa/html/get/column?contentId=998f79f36054d4a7qxB52ts~&identity=0&userId=26198027
+
+
+
 主要工作 APP 内嵌页开发
 
 #### 权限控制做过没，页面级还是控件级，怎么实现的
