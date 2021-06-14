@@ -1,9 +1,9 @@
 var EventEmitter = require('events');
 
-let e = new EventEmitter();
+const eventEmit = new EventEmitter();
 
-e.on('message', (text) => {
+eventEmit.on('message', (text) => {
   console.log(text);
 });
 
-e.emit('message', 'hello message');
+eventEmit.emit('message', 'hello message');
