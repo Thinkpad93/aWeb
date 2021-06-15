@@ -10,3 +10,6 @@ export function parseTimeData(time) {
 
   return { days, hours, minutes, milliseconds };
 }
+
+// Tree Shaking 测试
+export const ua = navigator.userAgent;
