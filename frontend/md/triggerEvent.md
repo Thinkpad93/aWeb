@@ -6,7 +6,7 @@
 
 ```js
 const triggerEvent = (el, eventType, detail) => {
-    el.dispatchEvent(new CustomEvent(eventType, { detail }));
+  el.dispatchEvent(new CustomEvent(eventType, { detail }));
 }
 // 示例
 triggerEvent(document.getElementById('myId'), 'click');
@@ -16,10 +16,10 @@ document.getElementById('myId'), 'click', { username: 'bob' });
 **创建一个对象，名字为 newEvent，类型为 build**
 
 ```js
-const newEvent = new CustomEvent('build', {
+const newEvent = new CustomEvent("build", {
   detail: {
-    dog: 'wo',
-    cat: 'mio',
+    dog: "wo",
+    cat: "mio",
   },
 });
 ```
@@ -27,7 +27,7 @@ const newEvent = new CustomEvent('build', {
 **将自定义事件绑定在 document 对象上**
 
 ```js
-document.addEventListener('build', function (event) {
+document.addEventListener("build", function (event) {
   alert(event.detail.dog);
   alert(event.detail.cat);
 });

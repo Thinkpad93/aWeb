@@ -1,6 +1,6 @@
 #### 说一下 js 有几种数据类型
 
-1.基础数据类型有 `string` `boolean` `number` `undefind` `null` 2.引用类型 `object`
+1.基础数据类型有 `string` `boolean` `number` `undefined` `null` 2.引用类型 `object`
 
 #### apply、call、bind
 
