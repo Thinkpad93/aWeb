@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="btn-group">
+      <button type="button" class="btn">按钮1</button>
+      <button type="button" class="btn">按钮2</button>
+      <button type="button" class="btn">按钮3</button>
+      <button type="button" class="btn">按钮4</button>
+    </div>
+  </body>
+  <script>
+    function count() {
+      let count = 0;
+      return function add() {
+        return count++;
+      };
+    }
+    const btns = document.querySelectorAll(".btn");
+    console.log(Array.from(btns));
+    Array.from(btns).forEach((item) => {
+      let b = count();
+      item.addEventListener("click", (e) => {
+        item.setAttribute("data-count", b());
+      });
+    });
+  </script>
+</html>

@@ -13,6 +13,8 @@
 #### vue 生命周期的理解
 
 vue 生命周期总共分为 8 个阶段: 创建前/后，载入前/后，更新前/后， 销毁前/后。
+`beforeCreate` `created` `beforeMount` `mounted` `beforeUpdate`
+`updated` `beforeDestroy` `destroyed`
 
 #### vue 的双向数据绑定原理
 
@@ -31,3 +33,28 @@ function defineReactive(data, key, val) {}
 #### vue组件data为什么是一个函数
 
 `data`是一个函数的时候，每个实例的`data`属性都是独立的，不会相互影响
+
+#### watch 和 computed 的区别
+
+`computed` 有依赖性，只有 `data` 的数据发生变化了才会重新计算
+
+#### nexttick 原理是什么？
+
+#### vue 打包优化
+- 小图片压缩成base64格式
+- 第三方库启用CDN
+- 路由懒加载（）
+- 组件按需加载
+- 压缩js代码
+
+
+#### vue router 路由导航有几种模式
+- hash 模式
+- history 模式
+
+
+#### watch 如何深度监听
+
+```js
+
+```

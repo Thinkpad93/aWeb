@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>防抖</title>
+  </head>
+  <body>
+    <div id="app">
+      <button type="button" class="btn">点击发送ajax请求</button>
+    </div>
+  </body>
+  <script>
+    function handleClick() {
+      console.log(+new Date);
+    }
+    // 防抖只会在规定时间内触发
+    function debounce(fn, wait = 1000) {
+      let timer;
+      return function () {
+        timer && clearTimeout(timer);
+        timer = setTimeout(() => {
+          fn.apply(this, arguments);
+        }, wait);
+      };
+    }
+    const btn = document.querySelector(".btn");
+    btn.addEventListener("click", debounce(handleClick));
+  </script>
+</html>
