@@ -122,7 +122,6 @@ const newArray = Array.from(btns);
 每个原型对象都属于对象，它也有自己的原型，而它自己的原型对象又有自己的原型，就形成了原型链
 js 的继承是通过原型链来实现的，当访问这个对象的属性时，如果这个对象本身不存在，则沿着 `__proto__` 依次向上查找，如果有则返回，没有则一直找到 `Object.prototype` 的 `__proto__` 的值为 `null`
 
-
 ```js
 function Animal() {
   this.name = name;
@@ -144,16 +143,44 @@ Animal.prototype.play = function (play) {
 };
 
 // 类调用方法
-Animal.eat('food'); // 可以调用类的静态方法
-Animal.play('warter'); // 不能调用原型方法
+Animal.eat("food"); // 可以调用类的静态方法
+Animal.play("warter"); // 不能调用原型方法
 Animal.sleep(); // 不能调用实例方法
 
 // 实例化调用方法
-const cat  = new Animal();
-cat.play('warter'); // 可以调用原型方法，实例化方法会覆盖原型方法，优先级高于原型方法
+const cat = new Animal();
+cat.play("warter"); // 可以调用原型方法，实例化方法会覆盖原型方法，优先级高于原型方法
 cat.sleep(); // 可以调用实例化方法
 cat.eat(); // 静态方法不可调用
-
 ```
+
 `cat.__proto__` 等于 `Animal.prototype`
 `Animal.prototype.__proto__` 等于 `Object.prototype`
+
+#### 使用 promise 加载一张网络图片，如果失败返回一张占位图
+
+```js
+function loadImage(url) {
+  return new Promise((resolve, reject) => {
+    let img = new Img();
+    img.onload = function () {
+      img.src = url;
+      document.body.appendChild(img);
+      resolve("load img success...");
+    };
+    img.onerror = function () {
+      img.src = "http://";
+      reject("load img error...");
+    };
+  });
+}
+loadImage(
+  "https://static.zhipin.com/zhipin-geek/chat/v24/static/images/logo-2x.0bd629ae.png"
+)
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((e) => {
+    console.log(e);
+  });
+```
