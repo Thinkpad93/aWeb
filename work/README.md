@@ -9,3 +9,7 @@ eoLinker开源版本
 
 #### 构建平台
 Jenkins
+
+#### 需求平台
+- https://www.atlassian.com/zh
+- teambition
