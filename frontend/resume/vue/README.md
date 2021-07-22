@@ -50,8 +50,25 @@ function defineReactive(data, key, val) {}
 
 #### vue router 路由导航有几种模式
 
+vue 默认使用的是`hash`模式
+
 - hash 模式
+  http://localhost:8080/#/pageA
+  hash 值为 `#/pageA`
+
 - history 模式
+  http://localhost:8080/
+  正常的路径，并没有 `#`
+
+#### vue-router有哪几种导航钩子？
+- 全局导航钩子
+- 组件导航钩子
+
+#### $route和$router的区别？
+`$route` 是路由信息对象，包含 `path`，`params`，`hash`，`query`，`fullPath`，`matched`，`name` 等路由信息参数
+`$router` 是路由实例，包含路由的跳转方法 `$router.push()`，钩子函数等
+
+
 
 #### watch 如何深度监听
 
@@ -68,3 +85,27 @@ mounted() {
     console.log(footer);
 }
 ```
+
+#### 初始化页面闪动问题（非工程化项目）
+
+使用`v-cloak`，隐藏未编译时候的标签
+
+```css
+[v-cloak] {
+  display: none;
+}
+```
+
+```html
+<div v-cloak>
+  <div class="message">{{ message }}</div>
+</div>
+```
+
+#### vuex 的核心概念
+
+`state` => 基本数据
+`getters` => 从基本数据派生出来的数据
+`mutations` => 修改数据，同步
+`actions` => 修改数据，异步
+`modules` => 模块化 `vuex`

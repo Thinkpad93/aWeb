@@ -4,15 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>防抖</title>
+    <style>
+      .mod {
+        margin: 10px 0;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
-      <button type="button" class="btn">点击发送ajax请求</button>
+      <div class="mod">
+        <button type="button" class="btn">点击发送ajax请求</button>
+      </div>
+      <div class="mod">
+        <input id="text" type="text" placeholder="请输入要搜索的内容~" />
+      </div>
     </div>
   </body>
   <script>
-    function handleClick() {
-      console.log(+new Date);
+    const btn = document.querySelector(".btn");
+    const text = document.getElementById('text');
+    function handleClick(value) {
+      console.log(value);
+      console.log(+new Date());
+    }
+    function searchText(value) {
+      console.log(value);
     }
     // 防抖只会在规定时间内触发
     function debounce(fn, wait = 1000) {
@@ -24,7 +40,12 @@
         }, wait);
       };
     }
-    const btn = document.querySelector(".btn");
+    const fn = debounce(handleClick, 1000);
+    const textFn = debounce(searchText);
+    
     btn.addEventListener("click", debounce(handleClick));
+    text.addEventListener('input', e => {
+      textFn(e);
+    })
   </script>
 </html>
