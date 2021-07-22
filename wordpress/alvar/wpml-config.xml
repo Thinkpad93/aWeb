@@ -1,0 +1,22 @@
+<wpml-config>
+	<custom-fields>
+		<custom-field action="copy">_thumbnail_id</custom-field>
+	</custom-fields>
+	<custom-types>
+		<custom-type translate="1">uxbarn_portfolio</custom-type>
+	</custom-types>
+	<taxonomies>
+		<taxonomy translate="1">uxbarn_portfolio_tax</taxonomy>
+	</taxonomies>
+	<admin-texts>
+		<key name="theme_mods_alvar">
+			<key name="alvar_ctmzr_site_identity_other_info_text" />
+			<key name="alvar_ctmzr_site_identity_copyright_text" />
+			<key name="alvar_ctmzr_general_options_blog_menu_text_active_status" />
+			<key name="alvar_ctmzr_portfolio_styles_additional_button_text" />
+			<key name="alvar_ctmzr_portfolio_styles_change_category_menu_text" />
+			<key name="alvar_ctmzr_portfolio_styles_all_works_everything_menu_text" />
+			<key name="alvar_ctmzr_portfolio_options_portfolio_menu_text_active_status" />
+		</key>
+	</admin-texts>
+</wpml-config>

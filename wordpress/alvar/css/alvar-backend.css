@@ -1,0 +1,29 @@
+#migrate-data-ot-acf,
+.migration-status {
+	vertical-align: middle;
+}
+
+.migration-status {
+	margin-left: 1em;
+}
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.migration-error {
+	color: red;
+}
+
+
+
+/*** Hide unused Gallery Settings of OptionTree Gallery meta field ***/
+#ot-gallery-frame .gallery-settings {
+	display: none;
+}
