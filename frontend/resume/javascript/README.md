@@ -108,11 +108,17 @@ document.createElement("div");
 
 ```js
 // 第一种方法
-const newArray = Array.prototype.slice.call(args);
+const newArray = Array.prototype.slice.call(document.querySelectorAll('div'));
 
 // 第二种方法
 const btns = document.querySelectorAll(".btn"); // 返回节点列表，但不是一个真正的数组
 const newArray = Array.from(btns);
+
+// 扩展运算符
+const newArray = [...document.querySelectorAll(".btn")];
+
+// 利用concat
+Array.prototype.concat.apply([], document.querySelectorAll('div'));
 ```
 
 #### 原型方法、实例方法、静态方法有什么不同？
