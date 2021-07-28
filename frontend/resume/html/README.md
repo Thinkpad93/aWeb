@@ -1,4 +1,4 @@
-#### html5有哪些新特性
+#### html5 有哪些新特性
 
 - 新增选择器 document.querySelector、document.querySelectorAll
 - 拖拽释放(Drag and drop) API
@@ -17,3 +17,9 @@
 - 跨窗口通信 PostMessage
 - Form Data 对象
 - 绘画 canvas
+
+
+
+#### 行内元素和块级元素有哪些？
+行内元素: `a` `b` `span` `img` `input` `select` `strong`
+块级元素: `div` `ul` `ol` `main` `header` `footer`
