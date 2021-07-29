@@ -27,6 +27,16 @@
       .content {
         padding: 0 10px;
       }
+      .list li {
+        margin-bottom: 10px;
+      }
+      .info {
+        margin: 5px 0;
+        font-size: 12px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        background-color: #f5f5f5;
+      }
     </style>
   </head>
   <body>
@@ -56,9 +66,17 @@
             .map(
               (album) =>
                 `<li data-add-item="${album.addtime}">
-              <p>${album.title}</p>
-              <img src="${album.url}" alt="${album.title}"/>
-            </li>`
+                  <div class="info">
+                    <p>${album.title}</p>
+                    <ul>
+                      <li>amd5: ${album.amd5}</li>
+                      <li>sort: ${album.sort}</li>
+                      <li>id: ${album.id}</li>
+                      <li>timingpublish: ${album.timingpublish}</li>
+                    </ul>
+                  </div>
+                  <img src="${album.url}" alt="${album.title}"/>
+                </li>`
             )
             .join("")}
         `;

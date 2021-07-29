@@ -73,6 +73,18 @@ Object.prototype.toString.call({ name: "jack" }); // "[object Object]"
 Object.prototype.toString.call([{ name: "jack" }]); // "[object Array]"
 ```
 
+#### 说一下 es6 新的特性
+
+这里可以说下你在工作中用到的
+
+- 新增了 let const 用来声明变量
+- 数组和对象的解构赋值
+- 字符串模板
+- 函数的扩展，箭头函数
+- 对象新增的方法，如 `Object.is` `Object.assign`
+- `class` 语法糖
+- `Module` 语法，`import` `export` 等等
+
 #### let const var 的区别
 
 函数提升优先于变量提升，函数提升会把整个函数挪到作用域顶部，变量提升只会把声明挪到作用域顶部
@@ -108,11 +120,17 @@ document.createElement("div");
 
 ```js
 // 第一种方法
-const newArray = Array.prototype.slice.call(args);
+const newArray = Array.prototype.slice.call(document.querySelectorAll("div"));
 
 // 第二种方法
 const btns = document.querySelectorAll(".btn"); // 返回节点列表，但不是一个真正的数组
 const newArray = Array.from(btns);
+
+// 扩展运算符
+const newArray = [...document.querySelectorAll(".btn")];
+
+// 利用concat
+Array.prototype.concat.apply([], document.querySelectorAll("div"));
 ```
 
 #### 原型方法、实例方法、静态方法有什么不同？
@@ -183,4 +201,40 @@ loadImage(
   .catch((e) => {
     console.log(e);
   });
+```
+
+#### 请输出结果
+
+```js
+var a = 20;
+var obj = {
+  a: 10,
+  c: this.a + 20,
+  v: this.c + this.a,
+  fn: function () {
+    return this.a;
+  },
+  fn2: () => this.v,
+};
+console.log(obj.c); // 40 this.a 指向 window.a
+console.log(obj.fn()); // 10
+console.log(obj.fn2()); // undefined
+var handle = obj.fn;
+console.log(handle()); // 20 全局作用域下查找变量a
+```
+
+```js
+setTimeout(function () {
+  console.log("timeout1");
+  new Promise(function (resolve) {
+    console.log("Promise1");
+    for (var i = 0; i < 10000; i++) {
+      i === 9999 && resolve();
+    }
+    console.log("Promise2");
+  }).then(function () {
+    console.log("then1");
+  });
+});
+console.log("global1");
 ```

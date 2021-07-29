@@ -48,27 +48,6 @@ function defineReactive(data, key, val) {}
 - 组件按需加载
 - 压缩 js 代码
 
-#### vue router 路由导航有几种模式
-
-vue 默认使用的是`hash`模式
-
-- hash 模式
-  http://localhost:8080/#/pageA
-  hash 值为 `#/pageA`
-
-- history 模式
-  http://localhost:8080/
-  正常的路径，并没有 `#`
-
-#### vue-router有哪几种导航钩子？
-- 全局导航钩子
-- 组件导航钩子
-
-#### $route和$router的区别？
-`$route` 是路由信息对象，包含 `path`，`params`，`hash`，`query`，`fullPath`，`matched`，`name` 等路由信息参数
-`$router` 是路由实例，包含路由的跳转方法 `$router.push()`，钩子函数等
-
-
 
 #### watch 如何深度监听
 
@@ -81,8 +60,8 @@ vue 默认使用的是`hash`模式
 ```js
 created() {},
 mounted() {
-    const footer = document.getElementById('#footer');
-    console.log(footer);
+  const footer = document.getElementById('#footer');
+  console.log(footer);
 }
 ```
 
@@ -109,3 +88,8 @@ mounted() {
 `mutations` => 修改数据，同步
 `actions` => 修改数据，异步
 `modules` => 模块化 `vuex`
+
+
+#### 子组件如何调用父组件方法？
+- 直接在子组件中通过 `this.$parent.event` 调用父组件方法
+- 父组件把方法传入子组件中，在子组件里直接调用这个方法

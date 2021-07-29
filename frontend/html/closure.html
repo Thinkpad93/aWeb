@@ -14,8 +14,8 @@
     </div>
   </body>
   <script>
-    function count() {
-      let count = 0;
+    function count(initial = 0) {
+      let count = initial;
       return function add() {
         return count++;
       };
