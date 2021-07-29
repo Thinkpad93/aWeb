@@ -1,87 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>国家地理</title>
-    <!-- 引入样式文件 -->
-    <link
-      href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      *::after,
-      *::before {
-        box-sizing: inherit;
-      }
-      ul {
-        list-style-type: none;
-        padding: 0;
-      }
-      img {
-        max-width: 100%;
-      }
-      .content {
-        padding: 0 10px;
-      }
-      .list li {
-        margin-bottom: 10px;
-      }
-      .info {
-        margin: 5px 0;
-        font-size: 12px;
-        padding: 5px;
-        border: 1px solid #ccc;
-        background-color: #f5f5f5;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="page">
-      <div class="page-bd">
-        <div class="content">
-          <ul class="list"></ul>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>国家地理</title>
+  <!-- 引入样式文件 -->
+  <link href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css" rel="stylesheet" />
+  <link href="../../css/index.css" rel="stylesheet" />
+  <style>
+    .content {
+      padding: 10px;
+    }
+
+    .list li {
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="page">
+    <div class="page-bd">
+      <div class="content">
+        <ul class="list"></ul>
       </div>
+      <div class="p">不可见元素</div>
     </div>
-  </body>
-  <script>
-    window.onload = function () {
-      const list = document.querySelector(".list");
-      // 发起一个请求
-      fetch("http://localhost:8038/jiekou/mains/p1.html", {
+  </div>
+</body>
+<script>
+  window.onload = function () {
+    let page = 1;
+    const io = new IntersectionObserver(function (entries) {
+      if (entries[0].intersectionRatio <= 0) {
+        return;
+      }
+      console.log(entries);
+      page++;
+      myFetch();
+    });
+    io.observe(document.querySelector('.p'));
+    let list = document.querySelector(".list");
+    myFetch();
+    // 发起一个请求
+    function myFetch() {
+      fetch(`http://localhost:8038/jiekou/mains/p${page}.html`, {
         credentials: "same-origin",
         mode: "cors",
         method: "GET",
       })
         .then((response) => response.json())
-        .then((json) => showData(json.album));
+        .then((json) => showData(json.album, json.page));
+    }
 
-      function showData(data) {
-        list.innerHTML = `
-          ${data
-            .map(
-              (album) =>
-                `<li data-add-item="${album.addtime}">
-                  <div class="info">
-                    <p>${album.title}</p>
-                    <ul>
-                      <li>amd5: ${album.amd5}</li>
-                      <li>sort: ${album.sort}</li>
-                      <li>id: ${album.id}</li>
-                      <li>timingpublish: ${album.timingpublish}</li>
-                    </ul>
-                  </div>
-                  <img src="${album.url}" alt="${album.title}"/>
-                </li>`
-            )
-            .join("")}
+    function showData(data, page) {
+      let listItems = document.createElement('div');
+      listItems.setAttribute('data-page', page);
+      let _data = `
+        ${data
+          .map(
+            (album) =>
+              `<li data-add-item="${album.addtime}">
+                <p>${album.title}</p>
+                <img src="${album.url}" alt="${album.title}"/>
+              </li>`
+          ).join(' ')}
         `;
-        console.log(list);
-      }
-    };
-  </script>
+      listItems.innerHTML = _data;
+      list.appendChild(listItems);
+    }
+  };
+</script>
+
 </html>
