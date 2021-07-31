@@ -51,6 +51,78 @@ Event Loop 即事件循环，是指浏览器或 Node 的一种解决 javaScript 
 
 > 执行微任务过程中产生的新的微任务并不会推迟到下一个循环中执行，而是在当前的循环中继续执行
 
+#### 宏任务和微任务都是怎样执行的?
+
+- 执行宏任务 script
+- 进入 script 后，所有的同步任务主线程执行
+- 所有宏任务放入宏任务执行队列
+- 所有微任务放入微任务执行队列
+- 先清空微任务队列
+- 再取一个宏任务，执行，再清空微任务队列
+- 依次循环
+
+```js
+setTimeout(function () {
+  console.log("1");
+});
+new Promise(function (resolve) {
+  console.log("2");
+  resolve();
+}).then(function () {
+  console.log("3");
+});
+console.log("4");
+new Promise(function (resolve) {
+  console.log("5");
+  resolve();
+}).then(function () {
+  console.log("6");
+});
+setTimeout(function () {
+  console.log("7");
+});
+function bar() {
+  console.log("8");
+  foo();
+}
+function foo() {
+  cnsole.log("9");
+}
+bar();
+```
+- 首先浏览器执行Js代码由上至下顺序，遇到 `setTimeout`，把`setTimeout`分发到宏任务`Event Queue`中
+- `new Promise` 属于主线程任务直接执行打印`2`
+- `Promis`下的`then`方法属于微任务，把`then`分到微任务 `Event Queue`中
+- `console.log('4')`属于主线程任务，直接执行打印`4`
+- 又遇到`new Promise`也是直接执行打印`5`，`Promise` 下到`then`分发到微任务`Event Queue`中
+- 又遇到`setTimouse`也是直接分发到宏任务`Event Queue`中，等待执行
+- `console.log('10')`属于主线程任务直接执行
+- 遇到`bar()`函数调用，执行构造函数内到代码，打印`8`，在`bar`函数中调用`foo`函数，执行`foo`函数到中代码，打印`9`
+- 主线程中任务执行完后，就要执行分发到微任务`Event Queue`中代码，实行先进先出，所以依次打印`3，6`
+- 微任务`Event Queue`中代码执行完，就执行宏任务`Event Queue`中代码，也是先进先出，依次打印`1，7`
+
+最终结果：`2，4，5，10，8，9，3，6，1，7`
+
+再来一题
+
+```js
+setTimeout(function () {
+  console.log("timeout1");
+  new Promise(function (resolve) {
+    console.log("Promise1");
+    for (var i = 0; i < 10000; i++) {
+      i === 9999 && resolve();
+    }
+    console.log("Promise2");
+  }).then(function () {
+    console.log("then1");
+  });
+});
+console.log("global1");
+```
+
+
+
 #### ES6 新的数据类型有哪些
 
 在此之前有 `string` `boolean` `number` `null` `undefined` `object`
@@ -221,20 +293,4 @@ console.log(obj.fn()); // 10
 console.log(obj.fn2()); // undefined
 var handle = obj.fn;
 console.log(handle()); // 20 全局作用域下查找变量a
-```
-
-```js
-setTimeout(function () {
-  console.log("timeout1");
-  new Promise(function (resolve) {
-    console.log("Promise1");
-    for (var i = 0; i < 10000; i++) {
-      i === 9999 && resolve();
-    }
-    console.log("Promise2");
-  }).then(function () {
-    console.log("then1");
-  });
-});
-console.log("global1");
 ```
