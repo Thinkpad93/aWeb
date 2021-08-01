@@ -13,6 +13,8 @@
   <body>
     <div id="app">
       <div class="box">
+        <p>{{ order.aount }}</p>
+        <p>{{ order.name }}</p>
         <el-form ref="form" :model="form">
           <el-form-item
             label="标题"
@@ -67,6 +69,9 @@
         form: {},
         fileList: [],
         uploadForm: '',
+        order: {
+          aount: 1
+        }
       },
       methods: {
         //覆盖默认的上传行为，可以自定义上传的实现
