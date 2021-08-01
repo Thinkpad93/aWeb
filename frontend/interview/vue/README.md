@@ -40,14 +40,23 @@ function defineReactive(data, key, val) {}
 
 #### nexttick 原理是什么？
 
-#### vue 打包优化
+#### 你都做过哪些 vue 性能优化？
 
-- 小图片压缩成 base64 格式
-- 第三方库启用 CDN
-- 路由懒加载（）
-- 组件按需加载
-- 压缩 js 代码
-
+- 尽量减少 `data` 中的数据，`data` 中的数据都会增加 `getter` 和 `setter`，会收集对应的 `watcher`
+- `v-if` 和 `v-for` 不能连用
+- 如果需要使用 `v-for` 给每项元素绑定事件时使用事件代理
+- spa 页面采用 `keep-alive` 缓存组件
+- 在更多的情况下，使用 `v-if` 代替 `v-show`
+- `key` 保证唯一
+- 使用路由懒加载、异步组件
+- 防抖和节流
+- 第三方模块按需导入
+- 服务端渲染 `SSR`
+- 使用 `cdn` 加载第三方模块
+- 压缩代码
+- `Tree Shaking/Scope Hoisting`
+- `splitChunks` 抽离公共文件
+- 还可以使用缓存(客户端缓存、服务端缓存)优化、服务端开启 `gzip` 压缩等。
 
 #### watch 如何深度监听
 

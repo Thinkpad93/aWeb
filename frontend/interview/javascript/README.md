@@ -2,6 +2,7 @@
 
 基础数据类型有 `string` `boolean` `number` `undefined` `null`
 引用类型 `object`
+ES6新增的数据类型 `Symbol` 表示独一无二的值
 
 #### apply、call、bind
 
@@ -31,8 +32,8 @@ window.getPrizeCurrent = function (data) {
 
 #### ==和===的区别？
 
-`==`表示抽象相等，两边值类型不同的时候，会先做隐式类型转换，再对值进行比较；
-`===`表示严格相等，不会做类型转换，两边的类型不同一定不相等。
+`==` 表示抽象相等，两边值类型不同的时候，会先做隐式类型转换，再对值进行比较；
+`===` 表示严格相等，不会做类型转换，两边的类型不同一定不相等。
 
 ####　数组去重
 
@@ -103,30 +104,6 @@ bar();
 
 最终结果：`2，4，5，10，8，9，3，6，1，7`
 
-再来一题
-
-```js
-setTimeout(function () {
-  console.log("timeout1");
-  new Promise(function (resolve) {
-    console.log("Promise1");
-    for (var i = 0; i < 10000; i++) {
-      i === 9999 && resolve();
-    }
-    console.log("Promise2");
-  }).then(function () {
-    console.log("then1");
-  });
-});
-console.log("global1");
-```
-
-
-
-#### ES6 新的数据类型有哪些
-
-在此之前有 `string` `boolean` `number` `null` `undefined` `object`
-`Symbol` 表示独一无二的值
 
 #### 如何检测数据类型
 
@@ -144,6 +121,8 @@ Object.prototype.toString.call({ name: "jack" }); // "[object Object]"
 
 Object.prototype.toString.call([{ name: "jack" }]); // "[object Array]"
 ```
+
+`instanceof` 判断该对象是谁的实例
 
 #### 说一下 es6 新的特性
 
@@ -177,16 +156,16 @@ document.createElement("div");
 
 - 这个其实方案还是比较多的，可以从 DOM 层面，CSS 样式层面和 JS 逻辑层面分别入手，大概给出以下几种：
 
-1. 减少 DOM 的访问次数，可以将 DOM 缓存到变量中；
-2. 减少重绘和回流，任何会导致重绘和回流的操作都应减少执行，可将多次操作合并为一次；
-3. 尽量采用事件委托的方式进行事件绑定，避免大量绑定导致内存占用过多；
-4. css 层级尽量扁平化，避免过多的层级嵌套，尽量使用特定的选择器来区分；
-5. 动画尽量使用 CSS3 动画属性来实现，开启 GPU 硬件加速；
-6. 图片在加载前提前指定宽高或者脱离文档流，可避免加载后的重新计算导致的页面回流；
-7. css 文件在<head>标签中引入，js 文件在<body>标签中引入，优化关键渲染路径；
-8. 加速或者减少 HTTP 请求，使用 CDN 加载静态资源，合理使用浏览器强缓存和协商缓存，小图片可以使用 Base64 来代替，合理使用浏览器的预取指令 prefetch 和预加载指令 preload；
-9. 压缩混淆代码，删除无用代码，代码拆分来减少文件体积；
-10. 小图片使用雪碧图，图片选择合适的质量、尺寸和格式，避免流量浪费。
+- 减少 DOM 的访问次数，可以将 DOM 缓存到变量中；
+- 减少重绘和回流，任何会导致重绘和回流的操作都应减少执行，可将多次操作合并为一次；
+- 尽量采用事件委托的方式进行事件绑定，避免大量绑定导致内存占用过多；
+- css 层级尽量扁平化，避免过多的层级嵌套，尽量使用特定的选择器来区分；
+- 动画尽量使用 CSS3 动画属性来实现，开启 GPU 硬件加速；
+- 图片在加载前提前指定宽高或者脱离文档流，可避免加载后的重新计算导致的页面回流；
+- css 文件在<head>标签中引入，js 文件在<body>标签中引入，优化关键渲染路径；
+- 加速或者减少 HTTP 请求，使用 CDN 加载静态资源，合理使用浏览器强缓存和协商缓存，小图片可以使用 Base64 来代替，合理使用浏览器的预取指令 prefetch 和预加载指令 preload；
+- 压缩混淆代码，删除无用代码，代码拆分来减少文件体积；
+- 小图片使用雪碧图，图片选择合适的质量、尺寸和格式，避免流量浪费。
 
 #### 类数组转数组有哪些方法
 
@@ -247,50 +226,7 @@ cat.eat(); // 静态方法不可调用
 `cat.__proto__` 等于 `Animal.prototype`
 `Animal.prototype.__proto__` 等于 `Object.prototype`
 
-#### 使用 promise 加载一张网络图片，如果失败返回一张占位图
+#### 原型、原型链
 
-```js
-function loadImage(url) {
-  return new Promise((resolve, reject) => {
-    let img = new Img();
-    img.onload = function () {
-      img.src = url;
-      document.body.appendChild(img);
-      resolve("load img success...");
-    };
-    img.onerror = function () {
-      img.src = "http://";
-      reject("load img error...");
-    };
-  });
-}
-loadImage(
-  "https://static.zhipin.com/zhipin-geek/chat/v24/static/images/logo-2x.0bd629ae.png"
-)
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((e) => {
-    console.log(e);
-  });
-```
-
-#### 请输出结果
-
-```js
-var a = 20;
-var obj = {
-  a: 10,
-  c: this.a + 20,
-  v: this.c + this.a,
-  fn: function () {
-    return this.a;
-  },
-  fn2: () => this.v,
-};
-console.log(obj.c); // 40 this.a 指向 window.a
-console.log(obj.fn()); // 10
-console.log(obj.fn2()); // undefined
-var handle = obj.fn;
-console.log(handle()); // 20 全局作用域下查找变量a
-```
+原型: 对象中固有的 `__proto__` 属性，该属性指向对象的 `prototype` 原型属性
+原型链: 当我们访问一个对象属性时，如果这个对象内部不存在这个属性，那个它就会去它的原型对象里找这个属性，这个原型对象又会有自己的原型，于是就这样一直找下去，也是原型链的概念。原型链的尽头是 `Object.prototype`，所以这就是我们新建一个对象为什么能够使用 `toString()` 等方法的原因。

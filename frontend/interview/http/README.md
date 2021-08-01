@@ -11,14 +11,15 @@
 
 #### GET 与 POST 的区别
 
-1.GET 在浏览器回退时是无害的，而 POST 会再次提交请求
-2.GET 产生的 URL 地址可以被 Bookmark，而 POST 不可以
-3.GET 请求会被浏览器主动 cache，而 POST 不会，除非手动设置
-4.GET 请求只能进行 url 编码，而 POST 支持多种编码方式
-5.GET 请求参数会被完整保留在浏览器历史记录里，而 POST 中的参数不会被保留
-6.GET 请求在 URL 中传送的参数是有长度限制的，而 POST 么有 7.对参数的数据类型，GET 只接受 ASCII 字符，而 POST 没有限制
-8.GET 比 POST 更不安全，因为参数直接暴露在 URL 上，所以不能用来传递敏感信息
-9.GET 参数通过 URL 传递，POST 放在 Request body 中
+- GET 在浏览器回退时是无害的，而 POST 会再次提交请求
+- GET 产生的 URL 地址可以被 Bookmark，而 POST 不可以
+- GET 请求会被浏览器主动 cache，而 POST 不会，除非手动设置
+- GET 请求只能进行 url 编码，而 POST 支持多种编码方式
+- GET 请求参数会被完整保留在浏览器历史记录里，而 POST 中的参数不会被保留
+- GET 请求在 URL 中传送的参数是有长度限制的，而 POST 么有 
+- 对参数的数据类型，GET 只接受 ASCII 字符，而 POST 没有限制
+- GET 比 POST 更不安全，因为参数直接暴露在 URL 上，所以不能用来传递敏感信息
+- GET 参数通过 URL 传递，POST 放在 Request body 中
 
 #### 浏览器从输入到页面呈现内容的过程 及 优化
 
@@ -164,3 +165,10 @@ response.setHeader("Access-Control-Allow-Headers", "Content-Type,X-Requested-Wit
 
 - nginx 代理跨域
 - nodejs 中间件代理跨域
+
+
+#### http 和 https 的区别？
+
+- http 的端口是80，而 https 的标准端口是403
+- url 不同，http的url 是以 `http://` 开头，而https是以 `https://` 开头
+- http 无法加密，而 https 对传输的数据进行加密
