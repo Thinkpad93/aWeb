@@ -3,7 +3,7 @@
 ```js
 function loadImage(url) {
   return new Promise((resolve, reject) => {
-    let img = new Img();
+    let img = new Image();
     img.onload = function () {
       img.src = url;
       document.body.appendChild(img);
@@ -46,18 +46,19 @@ var handle = obj.fn;
 console.log(handle()); // 20 全局作用域下查找变量a
 ```
 
+
 ```js
 setTimeout(function () {
-  console.log("timeout1");
+  console.log("timeout1"); // 2
   new Promise(function (resolve) {
-    console.log("Promise1");
+    console.log("Promise1"); // 3
     for (var i = 0; i < 10000; i++) {
       i === 9999 && resolve();
     }
-    console.log("Promise2");
+    console.log("Promise2"); // 4
   }).then(function () {
-    console.log("then1");
+    console.log("then1"); // 5
   });
 });
-console.log("global1");
+console.log("global1"); // 1
 ```

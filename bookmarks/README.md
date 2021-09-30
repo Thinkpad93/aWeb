@@ -46,3 +46,7 @@ DEV Community
 
 倾城之链 | NICE LINKS
 - https://nicelinks.site/
+
+
+Samantha Ming 是一名加拿大前端工程师，她在个人网站上分享了很多前端代码的技巧，内容质量很高，制作精美。
+- https://www.samanthaming.com/

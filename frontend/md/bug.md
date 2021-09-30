@@ -21,3 +21,4 @@ new Date(str).getTime();
 let freedomTime = str.replace(/-/g, '/'); // '2020/04/15 12:30:59'
 new Date(freedomTime).getTime();
 ```
+

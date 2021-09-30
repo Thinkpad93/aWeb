@@ -20,6 +20,11 @@ let greeters = new Greeters("world");
 
 
 abstract class Animal {
+
+  constructor(public name: string, private age: number, protected sex: string) {
+    
+  }
+
   abstract makeSound(): void;
 
   move(): void {

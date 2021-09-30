@@ -7,7 +7,7 @@ type NameOrResolver = Name | NameResolver;
 
 function getName(n: NameOrResolver): Name {
   if (typeof n === "string") {
-    return;
+    return n;
   } else {
     return n();
   }
