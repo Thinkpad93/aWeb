@@ -1,22 +1,22 @@
 let isDone: boolean = false;
-let names: string = "bob";
+let names: string = 'bob';
 let sentence: string = `Hello, my name is ${names}`;
 
 // Array
 let blist: number[] = [1, 2, 3];
 let alist: Array<number> = [1, 2, 1];
-let cstring: Array<string> = ["lic", "num"];
-let state: Array<any> = ["lincahng", 25];
-let isA: Array<any> = [10, 20, "lc"];
+let cstring: Array<string> = ['lic', 'num'];
+let state: Array<any> = ['lincahng', 25];
+let isA: Array<any> = [10, 20, 'lc'];
 
 //
-let o = { a: "foo", b: 12, c: "bar" };
+let o = { a: 'foo', b: 12, c: 'bar' };
 let { a, b }: { a: string; b: number } = o;
 
 //
 let x: [string, number];
 let xx: [object, boolean];
-x = ["hello", 10];
+x = ['hello', 10];
 xx = [{ age: 25 }, false];
 
 let d: Date = new Date();
@@ -31,11 +31,11 @@ let c: Color = Color.Green;
 
 //any
 let notSure: any = 4;
-let listGroup: any[] = [1, true, "free"];
+let listGroup: any[] = [1, true, 'free'];
 
 //void
 function warnUser(): void {
-  alert("This is my warning message");
+  alert('This is my warning message');
 }
 
 let unusable: void = undefined;
@@ -60,12 +60,11 @@ let greet = (message: Message) => {
   return message;
 };
 
-let valuString: any = "This is String";
+let valuString: any = 'This is String';
 let valueNumber: number = (<string>valuString).length;
 
-
 class Point {
-  public name: string = "Jack Chen";
+  public name: string = 'Jack Chen';
   constructor(name: string) {
     this.name = name;
   }
@@ -77,5 +76,5 @@ class Point {
   }
 }
 
-const point = new Point("Jack");
+const point = new Point('Jack');
 point.getName();

@@ -7,7 +7,7 @@ function startServer() {
     serveStatic: ["./"],
     port: 3000,
     proxy: "http://beta.whddd666.com",
-    startPath: "README.md"
+    startPath: "README.md",
   });
 }
 

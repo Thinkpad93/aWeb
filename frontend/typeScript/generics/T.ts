@@ -15,28 +15,28 @@ function toNumber<T>(obj: T): NumberMap<T> {
   return Object.keys(obj).reduce((result, key) => {
     return {
       ...result,
-      [key]: Number(result[key])
+      [key]: Number(result[key]),
     };
   }, {}) as any;
 }
 
 const obj2 = toNumber({
-  a: "32",
-  b: "64"
+  a: '32',
+  b: '64',
 });
 
 function xr<T>(args: T, handler?: <R>(result: R) => void): void {
-  if (handler && typeof handler === "function") {
-    if (typeof args === "number") {
+  if (handler && typeof handler === 'function') {
+    if (typeof args === 'number') {
       handler(args + 1);
     }
-    if (typeof args === "string") {
+    if (typeof args === 'string') {
       handler(`args(${args}) (icepy)`);
     }
   }
 }
 
-xr("hello", <R>(result: R) => {
+xr('hello', <R>(result: R) => {
   console.log(result);
 });
 
@@ -47,12 +47,12 @@ class GenericNumber<T> {
 
 let myGenericNumber = new GenericNumber<number>();
 myGenericNumber.zeroValue = 0;
-myGenericNumber.add = function(x, y) {
+myGenericNumber.add = function (x, y) {
   return x + y;
 };
 
 let stringNumeric = new GenericNumber<string>();
-stringNumeric.zeroValue = "";
+stringNumeric.zeroValue = '';
 
 interface Lengthwise {
   length: number;

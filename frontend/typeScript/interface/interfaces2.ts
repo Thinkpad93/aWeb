@@ -7,13 +7,12 @@ interface Overloaded {
   (foo: number): number;
 }
 
-
 interface SearchFunc {
   (source: string, subString: string): boolean;
 }
 
 interface NumberArray {
-  [index: number]: number
+  [index: number]: number;
 }
 
-let fibonacci: NumberArray = [1,2,3,4];
+let fibonacci: NumberArray = [1, 2, 3, 4];

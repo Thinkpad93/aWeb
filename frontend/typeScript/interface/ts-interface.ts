@@ -7,20 +7,20 @@ interface IPerson {
 }
 
 let customer: IPerson = {
-  fireName: "Tom",
-  lastName: "Hanks",
+  fireName: 'Tom',
+  lastName: 'Hanks',
   //gender: "male",
   sayHi: (): string => {
-    return "Hi there";
-  }
+    return 'Hi there';
+  },
 };
 
 let drummer = <IPerson>{
-  fireName: "Cat",
-  lastName: "Jump",
+  fireName: 'Cat',
+  lastName: 'Jump',
   sayHi: (): string => {
-    return "Hi Jump" + this.lastName;
-  }
+    return 'Hi Jump' + this.lastName;
+  },
 };
 
 console.log(customer.fireName);
@@ -41,15 +41,15 @@ interface IUser {
 
 const getUserInfo = (user: IUser): string => {
   return `name: ${user.name}, age: ${user.age}`;
-}
+};
 
 // 正确的调用
-getUserInfo({name: "koala", age: 18});
+getUserInfo({ name: 'koala', age: 18 });
 
 interface IQuery {
   page: number;
   findOne(): void;
   findAll(): void;
   isOneline?: string | number;
-  inDel?() : void; 
+  inDel?(): void;
 }

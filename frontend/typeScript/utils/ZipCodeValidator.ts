@@ -1,3 +1,3 @@
 export default class ZipCodeValidator {
-    static numberRegexp = /^[0-9]+$/;
+  static numberRegexp = /^[0-9]+$/;
 }

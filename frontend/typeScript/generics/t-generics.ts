@@ -7,24 +7,24 @@ function createArray<T>(length: number, value: T): Array<T> {
   }
   return result;
 }
-createArray<string>(3, "x");
+createArray<string>(3, 'x');
 
 createArray<number>(10, 1);
 
 // 让类型推论自动推算出来
-createArray(10, "x"); // ['x', 'x', 'x']
+createArray(10, 'x'); // ['x', 'x', 'x']
 
 // 定义泛型的时候，可以一次定义多个类型参数：
 function swap<T, U>(tuple: [T, U]): [U, T] {
   return [tuple[1], tuple[0]];
 }
-swap<number, string>([7, "seven"]); //['seven', 7]
+swap<number, string>([7, 'seven']); //['seven', 7]
 
 // 泛型约束
 // 在函数内部使用泛型变量的时候，由于事先不知道它是哪种类型，所以不能随意的操作它的属性或方法：
 
 function mixin<T, U>(first: T, second: U): T & U {
-  const result =  <T & U> {};
+  const result = <T & U>{};
   for (let id in first) {
     (<T>result)[id] = first[id];
   }
@@ -36,8 +36,7 @@ function mixin<T, U>(first: T, second: U): T & U {
   return result;
 }
 
-const xs = mixin({a: "hello"},{b: 42});
-
+const xs = mixin({ a: 'hello' }, { b: 42 });
 
 interface Lengthwise {
   length: number;

@@ -17,20 +17,20 @@ export class QuestionBase<T> {
     } = {}
   ) {
     this.value = options.value;
-    this.key = options.key || "";
-    this.label = options.label || "";
+    this.key = options.key || '';
+    this.label = options.label || '';
     this.required = !!options.required;
     this.order = options.order === undefined ? 1 : options.order;
-    this.controlType = options.controlType || "";
+    this.controlType = options.controlType || '';
   }
 }
 
 export class TextboxQuestion extends QuestionBase<string> {
-  controlType = "textbox";
+  controlType = 'textbox';
   type: string;
 
   constructor(options: {} = {}) {
     super(options);
-    this.type = options["type"] || "";
+    this.type = options['type'] || '';
   }
 }

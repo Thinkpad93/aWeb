@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="page">
+      <form>
+        <textarea class="textarea"></textarea>
+      </form>
+    </div>
+  </body>
+  <script>
+    document.querySelectorAll("textarea").forEach((el) => {
+      el.style.height = el.setAttribute(
+        "style",
+        "height: " + el.scrollHeight + "px"
+      );
+      el.classList.add("auto");
+      el.addEventListener("input", (e) => {
+        el.style.height = "auto";
+        el.style.height = el.scrollHeight + "px";
+      });
+    });
+  </script>
+</html>

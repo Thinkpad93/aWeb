@@ -5,7 +5,7 @@ function printLabel(labelledObj: LabelledValue) {
   console.log(labelledObj.label);
 }
 
-let myObj = { size: 10, label: "Size 10 Object" };
+let myObj = { size: 10, label: 'Size 10 Object' };
 printLabel(myObj);
 
 interface GreetingSettings {
@@ -17,11 +17,11 @@ interface GreetingSettings {
 declare function greet(setting: GreetingSettings): void;
 
 export function format(time: Date, format: string | number): string {
-  let res: string = "";
+  let res: string = '';
   const date = new Date(time);
   const o: any = {
-    "M+": date.getMonth() + 1,
-    "d+": date.getDate()
+    'M+': date.getMonth() + 1,
+    'd+': date.getDate(),
   };
   return res;
 }
@@ -65,7 +65,7 @@ interface IFunc {
 const d: IFunc = {
   sum(x: number, y: number): number {
     return x + y;
-  }
+  },
 };
 
 interface ClockInterface {
@@ -82,7 +82,6 @@ class Clock implements ClockInterface {
     this.currentTime = d;
   }
 }
-
 
 interface ISelectAttrs {
   basec?: boolean;

@@ -9,4 +9,3 @@ class Person implements interfaceDemo {
   age = 25;
   name = 'Jack';
 }
-

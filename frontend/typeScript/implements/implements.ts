@@ -8,7 +8,7 @@ interface Point {
 class MyPoint implements Point {
   public name: string;
   public getName(): string {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
   s?: string;
   x: number;

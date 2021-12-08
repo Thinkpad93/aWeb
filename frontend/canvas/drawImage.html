@@ -37,11 +37,9 @@
       const source = document.getElementById('source');
       let ctx = canvas.getContext('2d');
       //
-      let width = canvas.width / 2 - 150 / 2;
-      let height = canvas.height / 2 - 150 / 2;
-      console.log(width);
-      console.log(height);
-      ctx.drawImage(source, width, height, 150, 150);
+      let x = canvas.width / 2 - 150 / 2;
+      let y = canvas.height / 2 - 150 / 2;
+      ctx.drawImage(source, x, y, 150, 150);
     };
   </script>
 </html>

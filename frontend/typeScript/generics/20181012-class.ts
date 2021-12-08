@@ -10,7 +10,7 @@ function Hello<T>(arg: T): T {
   return arg;
 }
 
-let outPut = Hello<string>("Hello Generic");
+let outPut = Hello<string>('Hello Generic');
 
 // 泛型类
 class GenericNumber<T> {
@@ -20,6 +20,6 @@ class GenericNumber<T> {
 // 实例
 let myGenericNumber = new GenericNumber<number>();
 myGenericNumber.zeroValue = 0;
-myGenericNumber.add = function(x, y) {
+myGenericNumber.add = function (x, y) {
   return x + y;
 };

@@ -1,5 +1,5 @@
 function disp(name: string | string[]) {
-  if (typeof name === "string") {
+  if (typeof name === 'string') {
     console.log(name);
   } else {
     for (let i = 0; i < name.length; i++) {
@@ -8,8 +8,8 @@ function disp(name: string | string[]) {
   }
 }
 
-disp("Google");
-disp(["Google", "Taobao", "Fackbook"]);
+disp('Google');
+disp(['Google', 'Taobao', 'Fackbook']);
 
 // 联合类型使用 | 分隔每个类型
 let favoriteNumber: string | number;
