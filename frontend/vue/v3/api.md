@@ -1,5 +1,4 @@
 ```js
-
 const {
   createApp,
   reactive, // 创建响应式数据对象
@@ -19,16 +18,23 @@ const {
 const Component = {
   template: ``,
   setup(props, context) {
-    console.log('props', props);
-    console.log('context', context);
+    console.log("props", props);
+    console.log("context", context);
 
-    onBeforeMount(() => {});
-    onMounted(() => {});
-    onUpdated(() => {});
-    onUnmounted(() => {});
+    onBeforeMount(() => {
+      console.log("组件挂载之前");
+    });
+    onMounted(() => {
+      console.log("DOM挂载完成");
+    });
+    onUpdated(() => {
+      console.log("DOM更新完成");
+    });
+    onUnmounted(() => {
+      console.log("实例卸载之后");
+    });
   },
 };
 
-createApp(Component).mount('#app');
-
+createApp(Component).mount("#app");
 ```
