@@ -54,3 +54,7 @@ Samantha Ming 是一名加拿大前端工程师，她在个人网站上分享了
 
 查询网址对应的IP
 - https://ipaddress.com/
+
+
+JavaScript 从业者统计
+- https://2020.stateofjs.com/zh-Hans/
