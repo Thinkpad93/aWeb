@@ -1,3 +1,4 @@
+
 const date = new Date();
 
 // 判断某个日期是否是今天
@@ -24,6 +25,7 @@ export function dates() {
   for (let i = 1; i <= month; i++) {
     list.push(date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + fill(i));
   }
+  console.log(list);
 }
 
 function parseTimeDate(time) {

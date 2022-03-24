@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body id="body" class="body">
+    <div id="a">
+      <div id="b">
+         <div id="c">c</div> 
+      </div>
+    </div>
+  </body>
+  <script>
+    const a = document.getElementById("a");
+    const b = document.getElementById("b");
+    const c = document.getElementById("c");
+    const body = document.getElementById("body");
+    body.addEventListener("click", (e) => {
+      // console.log(e);
+      const { target, currentTarget } = e;
+      console.log(`target是${target.id}`);
+      console.log(`currentTarget是${currentTarget.id}`);
+    });
+    a.addEventListener("click", (e) => {
+      //console.log(e);
+      const { target, currentTarget } = e;
+      console.log(`target是${target.id}`);
+      console.log(`currentTarget是${currentTarget.id}`);
+    }, false);
+    b.addEventListener("click", (e) => {
+      //console.log(e);
+      const { target, currentTarget } = e;
+      console.log(`target是${target.id}`);
+      console.log(`currentTarget是${currentTarget.id}`);
+    }, false);
+    c.addEventListener("click", (e) => {
+      //console.log(e);
+      const { target, currentTarget } = e;
+      console.log(`target是${target.id}`);
+      console.log(`currentTarget是${currentTarget.id}`);
+    }, false);
+  </script>
+</html>
