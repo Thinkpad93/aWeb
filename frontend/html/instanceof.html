@@ -5,8 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>instanceof</title>
+    <style>
+      body {
+        background-color: #f2f2f2;
+      }
+      .box {
+        padding: 5% 10%;
+        background-color: #fff;
+      }
+      .more {
+        color: #057bf5;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="box">
+      <p class="p">
+        个人会员是指本协会中，属广东省内科研院所、高校团体、企事业单位、其他经济组织从事和服务于耕地保护相关领域工作的非本会单位会员代表的个人。
+        （一）拥护并遵守本会章程，有加入本会的意愿，能够参加本会活动。
+        （二）完全民事行为能力人； （三）无犯罪记录及不良诚信记录；
+        （一）拥护并遵守本会章程，有加入本会的意愿，能够参加本会活动。
+        第二条本会是由广东省范围内从事和热衷于国土空间生态修复相关领域业务或工作的企事业单位、科研院所、高校团体、其他经济组织及个人自愿组成的专业性、非营利性社会团体法人。
+        第三条本会的宗旨：遵守宪法、法律、法规和国家政策，践行社会主义核心价值观，遵守社会道德风尚；坚持以生态文明建设为中心，保护生态环境，推动绿色发展，改善生态环境质量；倡导创新、求实、协作精神，加强会员之间联系；促进国土空间生态修复科技创新和技术推广普及；坚持为政府、行业及企业服务，在政府、企业、其他服务机构及相关从业者之间搭建政策解读、项目对接、学术研究、经验交流的信息资源整合服务平台，充分发挥专业技术优势，有效促进行业内的规范自律和互助合作，为完善我省国土空间生态修复政策和科学决策提供智力支持，推动我省国土空间生态修复行业健康、快速和全面发展。本会坚持中国共产党的全面领导，根据中国共产党章程的规定，设立中国共产党的组织，开展党的活动，为党组织的活动提供必要条件。
+        （二）完全民事行为能力人； （三）无犯罪记录及不良诚信记录；
+      </p>
+      <p class="p">
+        《将进酒》原是汉乐府短箫铙歌的曲调，标题的意思为“劝酒歌”，内容多是咏唱喝酒放歌之事。这首诗是诗人当时和友人岑勋在嵩山另一老友元丹丘的颍阳山居作客，作者正值仕途遇挫之际，所以借酒兴诗，来了一次酣畅淋漓的抒发。在这首诗里，李白“借题发挥”，借酒消愁，感叹人生易老，抒发了自己怀才不遇的心情。
+      </p>
+      <p class="p">
+        刚露一点深衷，又说回酒了，而且看起来酒兴更高了
+      </p>
+    </div>
+  </body>
   <script>
     function Hero() {
       this.name = name || "hello";
@@ -18,5 +48,35 @@
     var h = new Hero();
     console.log(h instanceof Object); // true
     console.log(h instanceof Hero); //true
+
+    let textLen = 120;
+    let contents = [];    
+    let pList = [...Array.from(document.querySelectorAll(".p"))];
+    let box = document.querySelector('.box');
+    pList.forEach((item, index) => {
+      contents.push(item.innerHTML);
+      item.setAttribute('data-index', index);
+      if (item.innerText.length > textLen) {
+        let substring = item.innerText.substring(0, textLen);
+        item.innerHTML = substring + '<span class="more">查看更多</span>' + '...';
+      } else {
+        // console.log(item);
+      }
+    });
+
+    let keyArry = [];
+    function dayKey() {
+      window.addEventListener("keydown", (e) => {
+        console.log(e);
+        let { key, code } = e;
+        let item = {
+          key,
+          code,
+          date: +new Date(),
+        };
+        keyArry.push(item);
+      });
+    }
+    dayKey();
   </script>
 </html>
