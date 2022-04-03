@@ -50,3 +50,11 @@ DEV Community
 
 Samantha Ming 是一名加拿大前端工程师，她在个人网站上分享了很多前端代码的技巧，内容质量很高，制作精美。
 - https://www.samanthaming.com/
+
+
+查询网址对应的IP
+- https://ipaddress.com/
+
+
+JavaScript 从业者统计
+- https://2020.stateofjs.com/zh-Hans/

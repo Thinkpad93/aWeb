@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="btn-list">
+        <button type="button" class="btn">获取当前时间(年/月/日)</button>
+        <button type="button">获取上一年</button>
+        <button type="button">获取下一年</button>
+      </div>
+      <div class="container">
+        <div class="row">
+          <textarea id="textarea" rows="4"></textarea>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function date(str) {
+      let date = new Date();  
+      return new Date(
+        str === "prev" ? date.getFullYear() - 1 : date.getFullYear() + 1,
+        date.getMonth() + 1,
+        date.getDate(),
+        date.getHours(),
+        date.getMinutes(),
+        date.getSeconds()
+      );
+    }
+    function prevDate() {
+      let prevDate = date('prev');
+      return prevDate;
+      console.log(typeof prevDate);
+    }
+    function nextDate() {
+      let nextDate = date('next');
+      return nextDate;
+      console.log(typeof nextDate);
+    }
+  </script>
+</html>

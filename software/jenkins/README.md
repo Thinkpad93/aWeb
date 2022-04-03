@@ -4,6 +4,8 @@ jenkins
 
 #### 安装教程
 
+如果你的电脑装了java开发环境，则可以使用 java 命令行启动 jenkins，启动命令如下：
+
 ```shell
 java -jar jenkins.war
 ```
@@ -56,3 +58,8 @@ github 上也在讨论这个问题
 **Publish Over SSH**
 
 **Strict Crumb Issuer Plugin**
+
+
+#### Webhooks
+
+允许开发人员通过订阅代码库事件（分支推送、标签推送等）来触发构建部署、更新镜像等操作
