@@ -20,12 +20,12 @@ function getClothing(isCold) {
 
 const student = {
   name: 'Richard Kalchoff',
-  guardian: 'Mr. Kalchoff',
+  guardian: 'Mr. Kalchoff'
 };
 
 const teacher = {
   name: 'Mrs. Wilson',
-  room: 'N231',
+  room: 'N231'
 };
 
 let message = `${student.name} please see ${teacher.name} in ${teacher.room} to pick up your report card.`;

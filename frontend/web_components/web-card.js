@@ -38,7 +38,7 @@ export default class Card extends HTMLElement {
   set skin(value) {
     return this.setAttribute('skin', value);
   }
- 
+
   connectedCallback() {
     console.log('当 custom element首次被插入文档DOM时，被调用');
   }

@@ -18,7 +18,7 @@ const days = [
   'wednesday',
   'thursday',
   'friday',
-  'saturday',
+  'saturday'
 ];
 
 for (const day of days) {

@@ -8,5 +8,5 @@ const gemstone = {
   carat,
   calculateWorth() {
     return this.color;
-  },
+  }
 };

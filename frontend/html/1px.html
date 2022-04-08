@@ -9,31 +9,63 @@
     <title>1px</title>
     <style>
       body {
+        padding: 20px;
         background-color: #f5f5f5;
       }
       .box {
         position: relative;
         height: 100px;
+        margin-bottom: 15px;
         background-color: #fff;
       }
-      .px-bottom::before {
-        content: " ";
+      .hairline-bottom::before {
+        content: ' ';
         box-sizing: border-box;
         pointer-events: none;
         position: absolute;
         bottom: 0;
         right: 0;
         left: 0;
-        border-bottom: 1px solid #ebedf0;
+        border-bottom: 1px solid red;
         transform: scaleY(0.5);
+      }
+      .hairline-top::after {
+        content: ' ';
+        box-sizing: border-box;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        border-top: 1px solid red;
+        transform: scaleY(0.5);
+      }
+      .hairline::after {
+        content: '';
+        box-sizing: border-box;
+        pointer-events: none;
+        position: absolute;
+        left: -50%;
+        bottom: -50%;
+        top: -50%;
+        right: -50%;
+        border: 0 solid red;
+        transform: scale(0.5);
+      }
+      .box::after {
+        z-index: 1;
+        border-width: 1px;
+      }
+      .px1 {
+        border: 1px solid red;
       }
     </style>
   </head>
   <body>
     <main id="main">
-      <div class="box px-bottom"></div>
-      <div class="box"></div>
-      <div class="box"></div>
+      <div class="box hairline-bottom hairline-top"></div>
+      <div class="box px1"></div>
+      <div class="box hairline"></div>
     </main>
   </body>
 </html>

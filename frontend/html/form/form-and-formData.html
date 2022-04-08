@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FormData</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="page">
@@ -46,51 +46,37 @@
           </div>
           <div class="form-item">
             <!-- 唤起纯数字软键盘 -->
-            <input
-              type="tel"
-              novalidate="novalidate"
-              pattern="[0-9]*"
-              class="input"
-            />
+            <input type="tel" novalidate="novalidate" pattern="[0-9]*" class="input" />
           </div>
           <div class="form-item">
-            <textarea
-              name="userDesc"
-              placeholder="userDesc..."
-              required
-            ></textarea>
+            <textarea name="userDesc" placeholder="userDesc..." required></textarea>
           </div>
           <div class="form-item">
-            <input
-              type="file"
-              name="userImg"
-              accept="audio/*,video/*,image/*"
-            />
+            <input type="file" name="userImg" accept="audio/*,video/*,image/*" />
           </div>
           <p>
-            用于输入网址。其开头必须是有效的 URI 架构，例如 http://、 ftp:// 或
-            mailto
+            用于输入网址。其开头必须是有效的 URI 架构，例如 http://、 ftp:// 或 mailto
           </p>
           <div class="form-item">
-            <input type="url" />
+            <input name="url" type="url" />
           </div>
           <p>
             用于输入电话号码。它不
             执行特定的验证语法，因此，如果要确保特定的格式，可以使用模式属性
           </p>
           <div class="form-item">
-            <input type="tel" />
+            <input name="tel" type="tel" />
           </div>
           <p>
             用于输入电子邮件地址，并提示键盘上应默认显示 @。
             如果需要用户提供多个电子邮件地址，则可以添加 multiple 属性
           </p>
           <div class="form-item">
-            <input type="email" />
+            <input name="email" type="email" />
           </div>
           <p>一个文本输入字段，其样式与平台的搜索字段一致</p>
           <div class="form-item">
-            <input type="search" />
+            <input name="search" type="search" />
           </div>
           <p>用于数字输入，可以是任意合理的整数或浮点值</p>
           <div class="form-item">
@@ -101,27 +87,27 @@
             它以滑块控件的形式显示给用户
           </p>
           <div class="form-item">
-            <input type="range" />
+            <input name="range" type="range" />
           </div>
           <p>用于输入日期和时间值，提供的时区为本地时区</p>
           <div class="form-item">
-            <input type="datetime-local" />
+            <input name="datetimeLocal" type="datetime-local" />
           </div>
           <p>用于只输入日期，不提供时区</p>
           <div class="form-item">
-            <input type="date" value="2020-08-19" />
+            <input name="date" type="date" value="2020-08-19" />
           </div>
           <p>用于只输入时间，不提供时区</p>
           <div class="form-item">
-            <input type="time" />
+            <input name="time" type="time" />
           </div>
           <p>用于只输入星期，不提供时区</p>
           <div class="form-item">
-            <input type="week" />
+            <input name="week" type="week" />
           </div>
           <p>用于只输入月份，不提供时区</p>
           <div class="form-item">
-            <input type="month" />
+            <input name="month" type="month" />
           </div>
           <div class="form-item">
             <button type="submit">提交</button>
@@ -132,12 +118,17 @@
   </body>
   <script>
     let from = document.getElementById('formData');
-    let formData = new FormData(from);
-    for (let k of formData.entries()) {
-      console.log(k);
-    }
+    let params = {};
     from.addEventListener('submit', function (e) {
       e.preventDefault();
+      let formData = new FormData(from);
+      for (let k of formData.entries()) {
+        console.log(k);
+        if (k.length) {
+          params[k[0]] = k[1];
+        }
+      }
+      console.log(params);
     });
     //console.log(formData.getAll('userName'));
   </script>
