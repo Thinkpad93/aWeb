@@ -13,3 +13,10 @@ const svg = d3
   .append('svg')
   .attr('width', width + '%')
   .attr('height', height + '%');
+
+const json = d3.json('./tree.json'); // 加载数据源
+
+json.then((res) => {
+  let dataset = res.dataset;
+  console.log(dataset);
+});
