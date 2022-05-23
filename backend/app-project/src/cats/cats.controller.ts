@@ -14,14 +14,20 @@ import {
 } from '@nestjs/common';
 import { Request } from 'express';
 import { CatsService } from './cats.service';
+import { CreateCatDto } from './dto/create-cat.dto';
+import { Cat } from './interfaces/cat.interface';
+import { Roles } from './roles.decorator';
 
 @Controller('cats')
 export class CatsController {
+  constructor(private catsService: CatsService) {
+
+  }
+
+  // /cats
   @Post()
-  @Header('Cache-Control', 'none')
-  @HttpCode(204)
-  create(): string {
-    return 'This action adds a new cat';
+  create(@Body() createCatDto: CreateCatDto) {
+    this.catsService.create(createCatDto);
   }
 
   @Delete(':id')
@@ -34,11 +40,13 @@ export class CatsController {
     return `This action updates a #${id} cat`;
   }
 
-  @Get()
-  findAll(@Req() request: Request): string {
-    return 'This action returns all cats';
+  // cats/list
+  @Get('list')
+  async findAll(): Promise<Cat[]> {
+    return this.catsService.findAll();
   }
 
+  // cats/docs?version=5
   @Get('docs')
   @Redirect('https://docs.nestjs.com', 302)
   getDocs(@Query('version') version) {
@@ -49,18 +57,12 @@ export class CatsController {
     }
   }
 
+
+  // cats/1  cats/2
   @Get(':id')
-  findOne(@Param() params): string {
-    console.log(params.id);
-    return `This action returns a #${params.id} cat`;
+  findOne(@Param() params) {
+    // console.log(params.id);
+    return this.catsService.findOne(params.id);
+    // return `This action returns a #${params.id} cats`;
   }
-}
-
-export class UpdateCatDto {
-  name: string;
-}
-
-export class CreateCatDto {
-  id: number;
-  name: string;
 }

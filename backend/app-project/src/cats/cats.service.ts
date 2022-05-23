@@ -10,10 +10,11 @@ export class CatsService {
   }
 
   findOne(id: number) {
-    
+    return this.cats.find(item => item.id == id);
   }
 
   findAll(): Cat[] {
+    console.log('finall');
     return this.cats;
   }
 }

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hight-line {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <ul id="list"></ul>
+    </div>
+  </body>
+  <script>
+    let list = document.querySelector('#list');
+    let data = [
+      {
+        title:
+          '关于印发广州市黄埔区 广州开发区重大行政决策程序规定的通知（穗埔府规〔2022〕2号）'
+      },
+      {
+        title:
+          '广州市荔湾区旧村庄全面改造项目复建安置资金监管及拨付的工作指引(荔住建园林规〔2022〕1号)'
+      },
+      {
+        title: '广州市住房和城乡建设局关于规范住房租赁市场的通知（穗建规字〔2022〕5号）'
+      },
+      {
+        title:
+          '广州市番禺区人民政府关于废止《广州市番禺区旧村庄更新改造公开引入合作企业指导意见》的通知（番府规〔2022〕2号）'
+      },
+      {
+        title: '广州市关于支持社会力量参与重点领域建设的指导意见 （2022年3月17日发布）'
+      },
+      {
+        title: '关于实施增城区平均每亩征收农用地区片综合地价的公告'
+      },
+      {
+        title:
+          '广州市建设工程造价管理站关于发布广州市房屋建筑工程2021年度参考造价的通知（穗建造价〔2022〕21号）'
+      },
+      {
+        title:
+          '广州市人民政府办公厅转发关于进一步完善我省被征地农民养老保障政策意见的通知 （穗府办规〔2022〕3号）'
+      },
+      {
+        title:
+          '《广州市保障性租赁住房项目认定办法（征求意见稿）》公众意见的公告 （2022年2月征求意见稿）'
+      },
+      {
+        title: '【图谱】广州市城市更新“1+1+N”政策体系框架和解读'
+      },
+      {
+        title: '《广州市绿化条例（修订征求意见稿）》 （2022年2月7日）'
+      }
+    ];
+    function searchKeyword(first, last) {
+      if (!data.length) {
+        return;
+      }
+      let arr = data.filter((item) => {
+        if (item.title.includes(first)) {
+          item.title = item.title.replaceAll(
+            first,
+            `<span class="hight-line">${last ? last : first}</span>`
+          );
+          return item;
+        }
+      });
+      return arr;
+    }
+    let result = searchKeyword('号');
+    if (result.length) {
+      list.innerHTML = result
+        .map((item) => {
+          return `<li>${item.title}</li>`;
+        })
+        .join('');
+    }
+  </script>
+</html>
