@@ -9,38 +9,62 @@
   <body id="body" class="body">
     <div id="a">
       <div id="b">
-         <div id="c">c</div> 
+        <div id="c">c</div>
       </div>
     </div>
   </body>
   <script>
-    const a = document.getElementById("a");
-    const b = document.getElementById("b");
-    const c = document.getElementById("c");
-    const body = document.getElementById("body");
-    body.addEventListener("click", (e) => {
-      // console.log(e);
-      const { target, currentTarget } = e;
-      console.log(`target是${target.id}`);
-      console.log(`currentTarget是${currentTarget.id}`);
-    });
-    a.addEventListener("click", (e) => {
-      //console.log(e);
-      const { target, currentTarget } = e;
-      console.log(`target是${target.id}`);
-      console.log(`currentTarget是${currentTarget.id}`);
-    }, false);
-    b.addEventListener("click", (e) => {
-      //console.log(e);
-      const { target, currentTarget } = e;
-      console.log(`target是${target.id}`);
-      console.log(`currentTarget是${currentTarget.id}`);
-    }, false);
-    c.addEventListener("click", (e) => {
-      //console.log(e);
-      const { target, currentTarget } = e;
-      console.log(`target是${target.id}`);
-      console.log(`currentTarget是${currentTarget.id}`);
-    }, false);
+    /*
+      addEventListener 是为元素绑定事件的方法，接收三个参数
+      第一个参数：绑定的事件名
+      第二个参数：执行的函数
+      第三个参数：
+        false：默认，代表冒泡时绑定
+        true：代表捕获时绑定
+    */
+    const a = document.getElementById('a');
+    const b = document.getElementById('b');
+    const c = document.getElementById('c');
+    const body = document.getElementById('body');
+    body.addEventListener(
+      'click',
+      (e) => {
+        // console.log(e);
+        const { target, currentTarget } = e;
+        console.log(`target是${target.id}`);
+        console.log(`currentTarget是${currentTarget.id}`);
+      },
+      false
+    );
+    a.addEventListener(
+      'click',
+      (e) => {
+        //console.log(e);
+        const { target, currentTarget } = e;
+        console.log(`target是${target.id}`);
+        console.log(`currentTarget是${currentTarget.id}`);
+      },
+      false
+    );
+    b.addEventListener(
+      'click',
+      (e) => {
+        //console.log(e);
+        const { target, currentTarget } = e;
+        console.log(`target是${target.id}`);
+        console.log(`currentTarget是${currentTarget.id}`);
+      },
+      false
+    );
+    c.addEventListener(
+      'click',
+      (e) => {
+        //console.log(e);
+        const { target, currentTarget } = e;
+        console.log(`target是${target.id}`);
+        console.log(`currentTarget是${currentTarget.id}`);
+      },
+      false
+    );
   </script>
 </html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button class="btn" type="button">按钮</button>
+    </div>
+  </body>
+  <script>
+    window.onload = function () {
+      let timer = null;
+      let second = 3 * 1000;
+      let button = document.querySelector('.btn');
+      //   function elementIsClick(element) {
+      //     element.addEventListener(
+      //       'click',
+      //       (e) => {
+      //         countTime(second);
+      //       },
+      //       true
+      //     );
+      //   }
+      document.body.addEventListener('mousedown', (e) => {
+        console.log(e.type);
+        console.log(e.currentTarget);
+        if (e.target === button) {
+          console.log(e.target);
+        }
+      });
+      document.body.addEventListener('mouseup', (e) => {
+        console.log(e.type);
+        console.log(e.currentTarget);
+        if (e.target === button) {
+          console.log(e.target);
+          countTime(second);
+        }
+      });
+
+      function countTime(second) {
+        console.log(second);
+        timer && clearInterval(timer);
+        timer = setInterval(() => {
+          console.log(`${second}s没有点击s`);
+        }, second);
+      }
+
+      // button && elementIsClick(button);
+    };
+  </script>
+</html>

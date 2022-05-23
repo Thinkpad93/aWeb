@@ -13,3 +13,5 @@ const todo: MyReadonly<Todo> = {
 };
 
 // todo.title = 'Hello';
+
+Math.pow(10, '2');

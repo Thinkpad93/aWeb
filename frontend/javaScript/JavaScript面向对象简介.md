@@ -24,8 +24,8 @@ Range.prototype = {
     }
   },
   toString: function () {
-    return "(" + this.form + "..." + this.to + ")";
-  },
+    return '(' + this.form + '...' + this.to + ')';
+  }
 };
 
 const range = new Range(1, 3);
@@ -47,7 +47,4 @@ class SubType extends SuperType {
     return `${name}`;
   }
 }
-
-
-
 ```

@@ -7,16 +7,16 @@ function loadImage(url) {
     img.onload = function () {
       img.src = url;
       document.body.appendChild(img);
-      resolve("load img success...");
+      resolve('load img success...');
     };
     img.onerror = function () {
-      img.src = "http://";
-      reject("load img error...");
+      img.src = 'http://';
+      reject('load img error...');
     };
   });
 }
 loadImage(
-  "https://static.zhipin.com/zhipin-geek/chat/v24/static/images/logo-2x.0bd629ae.png"
+  'https://static.zhipin.com/zhipin-geek/chat/v24/static/images/logo-2x.0bd629ae.png'
 )
   .then((res) => {
     console.log(res);
@@ -37,7 +37,7 @@ var obj = {
   fn: function () {
     return this.a;
   },
-  fn2: () => this.v,
+  fn2: () => this.v
 };
 console.log(obj.c); // 40 this.a 指向 window.a
 console.log(obj.fn()); // 10
@@ -48,16 +48,16 @@ console.log(handle()); // 20 全局作用域下查找变量a
 
 ```js
 setTimeout(function () {
-  console.log("timeout1"); // 2
+  console.log('timeout1'); // 2
   new Promise(function (resolve) {
-    console.log("Promise1"); // 3
+    console.log('Promise1'); // 3
     for (var i = 0; i < 10000; i++) {
       i === 9999 && resolve();
     }
-    console.log("Promise2"); // 4
+    console.log('Promise2'); // 4
   }).then(function () {
-    console.log("then1"); // 5
+    console.log('then1'); // 5
   });
 });
-console.log("global1"); // 1
+console.log('global1'); // 1
 ```

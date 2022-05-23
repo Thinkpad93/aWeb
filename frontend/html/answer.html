@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let test = ['A', 'B', ['C', 'D']];
+    let flag = [];
+    let value = ['无', '尘', '人'];
+    let newItems = [];
+    let strs = '';
+    let answer = [
+      { name: 'A', value: '无', checked: false },
+      { name: 'B', value: '故', checked: false },
+      { name: 'C', value: '人', checked: false },
+      { name: 'D', value: '尘', checked: false }
+    ];
+    let items = [
+      {
+        type: 1,
+        answer: [
+          { name: 'A', value: '无1', checked: true },
+          { name: 'B', value: '故1', checked: false },
+          { name: 'C', value: '人1', checked: false },
+          { name: 'D', value: '尘1', checked: false }
+        ]
+      },
+      {
+        type: 1,
+        answer: [
+          { name: 'A', value: '无2', checked: false },
+          { name: 'B', value: '故2', checked: false },
+          { name: 'C', value: '人2', checked: false },
+          { name: 'D', value: '尘2', checked: true }
+        ]
+      },
+      {
+        type: 2,
+        answer: [
+          { name: 'A', value: '无3', checked: false },
+          { name: 'B', value: '故3', checked: false },
+          { name: 'C', value: '人3', checked: true },
+          { name: 'D', value: '尘3', checked: true }
+        ]
+      },
+      {
+        type: 2,
+        answer: [
+          { name: 'A', value: '无4', checked: true },
+          { name: 'B', value: '故4', checked: false },
+          { name: 'C', value: '人4', checked: false },
+          { name: 'D', value: '尘4', checked: true }
+        ]
+      }
+    ];
+    for (let i = 0; i < items.length; i++) {
+      let answer = items[i].answer;
+      flag[i] = answer.some((item) => item.checked);
+    }
+    if (flag.indexOf(false) != -1) {
+      console.log('no');
+    } else {
+      items.forEach((item, index) => {
+        newItems[index] = [];
+
+        item.answer.forEach((element, elementIndex) => {
+          if (element.checked) {
+            newItems[index].push(element.name);
+          }
+        });
+      });
+    }
+    function checkboxGroupChange(value) {
+      for (let i = 0, len = answer.length; i < len; i++) {
+        answer[i].checked = false;
+        console.log(answer[i]);
+        for (let j = 0; j < value.length; j++) {
+          if (answer[i].value === value[j]) {
+            answer[i].checked = true;
+            break;
+          }
+          console.log(value);
+        }
+      }
+    }
+    // let intersection = answer.filter(v => value.includes(v.value));
+  </script>
+</html>

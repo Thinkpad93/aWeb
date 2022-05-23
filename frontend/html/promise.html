@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>delayedResolve</title>
+  </head>
+  <body>
+    <script>
+      function delayedResolve(str) {
+        return new Promise((resolve, refject) => {
+          console.log(str);
+          setTimeout(resolve, 1000);
+        });
+      }
+
+      // delayedResolve('p1 executor')
+      //   .then(() => delayedResolve('p2 executor'))
+      //   .then(() => delayedResolve('p3 executor'))
+      //   .then(() => delayedResolve('p4 executor'))
+      //   .then(() => delayedResolve('p5 executor'))
+      //   .then(() => delayedResolve('p6 executor'))
+      //   .then(() => delayedResolve('p7 executor'))
+      //   .then(() => delayedResolve('p8 executor'))
+      //   .then(() => delayedResolve('p9 executor'))
+      //   .then(() => delayedResolve('p10 executor'));
+
+      // setTimeout(() => {
+      //   console.log('setTimeout');
+      // }, 1000);
+
+      let getQuerystringArgs = function () {
+        let qs = location.search.length > 0 ? location.search.substring(1) : '';
+        let args = {};
+        for (let item of qs.split('&').map((kv) => kv.split('='))) {
+          console.log(item);
+          let name = decodeURIComponent(item[0]);
+          let value = decodeURIComponent(item[1]);
+          if (name.length) {
+            args[name] = value;
+          }
+        }
+        return args;
+      };
+
+      async function async1() {
+        console.log('async1 start'); // 2
+        await async2();
+        console.log('async1 end'); // 5
+      }
+
+      async function async2() {
+        console.log('async start'); // 3
+        return new Promise((resolve, reject) => {
+          resolve();
+          console.log('async2 promise1'); // 4
+        });
+      }
+
+      console.log('script start'); // 1
+      setTimeout(() => {
+        console.log('setTimeout');
+      }, 0);
+
+      async1();
+
+
+
+      new Promise((resolve) => {
+        console.log('promise1');
+        resolve();
+      })
+        .then(() => {
+          console.log('promise2');
+        })
+        .then(() => {
+          console.log('promise3');
+        })
+        .then(() => {
+          console.log('promise4');
+        })
+        .then(() => {
+          console.log('promise5');
+        })
+        .then(() => {
+          console.log('promise6');
+        });
+
+        alert('alert');
+
+        
+      console.log('script end');
+
+    </script>
+  </body>
+</html>

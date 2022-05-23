@@ -12,7 +12,7 @@ ES6 新增的数据类型 `Symbol` 表示独一无二的值
 ```js
 // 函数里面的this指的是vue对象
 window.getPrizeCurrent = function (data) {
-  if (typeof data === "object") {
+  if (typeof data === 'object') {
     if (data.prizeInfoList.length) {
       this.list = data.prizeInfoList;
     }
@@ -64,30 +64,30 @@ Event Loop 即事件循环，是指浏览器或 Node 的一种解决 javaScript 
 
 ```js
 setTimeout(function () {
-  console.log("1");
+  console.log('1');
 });
 new Promise(function (resolve) {
-  console.log("2");
+  console.log('2');
   resolve();
 }).then(function () {
-  console.log("3");
+  console.log('3');
 });
-console.log("4");
+console.log('4');
 new Promise(function (resolve) {
-  console.log("5");
+  console.log('5');
   resolve();
 }).then(function () {
-  console.log("6");
+  console.log('6');
 });
 setTimeout(function () {
-  console.log("7");
+  console.log('7');
 });
 function bar() {
-  console.log("8");
+  console.log('8');
   foo();
 }
 function foo() {
-  cnsole.log("9");
+  cnsole.log('9');
 }
 bar();
 ```
@@ -111,15 +111,15 @@ bar();
 
 ```js
 typeof 2; // number
-typeof "jack"; // string
+typeof 'jack'; // string
 ```
 
 引用数据类型用
 
 ```js
-Object.prototype.toString.call({ name: "jack" }); // "[object Object]"
+Object.prototype.toString.call({ name: 'jack' }); // "[object Object]"
 
-Object.prototype.toString.call([{ name: "jack" }]); // "[object Array]"
+Object.prototype.toString.call([{ name: 'jack' }]); // "[object Array]"
 ```
 
 `instanceof` 判断该对象是谁的实例
@@ -149,7 +149,7 @@ Object.prototype.toString.call([{ name: "jack" }]); // "[object Array]"
 #### 如何创建一个 dom 元素
 
 ```js
-document.createElement("div");
+document.createElement('div');
 ```
 
 #### 前端性能优化方案？
@@ -171,17 +171,17 @@ document.createElement("div");
 
 ```js
 // 第一种方法
-const newArray = Array.prototype.slice.call(document.querySelectorAll("div"));
+const newArray = Array.prototype.slice.call(document.querySelectorAll('div'));
 
 // 第二种方法
-const btns = document.querySelectorAll(".btn"); // 返回节点列表，但不是一个真正的数组
+const btns = document.querySelectorAll('.btn'); // 返回节点列表，但不是一个真正的数组
 const newArray = Array.from(btns);
 
 // 扩展运算符
-const newArray = [...document.querySelectorAll(".btn")];
+const newArray = [...document.querySelectorAll('.btn')];
 
 // 利用concat
-Array.prototype.concat.apply([], document.querySelectorAll("div"));
+Array.prototype.concat.apply([], document.querySelectorAll('div'));
 ```
 
 #### 原型方法、实例方法、静态方法有什么不同？
@@ -196,10 +196,10 @@ function Animal() {
   this.name = name;
   // 实例方法
   this.sleep = function () {
-    console.log(this.name + "正在睡觉");
+    console.log(this.name + '正在睡觉');
   };
   this.play = function (play) {
-    console.log(this.name + "正在玩" + play);
+    console.log(this.name + '正在玩' + play);
   };
 }
 // 静态方法
@@ -212,13 +212,13 @@ Animal.prototype.play = function (play) {
 };
 
 // 类调用方法
-Animal.eat("food"); // 可以调用类的静态方法
-Animal.play("warter"); // 不能调用原型方法
+Animal.eat('food'); // 可以调用类的静态方法
+Animal.play('warter'); // 不能调用原型方法
 Animal.sleep(); // 不能调用实例方法
 
 // 实例化调用方法
 const cat = new Animal();
-cat.play("warter"); // 可以调用原型方法，实例化方法会覆盖原型方法，优先级高于原型方法
+cat.play('warter'); // 可以调用原型方法，实例化方法会覆盖原型方法，优先级高于原型方法
 cat.sleep(); // 可以调用实例化方法
 cat.eat(); // 静态方法不可调用
 ```
