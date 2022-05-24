@@ -112,10 +112,10 @@ createApp({
       centralPoint: [0, 0], //画布中心点坐标x,y
       root: { r: {}, l: {} }, //左右2块数据源
       rootNodeLength: 0, //根节点名称长度
-      rootName: ['上海天正实业有限', '公司'], //根节点名称
+      rootName: ['上海天正实业有限'], //根节点名称
       textSpace: 15, //多行文字间距
       themeColor: '#2196F3', //主色
-      nodeSize: [30, 100], //节点间距(高/水平)
+      nodeSize: [50, 100], //节点间距(高/水平)
       fontSize: 12, //字体大小，也是单字所占宽高
       rectMinWidth: 50, //节点方框默认最小，
       textPadding: 5, //文字与方框间距,注：固定值5

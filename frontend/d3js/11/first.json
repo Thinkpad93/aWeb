@@ -60,7 +60,25 @@
       {
         "name": "对外投资",
         "nodeType": 0,
-        "children": []
+        "children": [
+          {
+            "name": "投资银行",
+            "children": [
+              {
+                "name": "股票发行"
+              },
+              {
+                "name": "股票发行"
+              },
+              {
+                "name": "股票发行"
+              },
+              {
+                "name": "股票发行"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
