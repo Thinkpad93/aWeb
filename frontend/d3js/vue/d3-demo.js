@@ -102,11 +102,11 @@ const treeData = {
 };
 const { createApp } = Vue;
 
-createApp({
+const app = createApp({
   data() {
     return {
       container: null, //容器svg>g
-      duration: 750, //动画持续时间
+      duration: 350, //动画持续时间
       scaleRange: [0.2, 4], //container缩放范围
       direction: ['r', 'l'], //分为左右2个方向
       centralPoint: [0, 0], //画布中心点坐标x,y
