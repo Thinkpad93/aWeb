@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted } from 'vue';
 
 export function useMousePosition() {
   const x = ref(0);
@@ -10,11 +10,11 @@ export function useMousePosition() {
   }
 
   onMounted(() => {
-    window.addEventListener("mousemove", update);
+    window.addEventListener('mousemove', update);
   });
 
   onUnmounted(() => {
-    window.removeEventListener("mousemove", update);
+    window.removeEventListener('mousemove', update);
   });
 
   return { x, y };
@@ -22,7 +22,6 @@ export function useMousePosition() {
 
 // 获取浏览器滚动条位置
 export function useScrollTop() {
-
   let scrollTop = ref(0);
 
   function scroll() {
@@ -34,11 +33,11 @@ export function useScrollTop() {
   }
 
   onMounted(() => {
-    window.addEventListener("scroll", scroll);
+    window.addEventListener('scroll', scroll);
   });
 
   onUnmounted(() => {
-    window.removeEventListener("scroll", scroll);
+    window.removeEventListener('scroll', scroll);
   });
 
   return { scrollTop };

@@ -27,20 +27,34 @@
       #app {
         height: 100%;
       }
-      svg:not(root) {
-        overflow: hidden;
-      }
     </style>
   </head>
   <body>
     <div id="app">
-      <div class="seeTree-page">
-        <div id="treeRoot"></div>
-      </div>
     </div>
   </body>
-  <script src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
   <script src="https://unpkg.com/vue@3.2.36/dist/vue.global.prod.js"></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="./main.js"></script>
+  <script>
+    const { createApp, onMounted, ref } = Vue;
+    const treeComponent = {
+      name: 'the-tree',
+      props: {
+        list: Array
+      },
+      template: `
+        <ul></ul>
+      `
+    };
+    const app = createApp({
+      setup() {
+        let x = ref(0);
+        onMounted(() => {
+          console.log(this);
+        });
+        return {
+          x
+        };
+      }
+    }).mount('#app');
+  </script>
 </html>

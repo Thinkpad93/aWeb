@@ -228,7 +228,18 @@ createApp({
       })
         .then((response) => response.json())
         .then((json) => {
-          console.log(json);
+          let data = json.data;
+
+          function mapTree(org) {
+            const hasChildren = Array.isArray(org.children) && org.children.length > 0;
+            
+            return {
+              id: org.id,
+              name: org.name,
+              children: hasChildren ? org.children.map(i => mapTree(i)) : []
+            }
+          }
+          let arr = data.map(org => mapTree(org));
         });
     },
     uuid() {
@@ -353,6 +364,7 @@ createApp({
       const dirRight = direction === 'r' ? 1 : -1; //方向为右/左
       const className = `${direction}gNode`;
       const tree = this.treeMap(this.root[direction]);
+      console.log(tree);
       const nodes = tree.descendants(); //返回后代节点数组，第一个节点为自身，然后依次为所有子节点的拓扑排序
       const links = tree.links(); //返回当前 node 的 links 数组, 其中每个 link 定义了 source父节点, target 子节点属性。
       nodes.forEach((d) => {
@@ -446,7 +458,7 @@ createApp({
         })
         .attr('fill', 'none')
         .attr('stroke-width', 1)
-        .attr('stroke', '#ddd');
+        .attr('stroke', '#d8d8d8');
 
       // Transition links to their new position.
       link
@@ -600,14 +612,3 @@ createApp({
     }
   }
 }).mount('#app');
-
-// svg.append('rect').attr('width', '100%').attr('height', '100%').attr('fill', 'red');
-
-// const json = d3.json('http://api.xingguangcheng.top/app/policy/point'); // 加载数据源
-
-// json.then((res) => {
-//   let dataset = res.dataset;
-//   console.log(dataset);
-//   let data = d3.tree(dataset);
-//   console.log(data());
-// });
