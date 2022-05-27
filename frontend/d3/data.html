@@ -14,7 +14,12 @@
     <meta content="telephone=no, address=no" name="format-detection" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <title>D3js是什么</title>
+    <title>政策关系图谱</title>
+    <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+    <script>
+      // VConsole 默认会挂载到 `window.VConsole` 上
+      var vConsole = new window.VConsole();
+    </script>
     <style>
       html,
       body {
@@ -42,23 +47,23 @@
   <script src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script>
-    const miniprogram = false;
+    let miniprogram = false;
     const treeData = { r: {}, l: {} };
-    let container = null; //容器svg>g
-    let duration = 550; //动画持续时间
-    let scaleRange = [0.2, 4]; //container缩放范围
-    let direction = ['r', 'l']; //分为左右2个方向
-    let centralPoint = [0, 0]; //画布中心点坐标x,y
-    let root = { r: {}, l: {} }; //左右2块数据源
-    let rootNodeLength = 0; //根节点名称长度
-    let rootName = []; //根节点名称
-    let textSpace = 15; //多行文字间距
+    let container = null; // 容器svg>g
+    let duration = 550; // 动画持续时间
+    let scaleRange = [0.2, 2]; // container缩放范围
+    let direction = ['r', 'l']; // 分为左右2个方向
+    let centralPoint = [0, 0]; // 画布中心点坐标x,y
+    let root = { r: {}, l: {} }; // 左右2块数据源
+    let rootNodeLength = 0; // 根节点名称长度
+    let rootName = []; // 根节点名称
+    let textSpace = 15; // 多行文字间距
     let themeColor = '#409eff'; //主色
-    let nodeSize = [50, 150]; //节点间距(高/水平)
-    let fontSize = 12; //字体大小，也是单字所占宽高
-    let rectMinWidth = 50; //节点方框默认最小，
-    let textPadding = 5; //文字与方框间距,注：固定值5
-    let circleR = 5; //圆圈半径
+    let nodeSize = [50, 150]; // 节点间距(高/水平)
+    let fontSize = 13; // 字体大小，也是单字所占宽高
+    let rectMinWidth = 50; // 节点方框默认最小，
+    let textPadding = 5; // 文字与方框间距,注：固定值5
+    let circleR = 5; // 圆圈半径
     let margin1 = { top: 50, right: 20, bottom: -20, left: 0 };
     ready();
     getData();
@@ -91,9 +96,7 @@
     }
     // 获取数据
     function getData() {
-      let url = miniprogram
-        ? 'https://api.xingguangcheng.top/app/policy/point'
-        : 'http://localhost:8039/app/policy/point';
+      let url = false ? 'https://api.xingguangcheng.top/app/policy/point' : 'http://localhost:8039/app/policy/point';
       fetch(url, {
         credentials: 'same-origin',
         mode: 'cors',
@@ -145,7 +148,7 @@
       container = svg
         .append('g')
         .attr('class', 'container1')
-        .attr('transform', `translate(${margin1.left}, ${margin1.top}), scale(0.8)`);
+        .attr('transform', `translate(${margin1.left}, ${margin1.top}), scale(1)`);
 
       drawRoot();
 
@@ -356,7 +359,7 @@
         d.x
       }, ${d.y} ${d.x}`;
     }
-    //画文本
+    // 画文本
     function drawText(id, dirRight) {
       dirRight = dirRight > 0; //右为1，左为-1
       return d3
@@ -368,7 +371,7 @@
         .style('font-size', fontSize)
         .text((d) => d.data.name);
     }
-    //画子文本
+    // 画子文本
     function drawTsText(id) {
       return d3
         .select(`#${id} text`)
@@ -376,7 +379,7 @@
         .attr('fill', (d) => getTsTextColor(d.parent.data.name))
         .text((d) => d.data.value);
     }
-    //画方框阴影
+    // 画方框阴影
     function drawFilter(id) {
       return d3
         .select(`#${id}`)
@@ -389,7 +392,7 @@
         .attr('in', 'SourceGraphic')
         .attr('stdDeviation', '5');
     }
-    //画方框
+    // 画方框
     function drawRect(id, dirRight) {
       let realw = document.getElementById(id).getBBox().width + 10; //获取g实际宽度后，设置rect宽度
       return d3
@@ -403,7 +406,7 @@
         .style('stroke', '#409eff')
         .style('fill', '#ffffff');
     }
-    //画circle
+    // 画circle
     function drawCircle(id) {
       let gMark = d3
         .select(`#${id}`)
@@ -427,20 +430,20 @@
         .attr('class', 'node-circle-vertical');
       return gMark;
     }
-    //点击某个节点
+    // 点击某个节点
     function clickNode(d, direction) {
       if (!d._children && !d.children) {
         navigateTo(d.data.id);
-        //无子节点
+        // 无子节点
         return;
       }
-      //根据当前节点是否有children来判断是展开还是收缩，true收缩，false展开
-      //tree会根据节点内是否有children来向下扩展
+      // 根据当前节点是否有children来判断是展开还是收缩，true收缩，false展开
+      // tree会根据节点内是否有children来向下扩展
       d.children = d.children ? null : d._children;
       d3.select(`#g${d.id} .node-circle .node-circle-vertical`)
         .transition()
         .duration(duration)
-        .attr('stroke-width', d.children ? 0 : 1); //控制节点伸缩时的标识圆圈
+        .attr('stroke-width', d.children ? 0 : 1); // 控制节点伸缩时的标识圆圈
       update(d, direction);
     }
     function getTsTextColor(name) {
