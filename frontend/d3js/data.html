@@ -42,195 +42,59 @@
   <script src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script>
+    const miniprogram = false;
     const treeData = { r: {}, l: {} };
-    // const treeData = {
-    //   r: {
-    //     name: '改造成本',
-    //     children: [
-    //       {
-    //         name: '征地规费',
-    //         children: [
-    //           { name: '中国资产管理行业概览', value: '' },
-    //           {
-    //             name: '关于调整森林植被恢复费征收标准引导节约集约利用林地的通知（财税〔2015〕122号）',
-    //             value: ''
-    //           }
-    //         ]
-    //       },
-    //       {
-    //         name: '征地补偿费',
-    //         children: [
-    //           { name: '股票发行' },
-    //           { name: '债券发行' },
-    //           {
-    //             name: '资产证券化',
-    //             value: '',
-    //             children: [
-    //               {
-    //                 name: '债券发行与承销',
-    //                 children: [
-    //                   {
-    //                     name: '债券发行与承销'
-    //                   },
-    //                   {
-    //                     name: '债券市场概况',
-    //                     children: [
-    //                       {
-    //                         name: '债券市场概况'
-    //                       },
-    //                       {
-    //                         name: '债券融资在企业融资中的角色'
-    //                       }
-    //                     ]
-    //                   },
-    //                   {
-    //                     name: '主要债券融资工具的类型与特点'
-    //                   },
-    //                   {
-    //                     name: '公司债券发行基础'
-    //                   }
-    //                 ]
-    //               }
-    //             ]
-    //           }
-    //         ]
-    //       },
-    //       {
-    //         name: '指标规模费',
-    //         children: [
-    //           {
-    //             name: '地产金融',
-    //             value: '',
-    //             children: [
-    //               { name: '地产金融基础', value: '' },
-    //               { name: '地产非标融资实务之产品设计', value: '' }
-    //             ]
-    //           },
-    //           {
-    //             name: '政信城投',
-    //             value: '',
-    //             children: [
-    //               { name: '融资平台的前世今生与未来', value: '' },
-    //               { name: '金融机构政信城投业务模式及风控要点', value: '' }
-    //             ]
-    //           }
-    //         ]
-    //       },
-    //       {
-    //         name: '造价标准'
-    //       },
-    //       {
-    //         name: '整合成本'
-    //       },
-    //       {
-    //         name: '专项成本',
-    //         children: [
-    //           {
-    //             name: '番禺区旧村庄全面改造专项成本审查方案（2019年11月发布）'
-    //           }
-    //         ]
-    //       },
-    //       {
-    //         name: '地价与出让金',
-    //         children: [
-    //           {
-    //             name: '广州市国土资源和规划委员会关于印发明确我市国有建设用地使用权出让金计收标准的通知（穗国土规划规字[2018〕2号)'
-    //           },
-    //           {
-    //             name: '广州市国土资源和规划委员会关于印发明确我市国有建设用地使用权出让金计收标准的通知（穗国土规划规字[2018〕2号)'
-    //           },
-    //           {
-    //             name: '广州市国土资源和规划委员会关于印发明确我市国有建设用地使用权出让金计收标准的通知（穗国土规划规字[2018〕2号)'
-    //           },
-    //           {
-    //             name: '广州市国土资源和规划委员会关于印发明确我市国有建设用地使用权出让金计收标准的通知（穗国土规划规字[2018〕2号)'
-    //           },
-    //           {
-    //             name: '广州市国土资源和规划委员会关于印发明确我市国有建设用地使用权出让金计收标准的通知（穗国土规划规字[2018〕2号)'
-    //           },
-    //           {
-    //             name: '广州市国土资源和规划委员会关于印发明确我市国有建设用地使用权出让金计收标准的通知（穗国土规划规字[2018〕2号)'
-    //           },
-    //           {
-    //             name: '广州市国土资源和规划委员会关于印发明确我市国有建设用地使用权出让金计收标准的通知（穗国土规划规字[2018〕2号)'
-    //           }
-    //         ]
-    //       }
-    //     ]
-    //   },
-    //   l: {
-    //     name: '市级层面的文件',
-    //     children: [
-    //       {
-    //         name: '市级层面的文件',
-    //         children: [
-    //           {
-    //             name: '黄埔区',
-    //             value: '',
-    //             children: [
-    //               {
-    //                 name: '广州开发区城市更新局关于印发《广州市黄埔区 广州开发区（九龙片区除外）旧村改造补偿安置方案（模板）》和《广州市黄埔区九龙片区旧村改造补偿安置方案（模板）》的通知（穗开更新〔2019〕49号）'
-    //               },
-    //               {
-    //                 name: '黄埔区九龙片区旧村现状建筑测量和复建安置计算工作指引（穗开更新规字〔2019〕1 号）'
-    //               },
-    //               {
-    //                 name: '广州开发区城市更新局关于发布广州市黄埔区、广州开发区2020年城市更新区片土地市场评估价的公告'
-    //               },
-    //               {
-    //                 name: '广州市黄埔区广州开发区2021年城市更新区片土地市场评估价'
-    //               }
-    //             ]
-    //           },
-    //           { name: '花都区', value: '' },
-    //           { name: '增城区', value: '' },
-    //           { name: '南沙区', value: '' },
-    //           { name: '增城区', value: '' },
-    //           { name: '番禺区', value: '' },
-    //           {
-    //             name: '从化区',
-    //             value: '',
-    //             children: [
-    //               {
-    //                 name: '广州市规划和自然资源局从化区分局关于印发《广州市从化区旧村庄全面改造类项目复建总量核算的技术规范》的通知（穗规划资源从〔2021〕2号）'
-    //               }
-    //             ]
-    //           },
-    //           { name: '荔湾区', value: '' },
-    //           { name: '海珠区', value: '' },
-    //           { name: '越秀区', value: '' },
-    //           { name: '天河区', value: '' },
-    //           { name: '白云区', value: '' }
-    //         ]
-    //       },
-    //       {
-    //         name: '改造成本审查（审核）类文件',
-    //         value: '[董事]'
-    //       }
-    //     ]
-    //   }
-    // };
-
     let container = null; //容器svg>g
     let duration = 550; //动画持续时间
     let scaleRange = [0.2, 4]; //container缩放范围
     let direction = ['r', 'l']; //分为左右2个方向
     let centralPoint = [0, 0]; //画布中心点坐标x,y
-    let root = { r: {} }; //左右2块数据源
+    let root = { r: {}, l: {} }; //左右2块数据源
     let rootNodeLength = 0; //根节点名称长度
-    let rootName = ['改造成本']; //根节点名称
+    let rootName = []; //根节点名称
     let textSpace = 15; //多行文字间距
-    let themeColor = '#2196F3'; //主色
-    let nodeSize = [60, 150]; //节点间距(高/水平)
+    let themeColor = '#409eff'; //主色
+    let nodeSize = [50, 150]; //节点间距(高/水平)
     let fontSize = 12; //字体大小，也是单字所占宽高
     let rectMinWidth = 50; //节点方框默认最小，
     let textPadding = 5; //文字与方框间距,注：固定值5
     let circleR = 5; //圆圈半径
     let margin1 = { top: 50, right: 20, bottom: -20, left: 0 };
-
+    ready();
     getData();
+    // 判断是否是小程序环境
+    function ready() {
+      console.log(window.__wxjs_environment === 'miniprogram'); // true
+      if (window.__wxjs_environment === 'miniprogram') {
+        miniprogram = true;
+      }
+    }
+    if (!window.WeixinJSBridge || !WeixinJSBridge.invoke) {
+      document.addEventListener('WeixinJSBridgeReady', ready, false);
+    } else {
+      ready();
+    }
+    // let arr = data.map((org) => mapTree(org));
+    function mapTree(org) {
+      const hasChildren = Array.isArray(org.children) && org.children.length > 0;
+
+      return {
+        id: org.id,
+        name: org.name,
+        children: hasChildren ? org.children.map((i) => mapTree(i)) : []
+      };
+    }
+    // 跳转小程序页面
+    function navigateTo(id) {
+      miniprogram &&
+        wx.miniProgram.navigateTo({ url: `/pages/policy/show/index?id=${id}` });
+    }
+    // 获取数据
     function getData() {
-      fetch(`http://localhost:8039/app/policy/point`, {
+      let url = miniprogram
+        ? 'https://api.xingguangcheng.top/app/policy/point'
+        : 'http://localhost:8039/app/policy/point';
+      fetch(url, {
         credentials: 'same-origin',
         mode: 'cors',
         method: 'post',
@@ -241,21 +105,20 @@
         .then((response) => response.json())
         .then((json) => {
           let data = json.data;
-          // console.log(data[0]);
-          treeData['l'] = data[1];
-          treeData['r'] = data[0];
-          treeInit();
-          // function mapTree(org) {
-          //   const hasChildren = Array.isArray(org.children) && org.children.length > 0;
-
-          //   return {
-          //     id: org.id,
-          //     name: org.name,
-          //     children: hasChildren ? org.children.map((i) => mapTree(i)) : []
-          //   };
-          // }
-          // let arr = data.map((org) => mapTree(org));
-          // console.log(arr);
+          if (data.length) {
+            let name = data[0].name;
+            let children = data[0].children;
+            let len = children.length;
+            let n = parseInt(len / 2);
+            let l = children.slice(0, n);
+            let r = children.slice(n, len);
+            let treeL = { name, children: [...l] };
+            let treeR = { name, children: [...r] };
+            rootName[0] = name;
+            treeData['r'] = treeL;
+            treeData['l'] = treeR;
+            treeInit();
+          }
         });
     }
     function treeInit() {
@@ -463,7 +326,7 @@
         })
         .attr('fill', 'none')
         .attr('stroke-width', 1)
-        .attr('stroke', '#d8d8d8');
+        .attr('stroke', '#EBEEF5');
 
       // Transition links to their new position.
       link.merge(linkEnter).transition().duration(duration).attr('d', diagonal);
@@ -537,7 +400,7 @@
         .attr('width', realw)
         .attr('height', textSpace + textPadding)
         .attr('rx', 2) //圆角
-        .style('stroke', (d) => getRectStorke(d.parent.data.name))
+        .style('stroke', '#409eff')
         .style('fill', '#ffffff');
     }
     //画circle
@@ -567,13 +430,10 @@
     //点击某个节点
     function clickNode(d, direction) {
       if (!d._children && !d.children) {
-        console.log(d);
-        console.log(direction);
+        navigateTo(d.data.id);
         //无子节点
         return;
       }
-      console.log(d);
-      console.log(direction);
       //根据当前节点是否有children来判断是展开还是收缩，true收缩，false展开
       //tree会根据节点内是否有children来向下扩展
       d.children = d.children ? null : d._children;
@@ -597,11 +457,11 @@
     }
     function getRectStorke(name) {
       switch (name) {
-        case '股东':
+        case '征地规费':
           return 'green';
-        case '供应商':
+        case '市级层面文件':
           return 'skyblue';
-        case '合伙人':
+        case '专项成本':
           return '#FF9800';
         default:
           return 'gray';
