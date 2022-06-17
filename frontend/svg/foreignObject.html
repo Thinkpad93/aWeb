@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>foreignObject</title>
+  </head>
+  <body>
+    <svg width="200" height="200">
+      <rect x="0" y="0" width="200" height="200" fill="#00bcd4"></rect>
+      <foreignObject x="0" y="0" width="200" height="100">
+        <div
+          style="
+            color: #fff;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          "
+        >
+          我是写在foreignObject标签中内容，哈哈哈哈哈哈哈哈哈
+        </div>
+      </foreignObject>
+    </svg>
+  </body>
+</html>

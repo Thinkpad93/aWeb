@@ -96,12 +96,14 @@
     }
     // 获取数据
     function getData() {
-      let url = false ? 'https://api.xingguangcheng.top/app/policy/point' : 'http://localhost:8039/app/policy/point';
+      let url = true
+        ? 'https://api.xingguangcheng.top/app/policy/point'
+        : 'http://localhost:8039/app/policy/point';
       fetch(url, {
         credentials: 'same-origin',
-        mode: 'cors',
+        mode: 'no-cors',
         method: 'post',
-        header: {
+        headers: {
           'content-type': 'application/json' // 默认值
         }
       })
