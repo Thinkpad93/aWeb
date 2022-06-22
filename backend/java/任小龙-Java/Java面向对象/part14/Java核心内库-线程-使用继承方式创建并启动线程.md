@@ -1,4 +1,4 @@
-#####  Java核心内库-线程-使用继承方式创建并启动线程 
+##### Java 核心内库-线程-使用继承方式创建并启动线程
 
 创建和启动线程传统有两种方式：
 
@@ -6,11 +6,11 @@
 
 2.实现 Runnable 接口
 
-> 线程类 java.lang.Thread Thread类和Thread 的子类才能称之为线程类
+> 线程类 java.lang.Thread Thread 类和 Thread 的子类才能称之为线程类
 >
 > 别忘记了，主线程 main 方法运行，表示主线程
 
-###### 继续Thread 类
+###### 继续 Thread 类
 
 ```java
 // 播放音乐的线程类
@@ -64,4 +64,3 @@ public class RunnableDemo {
 }
 
 ```
-

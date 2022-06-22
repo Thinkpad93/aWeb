@@ -1,6 +1,6 @@
 # 一、数据定义
 
-关系数据库系统支持三级模式结构，其模式，外模式，内模式中的基本对象有模式、表、视图和索引，所以SQL的数据定义功能包括模式定义、表定义、视图和索引的定义
+关系数据库系统支持三级模式结构，其模式，外模式，内模式中的基本对象有模式、表、视图和索引，所以 SQL 的数据定义功能包括模式定义、表定义、视图和索引的定义
 
 ## 1. 模式的定义与删除
 
@@ -12,13 +12,11 @@ create schema 模式名 authorization 用户名;
 
 **示例：**
 
-为用户WANG定义一个 学生-课程 模式 S-T
+为用户 WANG 定义一个 学生-课程 模式 S-T
 
 ```sql
 create schema "S-T" authorization WANG;
 ```
-
-
 
 定义模式实际上就是定义了一个命名空间，可以在这个空间的基础上进一步定义数据库对象，基本表，视图，索引等
 
@@ -75,7 +73,7 @@ CREATE TABLE mytable (
 );
 ```
 
-SQL标准支持多种数据类型：
+SQL 标准支持多种数据类型：
 
 ![](https://gitee.com/veal98/images/raw/master/img/20200417164206.png)
 
@@ -85,7 +83,7 @@ SQL标准支持多种数据类型：
 
 **示例：**
 
-- 向Student表中添加入学时间列
+- 向 Student 表中添加入学时间列
 
   ```sql
   alter table student add entrance_date DATE;
@@ -147,11 +145,9 @@ drop index 索引名
 
 ## 4. 数据字典
 
-数据字典是关系数据库管理系统内部的一组系统表，它**记录了数据库中所有的定义信息**，包括关系模式定义、视图定义、索引定义、完整性约束定义、各类用户对数据库的操作权限、统计信息等。**关系数据库管理系统在执行SQL的数据定义语句时，实际上就是在更新数据字典中的相应信息**
+数据字典是关系数据库管理系统内部的一组系统表，它**记录了数据库中所有的定义信息**，包括关系模式定义、视图定义、索引定义、完整性约束定义、各类用户对数据库的操作权限、统计信息等。**关系数据库管理系统在执行 SQL 的数据定义语句时，实际上就是在更新数据字典中的相应信息**
 
 <br>
-
-
 
 # 二、数据查询
 
@@ -225,7 +221,7 @@ from SC;
   from student
   where age between 20 and 33;
   ```
-  
+
 - **确定集合**
 
   ```sql
@@ -241,7 +237,7 @@ from SC;
 
   ```sql
   # 查询姓欧阳且全名为三个汉字的学生的姓名
-  select sname 
+  select sname
   from student
   where sname like '欧阳_';
   ```
@@ -261,14 +257,14 @@ from SC;
 
   ```sql
   # 查询计算机系年龄20以下的学生姓名
-  select sname 
+  select sname
   from student
   where sdept = 'CS' and sage < 20;
   ```
 
 ### ③ order by 子句
 
-- desc 降序 
+- desc 降序
 - asc 升序 默认
 
 ```sql
@@ -285,7 +281,7 @@ order by sdept,sage desc;
 select Sname
 from Student
 where Sgrade = (
-	select top 1 Sgrade 
+	select top 1 Sgrade
     from Student
     order by Sgrade desc
 );
@@ -304,8 +300,6 @@ where id not in(
 order by id;
 ```
 
-
-
 ### ⑤ 聚集函数
 
 | 函数名 |    功能    |
@@ -315,8 +309,6 @@ order by id;
 |  MAX   |  求最大值  |
 |  MIN   |  求最小值  |
 |  AVG   |  求平均值  |
-
-
 
 示例：
 
@@ -362,14 +354,12 @@ having count(*) > 3;
 select * from Student s
 where s.sno in(
 	select stu.sno from Studty stu
-    group by stu.sno 
+    group by stu.sno
     having count(*) >= 2
 );
 ```
 
 <br>
-
-
 
 **`WHERE` 过滤行，`HAVING` 过滤分组，行过滤应当先于分组过滤。**
 
@@ -385,9 +375,7 @@ where s.sno in(
 >
 > where 不可以使用聚集函数。一般需用聚集函数才会用 having
 >
-> SQL标准要求`HAVING 必须引用 GROUP BY 子句中的列或用于合计函数中的列`。
-
-
+> SQL 标准要求`HAVING 必须引用 GROUP BY 子句中的列或用于合计函数中的列`。
 
 ⚠ **GROUP BY 子句出现在 WHERE 子句之后，ORDER BY 子句之前**
 
@@ -486,9 +474,9 @@ where grade >= (select AVG(grade)
                where y.Sno = x.Sno);
 ```
 
-### ③ 带有 ANY(SOME)或 ALL 谓词的子查询 
+### ③ 带有 ANY(SOME)或 ALL 谓词的子查询
 
-子查询返回单值时可以用比较运算符，但返回多值时要用 ANY（有的系统用SOME）或 ALL 谓词修饰符。而使用ANY 或 ALL谓词时必须同时使用比较运算符。
+子查询返回单值时可以用比较运算符，但返回多值时要用 ANY（有的系统用 SOME）或 ALL 谓词修饰符。而使用 ANY 或 ALL 谓词时必须同时使用比较运算符。
 
 ![](https://gitee.com/veal98/images/raw/master/img/20200417195212.png)
 
@@ -501,7 +489,7 @@ from Student
 where Sage < ANY(select Sage
                 from Student
                 where Sdept = 'CS')
-      and 
+      and
       Sdept <> ‘CS';
 ```
 
@@ -515,7 +503,7 @@ where Sage < ANY(select Sage
 
 > **exists 的查询步骤是顺序执行，并不会先做子查询**，与 in 相反。
 >
-> 顺序执行，如果exists 的查询结果为真，则将最外层的查询结果添加进最终结果集。对外表进行循环
+> 顺序执行，如果 exists 的查询结果为真，则将最外层的查询结果添加进最终结果集。对外表进行循环
 
 **示例：**
 
@@ -531,7 +519,7 @@ where exists(
 );
 ```
 
-由exists引出的子查询，其目标列表达式通常都用 * ，因为该子查询只返回 true 或 false，给出列名无实际意义
+由 exists 引出的子查询，其目标列表达式通常都用 \* ，因为该子查询只返回 true 或 false，给出列名无实际意义
 
 ```sql
 # 查询选修了全部课程的学生姓名
@@ -540,10 +528,10 @@ from Student
 where not exists(
     # 首先我们要直到一共有哪些课程
 	select *
-	from Cource 
+	from Cource
 	where not exists(
         # 其次，我们需要统计选修了所有课程的学生号
-		select * 
+		select *
 		from SC
 		where Sno = Student.Sno
 		and
@@ -569,8 +557,6 @@ for(循环从Student表拿一行学生数据){
 }
 ```
 
-
-
 ```sql
 # 查询至少选修了学生001选修的全部课程的学生号码
 select distinct Sno
@@ -582,7 +568,7 @@ where not exists(
     where SCY.Sno = '001'
     and
     not exists(
-    	select * 
+    	select *
         from SC SCZ
         # 匹配学号
         where SCZ.Sno = SCX.Sno
@@ -593,24 +579,24 @@ where not exists(
 );
 ```
 
-翻译为：不存在这样的课程y，001选修了，而学生x没有选修
+翻译为：不存在这样的课程 y，001 选修了，而学生 x 没有选修
 
 > exists 和 in 的区别：
 >
 > 例如：
 >
-> select * from A
+> select \* from A
 > where id in(select id from B)
 >
-> **exists()适合B表比A表数据大的情况**
+> **exists()适合 B 表比 A 表数据大的情况**
 >
-> **当A表数据与B表数据一样大时, in与exists效率差不多,可任选一个使用.**
+> **当 A 表数据与 B 表数据一样大时, in 与 exists 效率差不多,可任选一个使用.**
 >
-> 详细可参考：👉 [SQL语句中exists和in的区别](https://www.cnblogs.com/emilyyoucan/p/7833769.html)
+> 详细可参考：👉 [SQL 语句中 exists 和 in 的区别](https://www.cnblogs.com/emilyyoucan/p/7833769.html)
 
 ## 4. 集合查询
 
-select 语句的查询结果是元组的集合，所以多个select语句的结果可进行集合操作。集合操作主要包括
+select 语句的查询结果是元组的集合，所以多个 select 语句的结果可进行集合操作。集合操作主要包括
 
 - `并 UNION`
 - `交 INTERSECT`
@@ -649,7 +635,7 @@ where Sage > 19;
 
 ## 5. 基于派生表的查询
 
-子查询不仅可以出现在where子句中，还可以出现在子句中，这时子查询生成的临时派生表成为主查询的查询对象 (必须为派生关系置顶一个别名)
+子查询不仅可以出现在 where 子句中，还可以出现在子句中，这时子查询生成的临时派生表成为主查询的查询对象 (必须为派生关系置顶一个别名)
 
 ```sql
 # 找出每个学生超过自己选修课程平均成绩的课程号
@@ -659,8 +645,6 @@ from SC,(select Sno,AVG(Grade) from SC group by Sno)
 ```
 
 <br>
-
-
 
 # 三、数据更新
 
@@ -723,7 +707,7 @@ where Sno in(
 
 ```sql
 # 删除学号001学生记录
-delete 
+delete
 from Student
 where Sno = '001';
 ```
@@ -732,7 +716,7 @@ where Sno = '001';
 
 ```sql
 # 删除所有学生记录
-delete 
+delete
 from student;
 ```
 
@@ -740,7 +724,7 @@ from student;
 
 ```sql
 # 删除计算机系所有学生的选课记录
-delete 
+delete
 from SC
 where Sno in(
 	select Sno
@@ -755,19 +739,19 @@ where Sno in(
 delete from Student
 where id not in(
 	select id from(
-		-- ① 按照除id以外的任意属性就行分组排列，并选出每个分组中的最小id -- 
+		-- ① 按照除id以外的任意属性就行分组排列，并选出每个分组中的最小id --
 		select MIN(id) from Student
     	group by Sname
     )temp
 );
 ```
 
-> 🚨 注意： 
+> 🚨 注意：
 >
 > ```sql
-> delete from test 
+> delete from test
 > where id not in(
-> 	select Min(id) from test 
+> 	select Min(id) from test
 >     group by name
 > );
 > ```
@@ -778,11 +762,9 @@ where id not in(
 >
 > **不允许使用同一表中查询的数据作为同一表的更新数据。**
 >
-> 我们需要在select外面套上一层，让数据库认为我们不是使用同一个表的查询数据作为更新数据
+> 我们需要在 select 外面套上一层，让数据库认为我们不是使用同一个表的查询数据作为更新数据
 
 <br>
-
-
 
 # 四、空值的处理
 
@@ -817,8 +799,6 @@ where Sname is null or Sgender is null or Sage is null or Sdept is null;
 
 <br>
 
-
-
 # 五、视图
 
 视图是从一个或几个基本表（或视图）导出的表。
@@ -829,7 +809,7 @@ where Sname is null or Sgender is null or Sage is null or Sdept is null;
 
 其实视图就好像一个窗口，透过它可以看到自己想要看到的数据及其变化
 
-##  1. 建立视图
+## 1. 建立视图
 
 ![](https://gitee.com/veal98/images/raw/master/img/20200418095518.png)
 
@@ -845,7 +825,7 @@ where Sdept = 'CS'
 with check option;
 ```
 
-由于加上了 with check option 子句，以后对视图进行 修改 / 添加 / 删除 操作时，DBMS都会自动加上 Sdept = 'CS' 这个条件
+由于加上了 with check option 子句，以后对视图进行 修改 / 添加 / 删除 操作时，DBMS 都会自动加上 Sdept = 'CS' 这个条件
 
 <br>
 
@@ -888,7 +868,7 @@ drop view 视图名；
 或者可以使用 `CASCADE `进行级联删除，删除该视图和由它导出的所有视图
 
 ```sql
-drop view 视图名 CASCADE; 
+drop view 视图名 CASCADE;
 ```
 
 ## 3. 查询视图
@@ -938,13 +918,11 @@ where CS_Student.Sno = SC.Sno and
 
 <br>
 
-
-
-# 六、SQL语句综合习题
+# 六、SQL 语句综合习题
 
 有如下四个表：
 
-- 供应商表 S（Sno,Sname, Status, City） 
+- 供应商表 S（Sno,Sname, Status, City）
 - 零件表 P （Pno,Pname,Color,Weight）
 - 工程项目表 J (Jno,Jname,City)
 - 供应情况表 SPJ (Sno,Pno,Jno,Qty)
@@ -956,7 +934,7 @@ where CS_Student.Sno = SC.Sno and
 - 找出所有供应商姓名和所在城市
 
   ```sql
-  select Sname,City 
+  select Sname,City
   from S;
   ```
 
@@ -967,7 +945,7 @@ where CS_Student.Sno = SC.Sno and
   from P;
   ```
 
-- 找出使用供应商S1所供应零件的工程号码
+- 找出使用供应商 S1 所供应零件的工程号码
 
   ```sql
   select distinct Jno
@@ -975,19 +953,19 @@ where CS_Student.Sno = SC.Sno and
   where Sno = 'S1';
   ```
 
-- 找出工程项目J2使用的各种零件的名称及其数量
+- 找出工程项目 J2 使用的各种零件的名称及其数量
 
   ```sql
   select P.Pname,SPJ.QTY
   from SPJ,P
-  where SPJ.Pno = P.Pno and 
+  where SPJ.Pno = P.Pno and
   	  SPJ.Jno = 'J2';
   ```
 
 - 找出上海厂商供应的所有零件号码
 
   ```sql
-  select Pno 
+  select Pno
   from SPJ,S
   where SPJ.Sno = S.Sno and
   	  S.City = '上海';
@@ -1009,11 +987,11 @@ where CS_Student.Sno = SC.Sno and
   select distinct Jno
   from SPJ
   where Jno not in(
-  	select distinct Jno 
+  	select distinct Jno
       from SPJ,S
-      where SPJ.Sno = S.Sno and 
+      where SPJ.Sno = S.Sno and
       S.City = '天津'
-  );	
+  );
   ```
 
 - 把全部红色零件的颜色改成蓝色
@@ -1024,7 +1002,7 @@ where CS_Student.Sno = SC.Sno and
   where Color = '红色';
   ```
 
-- 由S5供给J4的零件P6改为由S3供应
+- 由 S5 供给 J4 的零件 P6 改为由 S3 供应
 
   ```sql
   Update SPJ
@@ -1034,12 +1012,12 @@ where CS_Student.Sno = SC.Sno and
   	  Pno = 'P6';
   ```
 
-- 从供应商中删除供应商号是S2的记录，并从供应关系中删除相应的记录
+- 从供应商中删除供应商号是 S2 的记录，并从供应关系中删除相应的记录
 
   ```sql
   delete from S
   where Sno = 'S2';
-  
+
   delete from SPJ
   where Sno = 'S2';
   ```
@@ -1050,7 +1028,3 @@ where CS_Student.Sno = SC.Sno and
   insert into SPJ
   values(S2,J6,P4,200);
   ```
-
-
-
-

@@ -1,4 +1,4 @@
-#####  Java核心内库-线程-线程同步-同步代码块 
+##### Java 核心内库-线程-线程同步-同步代码块
 
 同步代码块
 
@@ -8,8 +8,6 @@ synchronized(同步锁) {
 }
 ```
 
-
-
 ```java
 class Apple implements Runnable {
     private int num = 50; // 苹果总数
@@ -17,17 +15,17 @@ class Apple implements Runnable {
         for (int i = 0; i < 50; i++) {
             // 同步代码块
             synchronized (this) {
-                if (num > 0) {  
-                    String name = Thread.currentThread().getName(); 
+                if (num > 0) {
+                    String name = Thread.currentThread().getName();
                     System.put.println(name + "吃了编号为"+ num + "的苹果");
                         // 模拟网络延迟
                        try {
                            Thread.sleep(10);
                        }catch (InterruptedException e) {
                            e.printStackTrace();
-                       } 
-                       num --; 
-                }    
+                       }
+                       num --;
+                }
             }
         }
     }
@@ -51,6 +49,6 @@ public class SynchronizedDemo {
 
 对象的同步锁只是一个概念，可以想像为在对象上标记了一个锁
 
-java程序运行使用任何对象作为同步监听对象，但是一般的，我们把当前并发访问的共同资源作为同步监听对象
+java 程序运行使用任何对象作为同步监听对象，但是一般的，我们把当前并发访问的共同资源作为同步监听对象
 
 **注意：在任何时候，最后允许一个线程拥有同步锁**

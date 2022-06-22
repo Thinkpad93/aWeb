@@ -1,4 +1,4 @@
-##### for循环
+##### for 循环
 
 ```java
 
@@ -8,7 +8,7 @@ public class HelloWorld {
         for (int num = 1; num <= 100; num ++) {
             System.out.println(num);
         }
-        
+
         int result = 0;
         for (int number = 1; number <= 100; number ++) {
             result += number;

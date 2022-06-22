@@ -1,4 +1,4 @@
-#####  引用类型转换和instanceof运算符 
+##### 引用类型转换和 instanceof 运算符
 
 基本数据类型转换：
 
@@ -15,7 +15,7 @@ int i = b; // int是4个字节
 short s = (short) i; // short是2个字节
 ```
 
-------
+---
 
 引用类型转换：
 
@@ -31,8 +31,7 @@ Object obj = new Dog();
 
 ```java
 Animal a = new Dog();
-Dog d = (Dog) a; 
+Dog d = (Dog) a;
 ```
 
-##### instanceof运算符判断对象是否是某一个类的实例
-
+##### instanceof 运算符判断对象是否是某一个类的实例

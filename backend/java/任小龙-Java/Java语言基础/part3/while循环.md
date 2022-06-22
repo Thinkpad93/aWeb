@@ -1,4 +1,4 @@
-##### while循环
+##### while 循环
 
 ```java
 
@@ -22,7 +22,7 @@ public class HelloWorld {
         int result = 0; // 总数之和
         while (number <= 100) {
             result = result + number;
-            number ++; 
+            number ++;
         }
         System.out.println(result);
     }

@@ -1,15 +1,16 @@
 try-catch-finally: 一种保护代码正常运行的机制
 
 异常结构
-- try...catch (catch可以有多个，下同)
+
+- try...catch (catch 可以有多个，下同)
 - try...catch...finally
 - try...finally
 
-try必须要有，catch和finally至少要有一个
+try 必须要有，catch 和 finally 至少要有一个
 
 try: 正常业务逻辑代码
-catch: 当try发生异常，将执行catch代码，若无异常，绕之
-finally: 当try和catch执行结束后，必须要执行finally
+catch: 当 try 发生异常，将执行 catch 代码，若无异常，绕之
+finally: 当 try 和 catch 执行结束后，必须要执行 finally
 
 ```java
 
@@ -41,17 +42,18 @@ public class TryDemo {
             int a = 5 / 0;
         } finally {
             System.out.println("Phrase 3 is over");
-        }        
+        }
     }
 }
 ```
-程序在try中碰到异常，将直接跳转到catch中，不会再返回到try
-catch的代码执行结束后，执行finally
 
-catch可以有多个，每个有不同的入口形参，当已发生的异常和某一个catch块中的形参类型一致
-那么将执行该catch中的代码，如果没有一个匹配，catch也不会被触发，最后进入finally块
+程序在 try 中碰到异常，将直接跳转到 catch 中，不会再返回到 try
+catch 的代码执行结束后，执行 finally
 
-**进入try块后，并不会返回到try发生异常的位置，也不会执行后续的catch块，一个异常只能进入一个catch块**
+catch 可以有多个，每个有不同的入口形参，当已发生的异常和某一个 catch 块中的形参类型一致
+那么将执行该 catch 中的代码，如果没有一个匹配，catch 也不会被触发，最后进入 finally 块
+
+**进入 try 块后，并不会返回到 try 发生异常的位置，也不会执行后续的 catch 块，一个异常只能进入一个 catch 块**
 
 ```java
 
@@ -72,8 +74,8 @@ public class MultipleCatchDemo {
 }
 ```
 
-**try结构中，如果有finally块，finally肯定会被执行**
-try-catch-finally每个模块里面也会发生异常，所以也可以在内部继续写一个完整的try结构
+**try 结构中，如果有 finally 块，finally 肯定会被执行**
+try-catch-finally 每个模块里面也会发生异常，所以也可以在内部继续写一个完整的 try 结构
 
 ```java
 try {
@@ -85,9 +87,8 @@ try {
 }
 ```
 
-
-方法存在可能异常，但不处理，那么可以使用throws来声明异常
-调用带有throws异常的方法，要么处理这些异常，或者再次向外throws，直到main函数为止
+方法存在可能异常，但不处理，那么可以使用 throws 来声明异常
+调用带有 throws 异常的方法，要么处理这些异常，或者再次向外 throws，直到 main 函数为止
 
 ```java
 class Test {

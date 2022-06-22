@@ -1,4 +1,4 @@
-#####  保证关闭资源的finally代码块 
+##### 保证关闭资源的 finally 代码块
 
 finally 语句表示最终都会执行的代码，无论有没有异常
 
@@ -16,4 +16,3 @@ try {
 }
 System.out.println("end....");
 ```
-

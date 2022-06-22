@@ -1,5 +1,5 @@
-#####  系统相关类(System-Runtime)  
+##### 系统相关类(System-Runtime)
 
- System：表示系统的意思
+System：表示系统的意思
 
-Runtime：表示java的运行过程
+Runtime：表示 java 的运行过程

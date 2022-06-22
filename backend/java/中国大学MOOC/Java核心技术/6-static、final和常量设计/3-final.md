@@ -1,8 +1,8 @@
-java的 final 关键字同样可以用来修饰
- - 类
- - 方法
- - 字段
+java 的 final 关键字同样可以用来修饰
 
+- 类
+- 方法
+- 字段
 
 final 的类，不能被继承
 
@@ -13,6 +13,7 @@ final public class FinalFather {}
 class Song extends FinalFather {}
 
 ```
+
 父类中的如果有 final 的方法，子类中不能改写此方法
 
 ```java
@@ -30,12 +31,10 @@ public class FinalMethodSon extends FinalMethodFather {
 
 ```
 
-
 > **子类方法和父类方法在方法名和参数列表一样，就属于方法改写/重写/覆写，如果参数列表不一样，就是属于方法重载**
 
+final 的变量，不能再次赋值
 
-
-final的变量，不能再次赋值
 - 如果是基本类型的变量，不能修改其值
 - 如果是对象实例，那么不能修改其指针(但可以修改对象内部的值)
 

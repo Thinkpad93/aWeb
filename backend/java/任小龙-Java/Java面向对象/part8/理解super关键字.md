@@ -1,4 +1,4 @@
-#####  理解super关键字 
+##### 理解 super 关键字
 
 ```java
 // 鸟类
@@ -26,9 +26,8 @@ public class HelloWord {
 }
 ```
 
-##### 什么是super？
+##### 什么是 super？
 
-**this**：当前对象，谁调用this所在的方法，this就是那一个对象
+**this**：当前对象，谁调用 this 所在的方法，this 就是那一个对象
 
 **super**：当前对象的父类对象
-

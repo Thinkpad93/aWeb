@@ -1,4 +1,4 @@
-#####  使用try-catch捕获单个异常 
+##### 使用 try-catch 捕获单个异常
 
 ```java
 try {
@@ -9,4 +9,4 @@ try {
 }
 ```
 
-> 在catch语句块中，必须写 e.printStackTrace()，查看异常信息，方便调试和修改
+> 在 catch 语句块中，必须写 e.printStackTrace()，查看异常信息，方便调试和修改
