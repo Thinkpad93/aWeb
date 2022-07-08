@@ -1,5 +1,4 @@
 (function () {
-
   import styles from './index.css';
 
   const template = document.createElement('template');
@@ -8,7 +7,6 @@
   `;
 
   class AppButton extends HTMLElement {
-
     static get observedAttributes() {
       return ['disabled', 'loading'];
     }
@@ -77,7 +75,7 @@
     _hasAttribute(name) {
       return this.hasAttribute(name);
     }
-  } 
+  }
 
   customElements.define('app-button', AppButton);
 })();

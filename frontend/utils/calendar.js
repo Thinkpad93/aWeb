@@ -42,7 +42,7 @@ const Calendar = {
     } else {
       for (let i = 1; i <= this.getFirstWeek(this.now); i++) {
         // 添加上月空白日期
-        data.unshift("");
+        data.unshift('');
       }
     }
     for (let i = 1; i <= data.length; i++) {
@@ -90,5 +90,5 @@ const Calendar = {
       );
     }
     this.init(this.need);
-  },
+  }
 };

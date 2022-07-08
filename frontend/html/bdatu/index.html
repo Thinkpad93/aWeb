@@ -1,67 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>国家地理</title>
-  <!-- 引入样式文件 -->
-  <link href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css" rel="stylesheet" />
-  <link href="../../css/index.css" rel="stylesheet" />
-  <style>
-    .content {
-      padding: 10px;
-    }
-
-    .list li {
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-  </style>
-</head>
-
-<body>
-  <div id="page">
-    <div class="page-bd">
-      <div class="content">
-        <ul class="list"></ul>
-      </div>
-      <div class="p">不可见元素</div>
-    </div>
-  </div>
-</body>
-<script>
-  window.onload = function () {
-    let page = 1;
-    const io = new IntersectionObserver(function (entries) {
-      if (entries[0].intersectionRatio <= 0) {
-        return;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>国家地理</title>
+    <!-- 引入样式文件 -->
+    <link
+      href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css"
+      rel="stylesheet"
+    />
+    <link href="../../css/index.css" rel="stylesheet" />
+    <style>
+      .content {
+        padding: 10px;
       }
-      console.log(entries);
-      page++;
-      myFetch();
-    });
-    io.observe(document.querySelector('.p'));
-    let list = document.querySelector(".list");
-    myFetch();
-    // 发起一个请求
-    function myFetch() {
-      fetch(`http://localhost:8038/jiekou/mains/p${page}.html`, {
-        credentials: "same-origin",
-        mode: "cors",
-        method: "GET",
-      })
-        .then((response) => response.json())
-        .then((json) => showData(json.album, json.page));
-    }
 
-    function showData(data, page) {
-      let listItems = document.createElement('div');
-      listItems.setAttribute('data-page', page);
-      let _data = `
+      .list li {
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="page">
+      <div class="page-bd">
+        <div class="content">
+          <ul class="list"></ul>
+        </div>
+        <div class="p">不可见元素</div>
+      </div>
+    </div>
+  </body>
+  <script>
+    window.onload = function () {
+      let page = 1;
+      const io = new IntersectionObserver(function (entries) {
+        if (entries[0].intersectionRatio <= 0) {
+          return;
+        }
+        console.log(entries);
+        page++;
+        myFetch();
+      });
+      io.observe(document.querySelector('.p'));
+      let list = document.querySelector('.list');
+      myFetch();
+      // 发起一个请求
+      function myFetch() {
+        fetch(`http://localhost:8038/jiekou/mains/p${page}.html`, {
+          credentials: 'same-origin',
+          mode: 'cors',
+          method: 'GET'
+        })
+          .then((response) => response.json())
+          .then((json) => showData(json.album, json.page));
+      }
+
+      function showData(data, page) {
+        let listItems = document.createElement('div');
+        listItems.setAttribute('data-page', page);
+        let _data = `
         ${data
           .map(
             (album) =>
@@ -69,12 +71,12 @@
                 <p>${album.title}</p>
                 <img src="${album.url}" alt="${album.title}"/>
               </li>`
-          ).join(' ')}
+          )
+          .join(' ')}
         `;
-      listItems.innerHTML = _data;
-      list.appendChild(listItems);
-    }
-  };
-</script>
-
+        listItems.innerHTML = _data;
+        list.appendChild(listItems);
+      }
+    };
+  </script>
 </html>

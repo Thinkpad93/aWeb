@@ -1,4 +1,3 @@
-
 const date = new Date();
 
 // 判断某个日期是否是今天
@@ -23,7 +22,7 @@ export function dates() {
   let date = new Date();
   let list = [];
   for (let i = 1; i <= month; i++) {
-    list.push(date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + fill(i));
+    list.push(date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + fill(i));
   }
   console.log(list);
 }
@@ -32,11 +31,11 @@ function parseTimeDate(time) {
   const SECOND = 1000;
   const MINUTE = 60 * SECOND; // 一分钟
   const HOUR = 60 * MINUTE; // 一小时
-  const DAY = 24 * HOUR;  // 一天
+  const DAY = 24 * HOUR; // 一天
   const days = Math.floor(time / DAY);
   const hours = Math.floor((time % DAY) / HOUR);
   const minutes = Math.floor((time % HOUR) / MINUTE);
   const milliseconds = Math.floor(time % SECOND);
 
-  return { days, hours, minutes, milliseconds }
+  return { days, hours, minutes, milliseconds };
 }

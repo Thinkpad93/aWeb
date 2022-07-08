@@ -51,7 +51,6 @@ input[type='range'] + label {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-
 /* Chrome & Safari */
 
 input[type='range']::-webkit-slider-runnable-track {
