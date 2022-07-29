@@ -9,9 +9,9 @@ interface Todo {
 
 const todo: MyReadonly<Todo> = {
   title: 'Hey',
-  desciption: 'foobar',
+  desciption: 'foobar'
 };
 
 // todo.title = 'Hello';
 
-Math.pow(10, '2');
+Math.pow(10, 2);
