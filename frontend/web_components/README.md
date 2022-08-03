@@ -1,4 +1,3 @@
-
 ```js
 class MyElement extends HTMLElement {
   constructor() {
@@ -16,7 +15,9 @@ class MyElement extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return [/* 属性数组，这些属性的变化会被监视 */];
+    return [
+      /* 属性数组，这些属性的变化会被监视 */
+    ];
   }
 
   adoptedCallback() {
@@ -27,11 +28,9 @@ class MyElement extends HTMLElement {
   attributeChangedCallback() {
     // 当上面数组中的属性发生变化的时候，这个方法会被调用
   }
-
 }
 
 // 注册元素
 // 让浏览器知道我们新定义的类是为 <my-element> 服务的
-customElements.define("my-element", MyElement);
-
+customElements.define('my-element', MyElement);
 ```

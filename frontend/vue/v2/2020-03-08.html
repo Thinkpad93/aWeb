@@ -88,8 +88,8 @@
             url: 'https://api-user.uyess.com/v2/home/spike',
             data: _that.uploadForm,
             headers: {
-              'Content-Type': 'multipart/form-data',
-            },
+              'Content-Type': 'multipart/form-data'
+            }
           }).then(function (res) {
             console.log(res);
           });
@@ -101,14 +101,14 @@
               this.submitAssess();
             }
           });
-        },
+        }
         // changeFiels: function(e) {
         //   console.log(e);
         //   let file = e.target.files[0];
         //   console.log(file);
         //   this.uploadForm.append("files", file);
         // },
-      },
+      }
     }).$mount('#app');
   </script>
 </html>

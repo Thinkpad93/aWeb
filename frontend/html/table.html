@@ -35,7 +35,7 @@
 
   <body>
     <main>
-      <table style="width: 100%;">
+      <table style="width: 100%">
         <thead>
           <tr>
             <th></th>
@@ -112,8 +112,7 @@
   </body>
   <script>
     var Base64 = {
-      _keyStr:
-        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
+      _keyStr: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
       encode: function (e) {
         var t = '';
         var n, r, i, s, o, u, a;
@@ -200,14 +199,12 @@
           } else {
             c2 = e.charCodeAt(n + 1);
             c3 = e.charCodeAt(n + 2);
-            t += String.fromCharCode(
-              ((r & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63)
-            );
+            t += String.fromCharCode(((r & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
             n += 3;
           }
         }
         return t;
-      },
+      }
     };
   </script>
 </html>

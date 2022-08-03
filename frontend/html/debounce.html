@@ -21,7 +21,7 @@
     </div>
   </body>
   <script>
-    const btn = document.querySelector(".btn");
+    const btn = document.querySelector('.btn');
     const text = document.getElementById('text');
     function handleClick(value) {
       console.log(value);
@@ -42,9 +42,9 @@
     }
     const fn = debounce(handleClick, 1000);
     const textFn = debounce(searchText);
-    
-    btn.addEventListener("click", debounce(handleClick));
-    text.addEventListener('input', e => {
+
+    btn.addEventListener('click', debounce(handleClick));
+    text.addEventListener('input', (e) => {
       textFn(e);
     });
   </script>

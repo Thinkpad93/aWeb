@@ -25,7 +25,7 @@
 | deactivated   |  onDeactivated  |
 
 ```js
-import { onMounted } from "vue";
+import { onMounted } from 'vue';
 
 export default {
   setup() {
@@ -33,7 +33,7 @@ export default {
       // 在挂载后请求数据
       getList();
     });
-  },
+  }
 };
 ```
 
@@ -71,29 +71,29 @@ const {
   onBeforeMount,
   onMounted,
   onUpdated,
-  onUnmounted,
+  onUnmounted
 } = Vue;
 
 const Component = {
   template: ``,
   setup(props, context) {
-    console.log("props", props);
-    console.log("context", context);
+    console.log('props', props);
+    console.log('context', context);
 
     onBeforeMount(() => {
-      console.log("组件挂载之前");
+      console.log('组件挂载之前');
     });
     onMounted(() => {
-      console.log("DOM挂载完成");
+      console.log('DOM挂载完成');
     });
     onUpdated(() => {
-      console.log("DOM更新完成");
+      console.log('DOM更新完成');
     });
     onUnmounted(() => {
-      console.log("实例卸载之后");
+      console.log('实例卸载之后');
     });
-  },
+  }
 };
 
-createApp(Component).mount("#app");
+createApp(Component).mount('#app');
 ```

@@ -32,14 +32,12 @@
       <p class="p">
         《将进酒》原是汉乐府短箫铙歌的曲调，标题的意思为“劝酒歌”，内容多是咏唱喝酒放歌之事。这首诗是诗人当时和友人岑勋在嵩山另一老友元丹丘的颍阳山居作客，作者正值仕途遇挫之际，所以借酒兴诗，来了一次酣畅淋漓的抒发。在这首诗里，李白“借题发挥”，借酒消愁，感叹人生易老，抒发了自己怀才不遇的心情。
       </p>
-      <p class="p">
-        刚露一点深衷，又说回酒了，而且看起来酒兴更高了
-      </p>
+      <p class="p">刚露一点深衷，又说回酒了，而且看起来酒兴更高了</p>
     </div>
   </body>
   <script>
     function Hero() {
-      this.name = name || "hello";
+      this.name = name || 'hello';
     }
     Hero.prototype.name = function () {
       return this.name;
@@ -50,8 +48,8 @@
     console.log(h instanceof Hero); //true
 
     let textLen = 120;
-    let contents = [];    
-    let pList = [...Array.from(document.querySelectorAll(".p"))];
+    let contents = [];
+    let pList = [...Array.from(document.querySelectorAll('.p'))];
     let box = document.querySelector('.box');
     pList.forEach((item, index) => {
       contents.push(item.innerHTML);
@@ -66,13 +64,13 @@
 
     let keyArry = [];
     function dayKey() {
-      window.addEventListener("keydown", (e) => {
+      window.addEventListener('keydown', (e) => {
         console.log(e);
         let { key, code } = e;
         let item = {
           key,
           code,
-          date: +new Date(),
+          date: +new Date()
         };
         keyArry.push(item);
       });

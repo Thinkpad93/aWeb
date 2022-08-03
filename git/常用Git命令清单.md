@@ -1,4 +1,5 @@
 #### 一、新建代码库
+
 ```git
 
 # 在当前目录新建一个Git代码库
@@ -13,7 +14,9 @@ $ git clone [url]
 ```
 
 #### 二、配置
-Git的设置文件为.gitconfig，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。
+
+Git 的设置文件为.gitconfig，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。
+
 ```git
 
 # 显示当前的Git配置
@@ -29,6 +32,7 @@ $ git config [--global] user.email "[email address]"
 ```
 
 #### 三、增加/删除文件
+
 ```git
 
 # 添加指定文件到暂存区
@@ -56,6 +60,7 @@ $ git mv [file-original] [file-renamed]
 ```
 
 #### 四、代码提交
+
 ```git
 
 # 提交暂存区到仓库区
@@ -80,6 +85,7 @@ $ git commit --amend [file1] [file2] ...
 ```
 
 #### 五、分支
+
 ```git
 
 # 列出所有本地分支
@@ -128,6 +134,7 @@ $ git branch -dr [remote/branch]
 ```
 
 #### 六、标签
+
 ```git
 
 # 列出所有tag
@@ -160,6 +167,7 @@ $ git checkout -b [branch] [tag]
 ```
 
 #### 七、查看信息
+
 ```git
 
 # 显示有变更的文件
@@ -226,6 +234,7 @@ $ git reflog
 ```
 
 #### 八、远程同步
+
 ```git
 
 # 下载远程仓库的所有变动
@@ -258,6 +267,7 @@ $ git remote set-url origin "新的仓库链接"
 ```
 
 #### 九、撤销
+
 ```git
 
 # 恢复暂存区的指定文件到工作区
@@ -295,23 +305,23 @@ $ git stash pop
 ```
 
 #### 十、其他
+
 ```git
 
 # 生成一个可供发布的压缩包
 $ git archive
 
 # 本地分支重命名
-$ git branch -m oldName newName 
+$ git branch -m oldName newName
 
 ```
 
 #### 回退命令：
 
 $ git reset --hard HEAD^ 回退到上个版本
-$ git reset --hard HEAD~3 回退到前3次提交之前，以此类推，回退到n次提交之前
-$ git reset --hard commit_id 退到/进到 指定commit的sha码
+$ git reset --hard HEAD~3 回退到前 3 次提交之前，以此类推，回退到 n 次提交之前
+$ git reset --hard commit_id 退到/进到 指定 commit 的 sha 码
 
 强推到远程：
 
 $ git push origin HEAD --force
-

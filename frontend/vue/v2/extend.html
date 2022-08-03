@@ -72,7 +72,7 @@
       data: function () {
         return {
           vis: false,
-          msg: '成功了',
+          msg: '成功了'
         };
       },
       mounted: function () {},
@@ -82,15 +82,15 @@
         },
         handleAfterLeave(e) {
           console.log('leave');
-        },
-      },
+        }
+      }
     });
 
     const vm = new Vue({
       el: '#app',
       data: {
         show: false,
-        btnText: '这是一个按钮',
+        btnText: '这是一个按钮'
       },
       methods: {
         init: function () {
@@ -108,8 +108,8 @@
         },
         beforeEnter: function (e) {
           console.log('进入中');
-        },
-      },
+        }
+      }
     });
   </script>
 </html>

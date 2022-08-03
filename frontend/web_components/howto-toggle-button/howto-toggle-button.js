@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-(function() {
+(function () {
   /**
    * Define key codes to help with handling keyboard events.
    */
   const KEYCODE = {
     SPACE: 32,
-    ENTER: 13,
+    ENTER: 13
   };
 
   /**
@@ -60,7 +60,7 @@
      */
     constructor() {
       super();
-      this.attachShadow({mode: 'open'});
+      this.attachShadow({ mode: 'open' });
       this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
@@ -77,10 +77,8 @@
       // ShadyCSS.styleElement(this);
       // /HIDE
 
-      if (!this.hasAttribute('role'))
-        this.setAttribute('role', 'button');
-      if (!this.hasAttribute('tabindex'))
-        this.setAttribute('tabindex', 0);
+      if (!this.hasAttribute('role')) this.setAttribute('role', 'button');
+      if (!this.hasAttribute('tabindex')) this.setAttribute('tabindex', 0);
       // To singal to assistive technology that this is a toggle button, and
       // not just a regular button, add an inital aria-pressed state.
       if (!this.hasAttribute('aria-pressed'))
@@ -126,10 +124,8 @@
      */
     set pressed(value) {
       const isPressed = Boolean(value);
-      if (isPressed)
-        this.setAttribute('pressed', '');
-      else
-        this.removeAttribute('pressed');
+      if (isPressed) this.setAttribute('pressed', '');
+      else this.removeAttribute('pressed');
     }
 
     get pressed() {
@@ -138,10 +134,8 @@
 
     set disabled(value) {
       const isDisabled = Boolean(value);
-      if (isDisabled)
-        this.setAttribute('disabled', '');
-      else
-        this.removeAttribute('disabled');
+      if (isDisabled) this.setAttribute('disabled', '');
+      else this.removeAttribute('disabled');
     }
 
     get disabled() {
@@ -181,8 +175,7 @@
 
     _onKeyDown(event) {
       // Don’t handle modifier shortcuts typically used by assistive technology.
-      if (event.altKey)
-        return;
+      if (event.altKey) return;
 
       switch (event.keyCode) {
         case KEYCODE.SPACE:
@@ -206,19 +199,18 @@
      * also dispatch a change event.
      */
     _togglePressed() {
-      if (this.disabled)
-        return;
+      if (this.disabled) return;
       this.pressed = !this.pressed;
-      this.dispatchEvent(new CustomEvent('change', {
-        detail: {
-          pressed: this.pressed,
-        },
-        bubbles: true,
-      }));
+      this.dispatchEvent(
+        new CustomEvent('change', {
+          detail: {
+            pressed: this.pressed
+          },
+          bubbles: true
+        })
+      );
     }
   }
 
   window.customElements.define('howto-toggle-button', HowToToggleButton);
 })();
-
-

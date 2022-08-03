@@ -6,8 +6,7 @@ const cheetah = {
   diet: 'carnivore',
   summary:
     'Fastest mammal on land, the cheetah can reach speeds of 60 or perhaps even 70 miles (97 or 113 kilometers) an hour over short distances. It usually chases its prey at only about half that speed, however. After a chase, a cheetah needs half an hour to catch its breath before it can eat.',
-  fact:
-    'Cheetahs have “tear marks” that run from the inside corners of their eyes down to the outside edges of their mouth.',
+  fact: 'Cheetahs have “tear marks” that run from the inside corners of their eyes down to the outside edges of their mouth.'
 };
 
 function createAnimalTradingCardHTML(animal) {

@@ -20,12 +20,12 @@
         return count++;
       };
     }
-    const btns = document.querySelectorAll(".btn");
+    const btns = document.querySelectorAll('.btn');
     console.log(Array.from(btns));
     Array.from(btns).forEach((item) => {
       let b = count();
-      item.addEventListener("click", (e) => {
-        item.setAttribute("data-count", b());
+      item.addEventListener('click', (e) => {
+        item.setAttribute('data-count', b());
       });
     });
   </script>

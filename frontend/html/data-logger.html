@@ -11,9 +11,7 @@
       <button class="btn" data-logger='{"event_name": "redeem_for_free_gb"}'>
         兑换可赠送金豆
       </button>
-      <button class="btn" data-logger='{"event_name": "gift_gb"}'>
-        赠送金豆
-      </button>
+      <button class="btn" data-logger='{"event_name": "gift_gb"}'>赠送金豆</button>
     </div>
   </body>
   <script>
@@ -22,19 +20,19 @@
       if (!ele || ele === document.body) {
         return data;
       }
-      let eleLoggerData = ele.getAttribute("data-logger");
+      let eleLoggerData = ele.getAttribute('data-logger');
       eleLoggerData && (eleLoggerData = JSON.parse(eleLoggerData));
       return getLoggerData(ele.parentElement, {
         ...eleLoggerData,
-        ...data,
+        ...data
       });
     }
-    document.body.addEventListener("click", (ev) => {
+    document.body.addEventListener('click', (ev) => {
       let loggerData = getLoggerData(ev.target, {
-        event_type: "1",
-        page_duration: "0",
-        ip: "",
-        up_time: Date.now().toString(),
+        event_type: '1',
+        page_duration: '0',
+        ip: '',
+        up_time: Date.now().toString()
       });
       console.log(loggerData);
       // loggerData.event_name && console.log(loggerData);

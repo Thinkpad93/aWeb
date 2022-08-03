@@ -13,11 +13,25 @@
   </head>
   <body>
     <div id="app">
+      <form action="" class="form">
+        <div class="form-item">
+          <input
+            type="search"
+            class="input"
+            value=""
+            autocomplete="off"
+            placeholder="搜索公会名称/ID"
+            maxlength="15"
+          />
+        </div>
+      </form>
       <ul id="list"></ul>
     </div>
   </body>
   <script>
     let list = document.querySelector('#list');
+    let input = document.querySelector('.input');
+
     let data = [
       {
         title:
@@ -59,6 +73,40 @@
         title: '《广州市绿化条例（修订征求意见稿）》 （2022年2月7日）'
       }
     ];
+
+    input.addEventListener('input', debounce(handle, 1000));
+
+    function init(data = []) {
+      list.innerHTML = data
+        .map((item) => {
+          return `<li>${item.title}</li>`;
+        })
+        .join(' ');
+    }
+
+    function handle(e) {
+      let value = e.target.value;
+      console.log(value);
+      if (value.length) {
+        let result = searchKeyword(value);
+        console.log(result);
+        if (result.length) {
+          init(result);
+        }
+      }
+    }
+
+    function debounce(func, delay = 5000) {
+      let timeout = null;
+      return function () {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          func.apply(this, arguments);
+        }, delay);
+      };
+    }
+
+    init(data);
     function searchKeyword(first, last) {
       if (!data.length) {
         return;
@@ -74,13 +122,13 @@
       });
       return arr;
     }
-    let result = searchKeyword('号');
-    if (result.length) {
-      list.innerHTML = result
-        .map((item) => {
-          return `<li>${item.title}</li>`;
-        })
-        .join('');
-    }
+    // let result = searchKeyword('规字', '规字中...');
+    // if (result.length) {
+    //   list.innerHTML = result
+    //     .map((item) => {
+    //       return `<li>${item.title}</li>`;
+    //     })
+    //     .join('');
+    // }
   </script>
 </html>

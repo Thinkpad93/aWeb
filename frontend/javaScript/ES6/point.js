@@ -9,7 +9,7 @@ const circle = {
   },
   getCircumference: function () {
     return 2 * Math.PI * this.radius;
-  },
+  }
 };
 
 let { radius, getArea, getCircumference } = circle;
