@@ -35,3 +35,30 @@ dpi 最早指的是打印机在单位面积上的打印墨点数，墨点越多�
 **注意看左上角的图标**
 
 #### video 重新加载视频 url 后，rate 会失效，需重新设置
+
+#### constant(safe-area-inset-bottom) 和 env(safe-area-inset-bottom)
+
+解决 IOS 端底部适配问题
+
+- safe-area-inset-left: 安全区域距离左边界的距离
+- safe-area-inset-right: 安全区域距离右边界的距离
+- safe-area-inset-top: 安全区域距离顶部边界的距离
+- safe-area-inset-bottom: 安全区域距离底部边界的距离
+
+#### 音频格式 IOS 不支持
+
+这个情况是看如下链接的不同
+
+- http://image.xingguangcheng.vip/20220704/电视剧《七剑下天山》主题曲RS02063HSPux0p9TgC.mp3
+
+- http://image.xingguangcheng.vip/ll4uhJzXEsamvwJKAgJrYxplw7qE.mp3
+
+在 IOS 下遇到链接带有中文的情况下会播放出错，解决办法是对链接进行编码转换
+
+```js
+let url =
+  'http://image.xingguangcheng.vip/20220704/电视剧《七剑下天山》主题曲RS02063HSPux0p9TgC.mp3';
+encodeURIComponent(url);
+
+encodeURI(url);
+```

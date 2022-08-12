@@ -16,7 +16,7 @@ id 选择器：100
 ```css
 .clearfix:after,
 .clearfix:before {
-  content: "";
+  content: '';
   display: table;
   visibility: hidden;
 }

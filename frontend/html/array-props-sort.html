@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    const courses = [
+      {
+        classType: 2,
+        count: 5,
+        createtime: '07/14',
+        icon: '畅学免费',
+        id: 14,
+        image: 'http://image.xingguangcheng.vip/20220714/第一部分-封面.jpg',
+        isBuy: false,
+        isRead: true,
+        level: 3,
+        name: '东莞工改工政策端与市场端的发展机遇与挑战',
+        price: '899.00'
+      },
+      {
+        classType: 2,
+        count: 2,
+        createtime: '01/17',
+        icon: '付费',
+        id: 2,
+        image: 'http://image.xingguangcheng.vip/FhEv9hrfpTnTaf_WQpT2kDGrv9pI.jpg',
+        isBuy: false,
+        isRead: false,
+        level: 0,
+        name: '【12月20~24日城市更新周刊】佳兆业负债严重，石溪联合社发文力挺佳兆业，黄埔这条村旧改加速',
+        price: '28.00'
+      },
+      {
+        classType: 2,
+        count: 1,
+        createtime: '01/20',
+        icon: '付费',
+        id: 5,
+        image: 'http://image.xingguangcheng.vip/FjDGPnJMDlWZWwusEuVlI615I7Gr.png',
+        isBuy: false,
+        isRead: false,
+        level: 0,
+        name: '胸口碎大石实操全流程',
+        price: '7998.00'
+      }
+    ];
+    function compare(property) {
+      return function (a, b) {
+        let value1 = a[property];
+        let value2 = b[property];
+        return value2 - value1;
+      };
+    }
+  </script>
+</html>

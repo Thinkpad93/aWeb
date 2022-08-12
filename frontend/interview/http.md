@@ -1,4 +1,4 @@
-#### 什么是http协议？
+#### 什么是 http 协议？
 
 #### 常见 http 状态码有哪些？
 
@@ -16,7 +16,7 @@
 - GET 请求会被浏览器主动 cache，而 POST 不会，除非手动设置
 - GET 请求只能进行 url 编码，而 POST 支持多种编码方式
 - GET 请求参数会被完整保留在浏览器历史记录里，而 POST 中的参数不会被保留
-- GET 请求在 URL 中传送的参数是有长度限制的，而 POST 么有 
+- GET 请求在 URL 中传送的参数是有长度限制的，而 POST 么有
 - 对参数的数据类型，GET 只接受 ASCII 字符，而 POST 没有限制
 - GET 比 POST 更不安全，因为参数直接暴露在 URL 上，所以不能用来传递敏感信息
 - GET 参数通过 URL 传递，POST 放在 Request body 中
@@ -90,6 +90,7 @@ If-None-Match（服务器通过比较请求头部的 If-None-Match 与当前资�
 这个就叫做重绘
 
 触发回流的操作:
+
 - 浏览器窗口大小改变
 - 元素尺寸、位置、内容发生改变
 - 元素字体大小变化
@@ -108,12 +109,11 @@ If-None-Match（服务器通过比较请求头部的 If-None-Match 与当前资�
 - 通过 jsonp 跨域
 
 ```js
-var script = document.createElement("script");
-script.type = "text/javascript";
+var script = document.createElement('script');
+script.type = 'text/javascript';
 
 // 传参一个回调函数名给后端，方便后端返回时执行这个在前端定义的回调函数
-script.src =
-  "http://www.domain2.com:8080/login?user=admin&callback=handleCallback";
+script.src = 'http://www.domain2.com:8080/login?user=admin&callback=handleCallback';
 document.head.appendChild(script);
 
 // 回调执行函数
@@ -134,9 +134,9 @@ var xhr = new XMLHttpRequest(); // IE8/9需用window.XDomainRequest兼容
 // 前端设置是否带cookie
 xhr.withCredentials = true;
 
-xhr.open("post", "http://www.domain2.com:8080/login", true);
-xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-xhr.send("user=admin");
+xhr.open('post', 'http://www.domain2.com:8080/login', true);
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+xhr.send('user=admin');
 
 xhr.onreadystatechange = function () {
   if (xhr.readyState == 4 && xhr.status == 200) {
@@ -154,10 +154,10 @@ xhr.onreadystatechange = function () {
  */
 
 // 允许跨域访问的域名：若有端口需写全（协议+域名+端口），若没有端口末尾不用加'/'
-response.setHeader("Access-Control-Allow-Origin", "http://www.domain1.com"); 
+response.setHeader("Access-Control-Allow-Origin", "http://www.domain1.com");
 
 // 允许前端带认证cookie：启用此项后，上面的域名不能为'*'，必须指定具体的域名，否则浏览器会提示
-response.setHeader("Access-Control-Allow-Credentials", "true"); 
+response.setHeader("Access-Control-Allow-Credentials", "true");
 
 // 提示OPTIONS预检时，后端需要设置的两个常用自定义头
 response.setHeader("Access-Control-Allow-Headers", "Content-Type,X-Requested-With");
@@ -166,9 +166,8 @@ response.setHeader("Access-Control-Allow-Headers", "Content-Type,X-Requested-Wit
 - nginx 代理跨域
 - nodejs 中间件代理跨域
 
-
 #### http 和 https 的区别？
 
-- http 的端口是80，而 https 的标准端口是403
-- url 不同，http的url 是以 `http://` 开头，而https是以 `https://` 开头
+- http 的端口是 80，而 https 的标准端口是 403
+- url 不同，http 的 url 是以 `http://` 开头，而 https 是以 `https://` 开头
 - http 无法加密，而 https 对传输的数据进行加密
