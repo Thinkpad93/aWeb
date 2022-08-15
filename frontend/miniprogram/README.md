@@ -62,3 +62,7 @@ encodeURIComponent(url);
 
 encodeURI(url);
 ```
+
+#### 小程序页面之间正向传值和逆向传值的方法
+
+[https://developers.weixin.qq.com/community/develop/article/doc/000ce2d9830a3041f3aac70c756013](小程序页面之间正向传值和逆向传值的方法)
