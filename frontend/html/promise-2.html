@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 微任务分成两轮，第一轮打印 1 和 finally2，然后都返回新的 promise，马上 resolve，添加后面的 finally 和 then 到微任务队列，打印 finally 和 “finally2后面的then函数
+      Promise.resolve('1')
+        .then((res) => {
+          console.log(res);
+        })
+        .finally(() => {
+          console.log('finally');
+        });
+
+      Promise.resolve('2')
+        .finally(() => {
+          console.log('finally2');
+          return 'finally2的返回值';
+        })
+        .then((res) => {
+          console.log(res);
+        });
+    </script>
+  </body>
+</html>

@@ -6,7 +6,6 @@ ReferenceError 变量不存在
 RangeError 数值溢出  
 SyntaxError 语法错误
 
-
 除了这些内置错误外，在浏览器中还有：
 
 DOMException
