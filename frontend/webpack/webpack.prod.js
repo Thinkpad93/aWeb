@@ -12,11 +12,11 @@ module.exports = merge(common, {
   plugins: [
     new CleanWebpackPlugin({
       verbose: false, // 开启在控制台输出信息
-      dry: false,
+      dry: false
     }),
     new OptimizeCssAssetsPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].css'
-    })    
-  ],
+    })
+  ]
 });

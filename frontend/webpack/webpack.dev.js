@@ -25,5 +25,5 @@ module.exports = merge(config, {
     new webpack.NamedModulesPlugin(),
     // 热替换，热替换不是刷新
     new webpack.HotModuleReplacementPlugin()
-  ],
+  ]
 });
