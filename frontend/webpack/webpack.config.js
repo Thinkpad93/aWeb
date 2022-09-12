@@ -1,18 +1,17 @@
-const path = require("path");
-const webpack = require("webpack");
+const path = require('path');
+const webpack = require('webpack');
 // html插件
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 // 压缩CSS插件
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
-    app: "./src/index.js"
+    app: './src/index.js'
   },
   output: {
-    filename: "js/[name].[hash].js",
-    path: path.resolve(__dirname, "dist")
+    filename: 'js/[name].[hash].js',
+    path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [
@@ -22,11 +21,11 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
               // 因为新版本的babel更新 原配置修改如下
-              presets: ["@babel/preset-env"],
-              plugins: ["@babel/plugin-transform-runtime"]
+              presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-transform-runtime']
             }
           }
         ]
@@ -40,9 +39,9 @@ module.exports = {
           //     esModule: true
           //   }
           // },
-          "style-loader",
-          "css-loader",
-          "postcss-loader",
+          'style-loader',
+          'css-loader',
+          'postcss-loader'
           // "sass-loader"
         ]
       },
@@ -71,17 +70,17 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "",
+      title: '',
       template: __dirname + `/src/index.html`,
-      filename: "index.html",
+      filename: 'index.html',
       minify: {
         collapseWhitespace: true,
         removeComments: true,
         removeRedundantAttributes: true,
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true,
-      },      
+        useShortDoctype: true
+      },
       minify: false,
       hash: false
     })

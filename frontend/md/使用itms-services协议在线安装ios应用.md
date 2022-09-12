@@ -1,53 +1,51 @@
 plist 文件的直链地址必须是 https 协议，不然会下载不成功
 
-```xml
-
+```html
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-        <key>items</key>
+  <dict>
+    <key>items</key>
+    <array>
+      <dict>
+        <key>assets</key>
         <array>
-            <dict>
-                <key>assets</key>
-                <array>
-                    <dict>
-                        <key>kind</key>
-                        <string>software-package</string>
-                        <key>url</key>
-                        <!-- 注意：IPA文件URL -->
-                        <string>https://img.cdsfl8888.com/duoduo20200813_v160.ipa</string>
-                    </dict>
-                    <dict>
-                        <key>kind</key>
-                        <string>display-image</string>
-                        <key>needs-shine</key>
-                        <true/>
-                        <key>url</key>
-                        <!-- 注意：应用程序icon url, 57x57 -->
-                        <string>https://img.cdsfl8888.com/duoduo_icon_download.png</string>
-                    </dict>
-                </array>
-                <key>metadata</key>
-                <dict>
-                    <key>bundle-identifier</key>
-                    <!-- 注意：应用程序identifier -->
-                    <string>com.ISENL.bibi</string>
-                    <key>bundle-version</key>
-                    <string>1.4.3</string>
-                    <key>kind</key>
-                    <string>software</string>
-                    <key>subtitle</key>
-                    <string>1000万人都在连麦开黑</string>
-                    <key>title</key>
-                    <!-- 注意：应用程序名称 -->
-                    <string>多多语音-专业语音游戏陪玩平台</string>
-                </dict>
-            </dict>
+          <dict>
+            <key>kind</key>
+            <string>software-package</string>
+            <key>url</key>
+            <!-- 注意：IPA文件URL -->
+            <string>https://img.cdsfl8888.com/duoduo20200813_v160.ipa</string>
+          </dict>
+          <dict>
+            <key>kind</key>
+            <string>display-image</string>
+            <key>needs-shine</key>
+            <true />
+            <key>url</key>
+            <!-- 注意：应用程序icon url, 57x57 -->
+            <string>https://img.cdsfl8888.com/duoduo_icon_download.png</string>
+          </dict>
         </array>
-    </dict>
+        <key>metadata</key>
+        <dict>
+          <key>bundle-identifier</key>
+          <!-- 注意：应用程序identifier -->
+          <string>com.ISENL.bibi</string>
+          <key>bundle-version</key>
+          <string>1.4.3</string>
+          <key>kind</key>
+          <string>software</string>
+          <key>subtitle</key>
+          <string>1000万人都在连麦开黑</string>
+          <key>title</key>
+          <!-- 注意：应用程序名称 -->
+          <string>多多语音-专业语音游戏陪玩平台</string>
+        </dict>
+      </dict>
+    </array>
+  </dict>
 </plist>
-
 ```
 
 用 a 标签的指向 plist 地址即可

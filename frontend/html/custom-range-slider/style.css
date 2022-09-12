@@ -24,6 +24,12 @@ body {
   margin: 0;
 }
 
+#box {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}
+
 .range-container {
   position: relative;
 }
