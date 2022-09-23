@@ -66,3 +66,6 @@ CSS-TRICKS
 IP 地址查询
 
 - https://www.ipip.net/ip.html
+
+[https://ossinsight.io/](GitHub开源动态观察网站)
+[https://xyzrank.com/#/](中文播客榜)

@@ -68,4 +68,11 @@
       <div id="sectionC" class="section bg-green">C</div>
     </div>
   </body>
+  <script>
+    function scrollTo(element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' }); // 顶部
+      element.scrollIntoView({ behavior: 'smooth', block: 'end' }); // 底部
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' }); // 可视区域
+    }
+  </script>
 </html>
