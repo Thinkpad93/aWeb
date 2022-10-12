@@ -69,3 +69,4 @@ IP 地址查询
 
 [https://ossinsight.io/](GitHub开源动态观察网站)
 [https://xyzrank.com/#/](中文播客榜)
+[https://www.javatpoint.com/](javatpoint)

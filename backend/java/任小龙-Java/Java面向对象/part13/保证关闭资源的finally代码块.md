@@ -9,9 +9,9 @@ System.out.println("begin...");
 try {
     int ret = 10 / 0;
     System.out.println("结果=" + ret);
-}catch(ArithmetioException e) {
+} catch(ArithmetioException e) {
     System.out.println("除数异常");
-}finally {
+} finally {
     System.out.println("关闭资源");
 }
 System.out.println("end....");
